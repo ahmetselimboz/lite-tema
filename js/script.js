@@ -158,6 +158,9 @@ $(document).ready(function () {
     // Manşet Slider başlat
     initializeMansetSlider();
 
+    // Yazarlar Slider başlat
+    initializeAuthorsSlider();
+
     function initializeTheme() {
         // LocalStorage'dan tema tercihi al
         const savedTheme = localStorage.getItem('lite-theme');
@@ -239,6 +242,48 @@ $(document).ready(function () {
         });
 
         console.log('Manşet Slider başlatıldı');
+    }
+
+    // Yazarlar Slider başlatma fonksiyonu
+    function initializeAuthorsSlider() {
+        $('.lite-authors-container').slick({
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: false,
+            arrows: false, // Default arrows'u kapatıyoruz
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false
+                    }
+                }
+            ]
+        });
+
+        // Custom navigation butonları için event listeners
+        $('.lite-authors-prev').click(function () {
+            $('.lite-authors-container').slick('slickPrev');
+        });
+
+        $('.lite-authors-next').click(function () {
+            $('.lite-authors-container').slick('slickNext');
+        });
+
+        console.log('Yazarlar Slider başlatıldı');
     }
 
     // Smooth scrolling için

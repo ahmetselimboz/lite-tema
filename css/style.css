@@ -224,8 +224,7 @@
 }
 
 .lite-vmg-link:hover {
-    background: linear-gradient(45deg, rgb(239 68 68 / 5%), rgb(239 68 68 / 10%));
-    transform: scale(1.02);
+    color: var(--lite-accent-primary);
 }
 
 /* Dark mode adjustments */
@@ -245,7 +244,7 @@
 }
 
 [data-theme="dark"] .lite-vmg-link:hover {
-    background: linear-gradient(45deg, rgb(252 129 129 / 8%), rgb(252 129 129 / 12%));
+    color: var(--lite-accent-primary);
 }
 
 /* Lite Button System - Comprehensive Design */
@@ -778,3 +777,243 @@
         opacity: 1;
     }
 }
+
+/* Authors Slider Styles */
+.lite-authors-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.lite-authors-container {
+    display: flex;
+    gap: 50px;
+    transition: transform 0.3s ease;
+}
+
+.lite-author-item {
+    flex: 0 0 calc(33.333% - 34px);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.lite-author-item a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.lite-author-item .group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 100%;
+    min-height: 140px;
+}
+
+.lite-author-item .group:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Author links styling - Updated for equal height */
+.lite-author-item a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.lite-author-item a:focus {
+    outline: 2px solid var(--lite-accent-primary);
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Custom Navigation Buttons for Authors Slider */
+.lite-slider-nav-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--lite-bg-secondary);
+    border: 2px solid var(--lite-border);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--lite-accent-primary);
+    font-size: 18px;
+}
+
+.lite-slider-nav-btn:hover {
+    background: var(--lite-accent-primary);
+    border-color: var(--lite-accent-primary);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+.lite-slider-nav-btn:active {
+    transform: scale(0.95);
+}
+
+/* Hide default slick arrows for authors slider */
+.lite-authors-slider .slick-prev,
+.lite-authors-slider .slick-next {
+    display: none !important;
+}
+
+/* Authors Slider Responsive */
+@media (max-width: 1024px) {
+    .lite-author-item {
+        flex: 0 0 calc(50% - 25px);
+    }
+
+    .lite-authors-container {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lite-author-item {
+        flex: 0 0 100%;
+    }
+
+    .lite-authors-container {
+        gap: 20px;
+    }
+
+    /* Mobile için kartların padding'ini azalt */
+    .lite-author-item .group {
+        padding: 1rem;
+        min-height: 120px;
+    }
+
+    /* Mobile için yazar fotoğrafını küçült */
+    .lite-author-item .w-16 {
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+
+    /* Mobile için navigation butonlarını küçült */
+    .lite-slider-nav-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Çok küçük ekranlar için title font boyutunu küçült */
+    .lite-author-item h3 {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    /* Mobilde flex direction'ı değiştir */
+    .lite-author-item .flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .lite-author-item .flex-1 {
+        order: 2;
+    }
+
+    .lite-author-item .flex-shrink-0 {
+        order: 1;
+        align-self: center;
+    }
+
+    /* Mobile için navigation butonlarını daha da küçült */
+    .lite-slider-nav-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+}
+
+/* Dark Mode Adjustments for Authors Slider */
+[data-theme="dark"] .lite-slider-nav-btn {
+    background: var(--lite-bg-secondary);
+    border-color: var(--lite-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .lite-slider-nav-btn:hover {
+    background: var(--lite-accent-primary);
+    box-shadow: 0 4px 12px rgba(252, 129, 129, 0.4);
+}
+
+[data-theme="dark"] .lite-author-item .group:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* News List Styles */
+.lite-news-item a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.lite-news-item .p-4 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.lite-news-item .p-4 h4 {
+    margin-bottom: 0.5rem;
+}
+
+.lite-news-item .p-4 p {
+    margin-bottom: auto;
+}
+
+.lite-news-item .flex.items-center.justify-between {
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+/* 3 Column News List Styles */
+.lite-news-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 0.5rem 0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 800;
+    padding-left: 0.5rem;
+}
+
+.lite-news-link:hover {
+    background-color: rgba(229, 62, 62, 0.05);
+    transform: translateX(4px);
+}
+
+.lite-news-link:hover span {
+    color: var(--lite-accent-primary) !important;
+
+}
+
+.lite-news-link:focus {
+    outline: 2px solid var(--lite-accent-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Dark mode adjustments for news links */
+[data-theme="dark"] .lite-news-link:hover {
+    background-color: rgba(252, 129, 129, 0.08);
+}
+
