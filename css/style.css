@@ -1,0 +1,780 @@
+/* Lite Tema - Custom CSS Variables & Animations */
+
+:root {
+    /* Light Mode Colors */
+    --lite-bg-primary: #fafafa;
+    /* Kırık beyaz arkaplan */
+    --lite-text-primary: #2d3748;
+    /* Koyu gri yazılar */
+    --lite-accent-primary: #e53e3e;
+    /* Kırmızı detaylar */
+    --lite-bg-secondary: #ffffff;
+    /* Beyaz kartlar */
+    --lite-text-secondary: #4a5568;
+    /* Açık gri yazılar */
+    --lite-border: #e2e8f0;
+    /* Açık gri borderlar */
+
+    /* Dark Mode Colors */
+    --lite-dark-bg-primary: #1a202c;
+    --lite-dark-text-primary: #f7fafc;
+    --lite-dark-accent-primary: #fc8181;
+    --lite-dark-bg-secondary: #2d3748;
+    --lite-dark-text-secondary: #cbd5e0;
+    --lite-dark-border: #4a5568;
+}
+
+[data-theme="dark"] {
+    --lite-bg-primary: var(--lite-dark-bg-primary);
+    --lite-text-primary: var(--lite-dark-text-primary);
+    --lite-accent-primary: var(--lite-dark-accent-primary);
+    --lite-bg-secondary: var(--lite-dark-bg-secondary);
+    --lite-text-secondary: var(--lite-dark-text-secondary);
+    --lite-border: var(--lite-dark-border);
+}
+
+/* Custom Animations */
+.lite-slide-in-left {
+    animation: liteSlideInLeft 0.3s ease-out;
+}
+
+.lite-slide-out-left {
+    animation: liteSlideOutLeft 0.3s ease-out;
+}
+
+.lite-fade-in {
+    animation: liteFadeIn 0.3s ease-out;
+}
+
+.lite-fade-out {
+    animation: liteFadeOut 0.3s ease-out;
+}
+
+@keyframes liteSlideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes liteSlideOutLeft {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes liteFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes liteFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* Custom Component Styles */
+.lite-bg-primary {
+    background-color: var(--lite-bg-primary);
+}
+
+.lite-bg-secondary {
+    background-color: var(--lite-bg-secondary);
+}
+
+.lite-text-primary {
+    color: var(--lite-text-primary);
+}
+
+.lite-text-secondary {
+    color: var(--lite-text-secondary);
+}
+
+.lite-accent {
+    color: var(--lite-accent-primary);
+}
+
+.lite-bg-accent {
+    background-color: var(--lite-accent-primary);
+}
+
+.lite-border {
+    border-color: var(--lite-border);
+}
+
+/* Hover Effects */
+.lite-hover-accent:hover {
+    color: var(--lite-accent-primary);
+    background-color: rgb(92 92 92 / 10%) !important;
+}
+
+.lite-hover-bg:hover {
+    background-color: var(--lite-bg-primary);
+}
+
+/* Footer gelişmiş hover efektleri */
+.lite-footer-link {
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    margin: -0.25rem -0.5rem;
+}
+
+.lite-footer-link:hover {
+    background-color: rgb(239 68 68 / 5%);
+    transform: translateX(4px);
+    padding-left: 0.75rem;
+}
+
+.lite-footer-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--lite-accent-primary);
+    transition: width 0.3s ease;
+    border-radius: 1px;
+}
+
+.lite-footer-link:hover::before {
+    width: 3px;
+}
+
+/* Footer haber kartları hover efektleri */
+.lite-footer-news {
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    margin: -0.75rem;
+    border: 1px solid transparent;
+}
+
+.lite-footer-news:hover {
+    background-color: rgb(239 68 68 / 3%);
+    border-color: rgb(239 68 68 / 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
+}
+
+.lite-footer-news:hover .lite-footer-news-image {
+    transform: scale(1.05);
+    border-radius: 0.5rem;
+}
+
+.lite-footer-news:hover .lite-footer-news-title {
+    color: var(--lite-accent-primary) !important;
+}
+
+.lite-footer-news:hover .lite-footer-news-time {
+    color: var(--lite-text-primary);
+}
+
+/* Sosyal medya iconları hover efektleri */
+.lite-social-icon {
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+    background: transparent;
+}
+
+.lite-social-icon:hover {
+    background: var(--lite-accent-primary);
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(239 68 68 / 25%);
+}
+
+.lite-social-icon:hover i {
+    transform: scale(1.1);
+}
+
+/* VMG Medya link özel hover efekti */
+.lite-vmg-link {
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    margin: -0.25rem -0.5rem;
+}
+
+.lite-vmg-link:hover {
+    background: linear-gradient(45deg, rgb(239 68 68 / 5%), rgb(239 68 68 / 10%));
+    transform: scale(1.02);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .lite-footer-link:hover {
+    background-color: rgb(252 129 129 / 8%);
+}
+
+[data-theme="dark"] .lite-footer-news:hover {
+    background-color: rgb(252 129 129 / 5%);
+    border-color: rgb(252 129 129 / 15%);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+}
+
+[data-theme="dark"] .lite-social-icon:hover {
+    background: var(--lite-accent-primary);
+    box-shadow: 0 4px 12px rgb(252 129 129 / 30%);
+}
+
+[data-theme="dark"] .lite-vmg-link:hover {
+    background: linear-gradient(45deg, rgb(252 129 129 / 8%), rgb(252 129 129 / 12%));
+}
+
+/* Lite Button System - Comprehensive Design */
+
+/* Base Button Styles */
+.lite-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    font-family: inherit;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.lite-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Button Sizes */
+.lite-btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.lite-btn-md {
+    padding: 8px 16px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.lite-btn-lg {
+    padding: 12px 24px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.lite-btn-xl {
+    padding: 16px 32px;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Primary Button (Accent Color) */
+.lite-btn-primary {
+    background-color: var(--lite-accent-primary);
+    color: white;
+    border: 2px solid var(--lite-accent-primary);
+}
+
+.lite-btn-primary:hover {
+    background-color: transparent;
+    color: var(--lite-accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+.lite-btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(229, 62, 62, 0.3);
+}
+
+/* Secondary Button */
+.lite-btn-secondary {
+    background-color: var(--lite-bg-secondary);
+    color: var(--lite-text-primary);
+    border: 2px solid var(--lite-border);
+}
+
+.lite-btn-secondary:hover {
+    background-color: var(--lite-bg-primary);
+    border-color: var(--lite-accent-primary);
+    color: var(--lite-accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lite-btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Outline Button */
+.lite-btn-outline {
+    background-color: transparent;
+    color: var(--lite-accent-primary);
+    border: 2px solid var(--lite-accent-primary);
+}
+
+.lite-btn-outline:hover {
+    background-color: var(--lite-accent-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+.lite-btn-outline:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(229, 62, 62, 0.3);
+}
+
+/* Ghost Button */
+.lite-btn-ghost {
+    background-color: transparent;
+    color: var(--lite-text-primary);
+    border: 2px solid transparent;
+}
+
+.lite-btn-ghost:hover {
+    background-color: var(--lite-bg-primary);
+    border-color: var(--lite-border);
+    color: var(--lite-accent-primary);
+    transform: translateY(-2px);
+}
+
+.lite-btn-ghost:active {
+    transform: translateY(0);
+}
+
+/* Success Button */
+.lite-btn-success {
+    background-color: #10b981;
+    color: white;
+    border: 2px solid #10b981;
+}
+
+.lite-btn-success:hover {
+    background-color: transparent;
+    color: #10b981;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Warning Button */
+.lite-btn-warning {
+    background-color: #f59e0b;
+    color: white;
+    border: 2px solid #f59e0b;
+}
+
+.lite-btn-warning:hover {
+    background-color: transparent;
+    color: #f59e0b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+/* Danger Button */
+.lite-btn-danger {
+    background-color: #ef4444;
+    color: white;
+    border: 2px solid #ef4444;
+}
+
+.lite-btn-danger:hover {
+    background-color: transparent;
+    color: #ef4444;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Full Width Button */
+.lite-btn-full {
+    width: 100%;
+}
+
+/* Button with Icon Only */
+.lite-btn-icon {
+    padding: 8px;
+    border-radius: 50%;
+    min-width: auto;
+    aspect-ratio: 1;
+}
+
+.lite-btn-icon.lite-btn-sm {
+    padding: 6px;
+}
+
+.lite-btn-icon.lite-btn-lg {
+    padding: 12px;
+}
+
+.lite-btn-icon.lite-btn-xl {
+    padding: 16px;
+}
+
+/* Loading State */
+.lite-btn-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.lite-btn-loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: liteButtonSpin 1s linear infinite;
+}
+
+@keyframes liteButtonSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .lite-btn-secondary {
+    background-color: var(--lite-bg-secondary);
+    color: var(--lite-text-primary);
+}
+
+[data-theme="dark"] .lite-btn-ghost {
+    color: var(--lite-text-primary);
+}
+
+[data-theme="dark"] .lite-btn-ghost:hover {
+    background-color: var(--lite-bg-primary);
+}
+
+/* Legacy Support - Backward Compatibility */
+.lite-btn-accent-hover:hover {
+    background-color: var(--lite-dark-accent-primary) !important;
+}
+
+/* Custom Scrollbar */
+.lite-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lite-scrollbar::-webkit-scrollbar-track {
+    background: var(--lite-bg-primary);
+}
+
+.lite-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--lite-border);
+    border-radius: 3px;
+}
+
+.lite-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--lite-accent-primary);
+}
+
+/* News Slider Styles */
+.lite-news-slider {
+    position: relative;
+
+
+    padding: 8px 0;
+    /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--lite-border); */
+}
+
+.lite-slider-container {
+    border-top: 1px solid var(--lite-border);
+    border-bottom: 1px solid var(--lite-border);
+    overflow: hidden;
+}
+
+.lite-slider-item a:hover .lite-text-primary {
+    text-decoration: underline;
+    /* color: var(--lite-accent-primary) !important; */
+}
+
+.lite-slider-item a {
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.lite-slider-item a:hover {
+    background-color: var(--lite-bg-primary);
+}
+
+/* Slick Slider Custom Styling */
+.lite-news-slider .slick-dots {
+    bottom: -40px;
+}
+
+.lite-news-slider .slick-dots li button:before {
+    color: var(--lite-accent-primary);
+    font-size: 12px;
+}
+
+.lite-news-slider .slick-dots li.slick-active button:before {
+    color: var(--lite-accent-primary);
+    opacity: 1;
+}
+
+.lite-news-slider .slick-prev,
+.lite-news-slider .slick-next {
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    background: var(--lite-bg-secondary);
+    border: 1px solid var(--lite-border);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lite-news-slider .slick-prev:before,
+.lite-news-slider .slick-next:before {
+    color: var(--lite-accent-primary);
+    font-size: 18px;
+}
+
+.lite-news-slider .slick-prev:hover,
+.lite-news-slider .slick-next:hover {
+    background: var(--lite-accent-primary);
+}
+
+.lite-news-slider .slick-prev:hover:before,
+.lite-news-slider .slick-next:hover:before {
+    color: white;
+}
+
+.lite-news-slider .slick-prev {
+    left: -50px;
+}
+
+.lite-news-slider .slick-next {
+    right: -50px;
+}
+
+/* Responsive Slider */
+@media (max-width: 768px) {
+    .lite-news-slider .slick-prev {
+        left: -35px;
+    }
+
+    .lite-news-slider .slick-next {
+        right: -35px;
+    }
+
+    .lite-slider-item .flex {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .lite-slider-item span:last-child {
+        font-size: 16px;
+    }
+}
+
+/* Manşet Slider Styles */
+.lite-manset-slider {
+    position: relative;
+}
+
+.lite-manset-item img {
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    object-fit: cover;
+}
+
+.lite-manset-slider .slick-prev,
+.lite-manset-slider .slick-next {
+    z-index: 10;
+    /* width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9); */
+    /* border: none; */
+    /* border-radius: 50%; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.lite-manset-slider .slick-prev:before,
+.lite-manset-slider .slick-next:before {
+    color: var(--lite-bg-primary);
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.lite-manset-slider .slick-prev:hover,
+.lite-manset-slider .slick-next:hover {
+    color: var(--lite-accent-primary);
+    /* transform: scale(1.1); */
+}
+
+.lite-manset-slider .slick-prev:hover:before,
+.lite-manset-slider .slick-next:hover:before {
+    color: white;
+}
+
+.lite-manset-slider .slick-prev {
+    left: 20px;
+}
+
+.lite-manset-slider .slick-next {
+    right: 20px;
+}
+
+/* Yan Haberler Container - Manşet ile aynı yükseklik */
+.lite-manset-sidebar {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.lite-manset-sidebar .lite-side-news-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.lite-manset-sidebar .lite-side-news-item img {
+    height: 160px;
+    object-fit: cover;
+}
+
+.lite-manset-sidebar .lite-side-news-item .p-4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Responsive Manşet */
+@media (max-width: 1024px) {
+    .lite-manset-item img {
+        height: 500px;
+    }
+
+    .lite-manset-sidebar {
+        height: 500px;
+    }
+
+    .lite-manset-sidebar .lite-side-news-item img {
+        height: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lite-manset-item img {
+        height: 400px;
+    }
+
+    .lite-manset-sidebar {
+        height: auto;
+        gap: 16px;
+    }
+
+    .lite-manset-sidebar .lite-side-news-item img {
+        height: 180px;
+    }
+
+    .lite-manset-slider .slick-prev {
+        left: 10px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .lite-manset-slider .slick-next {
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .lite-manset-slider .slick-prev:before,
+    .lite-manset-slider .slick-next:before {
+        font-size: 16px;
+    }
+}
+
+/* Submenu Styles */
+.lite-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+    display: block !important;
+    /* Override Tailwind's hidden class */
+}
+
+.lite-submenu.lite-submenu-active {
+    max-height: 300px;
+    /* Artırıldı */
+    opacity: 1;
+}
+
+.lite-submenu-toggle.lite-submenu-open i {
+    transform: rotate(180deg);
+}
+
+/* Debug için görünür hale getir */
+.lite-submenu-active {
+    /* background-color: rgba(255, 0, 0, 0.1) !important; */
+    /* Debug için kırmızı arka plan */
+}
+
+/* Theme Toggle Animations */
+.lite-theme-icon-spin {
+    animation: liteThemeIconSpin 0.5s ease-in-out;
+}
+
+@keyframes liteThemeIconSpin {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+
+    50% {
+        transform: rotate(90deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+}

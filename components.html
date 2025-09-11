@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lite Tema - Tasarım Bileşenleri Dokümantasyonu">
+    <meta name="keywords" content="lite tema, tasarım sistemi, bileşenler, butonlar, kartlar">
+    <meta name="author" content="Lite Tema">
+    <title>Lite Tema - Tasarım Bileşenleri</title>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Slick Slider JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    spacing: {
+                        '15': '60px',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-inter lite-bg-primary lite-text-primary transition-all duration-300">
+
+    <!-- Header -->
+    <header class="lite-bg-secondary border-b lite-border py-4">
+        <div class="max-w-6xl mx-auto px-5 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <img src="assets/light-logo.png" alt="Lite Tema" class="h-8 w-auto transition-opacity duration-300"
+                    id="liteHeaderLogo">
+                <div>
+                    <h1 class="text-xl font-bold lite-text-primary">Tasarım Bileşenleri</h1>
+                    <p class="text-sm lite-text-secondary">Lite Tema Dokümantasyonu</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="lite-btn lite-btn-secondary lite-btn-sm">
+                    <i class="ri-home-line"></i>
+                    Ana Sayfa
+                </a>
+                <button class="lite-hover-accent p-2 rounded-md transition-all duration-300 text-xl"
+                    id="liteThemeToggleDoc">
+                    <i class="ri-sun-line" id="liteThemeIconDoc"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-5 py-8">
+
+        <!-- Navigation -->
+        <nav class="mb-8">
+            <div class="flex flex-wrap gap-2">
+                <a href="#buttons" class="lite-btn lite-btn-ghost lite-btn-sm">Butonlar</a>
+                <a href="#colors" class="lite-btn lite-btn-ghost lite-btn-sm">Renkler</a>
+                <a href="#typography" class="lite-btn lite-btn-ghost lite-btn-sm">Tipografi</a>
+                <a href="#cards" class="lite-btn lite-btn-ghost lite-btn-sm">Kartlar</a>
+                <a href="#forms" class="lite-btn lite-btn-ghost lite-btn-sm">Formlar</a>
+                <a href="#sliders" class="lite-btn lite-btn-ghost lite-btn-sm">Slider'lar</a>
+            </div>
+        </nav>
+
+        <!-- Renk Paleti -->
+        <section id="colors" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold lite-text-primary mb-2">Renk Paleti</h2>
+                <div class="w-16 h-1 lite-bg-accent rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Primary Colors -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                    <h3 class="font-semibold lite-text-primary mb-4">Ana Renkler</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-lg"
+                                style="background-color: #fafafa; border: 1px solid #e2e8f0;"></div>
+                            <div>
+                                <p class="font-medium lite-text-primary">Background Primary</p>
+                                <p class="text-sm lite-text-secondary">#fafafa</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-white rounded-lg border lite-border"></div>
+                            <div>
+                                <p class="font-medium lite-text-primary">Background Secondary</p>
+                                <p class="text-sm lite-text-secondary">#ffffff</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-lg" style="background-color: #e53e3e;"></div>
+                            <div>
+                                <p class="font-medium lite-text-primary">Accent Primary</p>
+                                <p class="text-sm lite-text-secondary">#e53e3e</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Colors -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                    <h3 class="font-semibold lite-text-primary mb-4">Metin Renkleri</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-lg" style="background-color: #2d3748;"></div>
+                            <div>
+                                <p class="font-medium lite-text-primary">Text Primary</p>
+                                <p class="text-sm lite-text-secondary">#2d3748</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-lg" style="background-color: #4a5568;"></div>
+                            <div>
+                                <p class="font-medium lite-text-primary">Text Secondary</p>
+                                <p class="text-sm lite-text-secondary">#4a5568</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-lg" style="background-color: #e2e8f0;"></div>
+                            <div>
+                                <p class="font-medium lite-text-primary">Border</p>
+                                <p class="text-sm lite-text-secondary">#e2e8f0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dark Mode Colors -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                    <h3 class="font-semibold lite-text-primary mb-4">Dark Mode Renkleri</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-lg" style="background-color: #1a202c;"></div>
+                            <div>
+                                <p class="font-medium lite-text-primary">Dark Background</p>
+                                <p class="text-sm lite-text-secondary">#1a202c</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-lg" style="background-color: #2d3748;"></div>
+                            <div>
+                                <p class="font-medium lite-text-primary">Dark Secondary</p>
+                                <p class="text-sm lite-text-secondary">#2d3748</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-lg" style="background-color: #fc8181;"></div>
+                            <div>
+                                <p class="font-medium lite-text-primary">Dark Accent</p>
+                                <p class="text-sm lite-text-secondary">#fc8181</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tipografi -->
+        <section id="typography" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold lite-text-primary mb-2">Tipografi</h2>
+                <div class="w-16 h-1 lite-bg-accent rounded-full"></div>
+            </div>
+
+            <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                <div class="space-y-6">
+                    <div>
+                        <h1 class="text-4xl font-bold lite-text-primary mb-2">Başlık 1 - 36px Bold</h1>
+                        <p class="text-sm lite-text-secondary">text-4xl font-bold</p>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold lite-text-primary mb-2">Başlık 2 - 30px Bold</h2>
+                        <p class="text-sm lite-text-secondary">text-3xl font-bold</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold lite-text-primary mb-2">Başlık 3 - 24px Semibold</h3>
+                        <p class="text-sm lite-text-secondary">text-2xl font-semibold</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold lite-text-primary mb-2">Başlık 4 - 20px Semibold</h4>
+                        <p class="text-sm lite-text-secondary">text-xl font-semibold</p>
+                    </div>
+                    <div>
+                        <p class="text-base lite-text-primary mb-2">Normal Metin - 16px Regular</p>
+                        <p class="text-sm lite-text-secondary">text-base</p>
+                    </div>
+                    <div>
+                        <p class="text-sm lite-text-secondary mb-2">Küçük Metin - 14px Regular</p>
+                        <p class="text-sm lite-text-secondary">text-sm</p>
+                    </div>
+                    <div>
+                        <p class="text-xs lite-text-secondary mb-2">Çok Küçük Metin - 12px Regular</p>
+                        <p class="text-sm lite-text-secondary">text-xs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buton Sistemi -->
+        <section id="buttons" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold lite-text-primary mb-2">Buton Sistemi</h2>
+                <div class="w-16 h-1 lite-bg-accent rounded-full"></div>
+                <p class="mt-2 lite-text-secondary">Lite tema için tasarlanmış kapsamlı buton sistemi</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Primary Buttons -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                    <h3 class="font-semibold lite-text-primary mb-4">Primary Buttons</h3>
+                    <div class="space-y-3">
+                        <button class="lite-btn lite-btn-primary lite-btn-sm">Small Primary</button>
+                        <button class="lite-btn lite-btn-primary lite-btn-md">Medium Primary</button>
+                        <button class="lite-btn lite-btn-primary lite-btn-lg">Large Primary</button>
+                        <button class="lite-btn lite-btn-primary lite-btn-md lite-btn-full">Full Width</button>
+                    </div>
+                    <div class="mt-4 p-3 lite-bg-primary rounded text-xs lite-text-secondary">
+                        <code>lite-btn lite-btn-primary lite-btn-md</code>
+                    </div>
+                </div>
+
+                <!-- Secondary Buttons -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                    <h3 class="font-semibold lite-text-primary mb-4">Secondary Buttons</h3>
+                    <div class="space-y-3">
+                        <button class="lite-btn lite-btn-secondary lite-btn-sm">Small Secondary</button>
+                        <button class="lite-btn lite-btn-secondary lite-btn-md">Medium Secondary</button>
+                        <button class="lite-btn lite-btn-secondary lite-btn-lg">Large Secondary</button>
+                        <button class="lite-btn lite-btn-secondary lite-btn-md" disabled>Disabled</button>
+                    </div>
+                    <div class="mt-4 p-3 lite-bg-primary rounded text-xs lite-text-secondary">
+                        <code>lite-btn lite-btn-secondary lite-btn-md</code>
+                    </div>
+                </div>
+
+                <!-- Outline & Ghost -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                    <h3 class="font-semibold lite-text-primary mb-4">Outline & Ghost</h3>
+                    <div class="space-y-3">
+                        <button class="lite-btn lite-btn-outline lite-btn-md">Outline Button</button>
+                        <button class="lite-btn lite-btn-ghost lite-btn-md">Ghost Button</button>
+                        <button class="lite-btn lite-btn-outline lite-btn-md">
+                            <i class="ri-download-line"></i>
+                            With Icon
+                        </button>
+                    </div>
+                    <div class="mt-4 p-3 lite-bg-primary rounded text-xs lite-text-secondary">
+                        <code>lite-btn lite-btn-outline lite-btn-md</code>
+                    </div>
+                </div>
+
+                <!-- Status Buttons -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                    <h3 class="font-semibold lite-text-primary mb-4">Status Buttons</h3>
+                    <div class="space-y-3">
+                        <button class="lite-btn lite-btn-success lite-btn-md">
+                            <i class="ri-check-line"></i>
+                            Success
+                        </button>
+                        <button class="lite-btn lite-btn-warning lite-btn-md">
+                            <i class="ri-alert-line"></i>
+                            Warning
+                        </button>
+                        <button class="lite-btn lite-btn-danger lite-btn-md">
+                            <i class="ri-close-line"></i>
+                            Danger
+                        </button>
+                    </div>
+                    <div class="mt-4 p-3 lite-bg-primary rounded text-xs lite-text-secondary">
+                        <code>lite-btn lite-btn-success lite-btn-md</code>
+                    </div>
+                </div>
+
+                <!-- Icon Buttons -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                    <h3 class="font-semibold lite-text-primary mb-4">Icon Buttons</h3>
+                    <div class="flex gap-3 flex-wrap mb-3">
+                        <button class="lite-btn lite-btn-primary lite-btn-icon lite-btn-sm">
+                            <i class="ri-heart-line"></i>
+                        </button>
+                        <button class="lite-btn lite-btn-secondary lite-btn-icon lite-btn-md">
+                            <i class="ri-share-line"></i>
+                        </button>
+                        <button class="lite-btn lite-btn-outline lite-btn-icon lite-btn-lg">
+                            <i class="ri-bookmark-line"></i>
+                        </button>
+                        <button class="lite-btn lite-btn-ghost lite-btn-icon lite-btn-md">
+                            <i class="ri-more-line"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 p-3 lite-bg-primary rounded text-xs lite-text-secondary">
+                        <code>lite-btn lite-btn-primary lite-btn-icon lite-btn-md</code>
+                    </div>
+                </div>
+
+                <!-- Special States -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                    <h3 class="font-semibold lite-text-primary mb-4">Special States</h3>
+                    <div class="space-y-3">
+                        <button class="lite-btn lite-btn-primary lite-btn-md lite-btn-loading">Loading...</button>
+                        <button class="lite-btn lite-btn-primary lite-btn-xl">
+                            <i class="ri-rocket-line"></i>
+                            Extra Large
+                        </button>
+                    </div>
+                    <div class="mt-4 p-3 lite-bg-primary rounded text-xs lite-text-secondary">
+                        <code>lite-btn lite-btn-primary lite-btn-loading</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kart Bileşenleri -->
+        <section id="cards" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold lite-text-primary mb-2">Kart Bileşenleri</h2>
+                <div class="w-16 h-1 lite-bg-accent rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Basit Kart -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                    <h3 class="font-semibold lite-text-primary mb-2">Basit Kart</h3>
+                    <p class="lite-text-secondary text-sm mb-4">Bu basit bir kart örneğidir. Sadece başlık ve içerik
+                        barındırır.</p>
+                    <button class="lite-btn lite-btn-outline lite-btn-sm">Detay</button>
+                </div>
+
+                <!-- Görsel Kartı -->
+                <div
+                    class="lite-bg-secondary rounded-lg border lite-border overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/haber-gorsel.png" alt="Örnek Görsel"
+                            class="w-full h-32 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold lite-text-primary mb-2">Görsel Kartı</h3>
+                        <p class="lite-text-secondary text-sm">Görsel içeren kart örneği. Hover efektleri ile birlikte.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stat Kartı -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border text-center">
+                    <div class="w-12 h-12 lite-bg-accent rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="ri-user-line text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold lite-text-primary">1,234</h3>
+                    <p class="lite-text-secondary text-sm">Toplam Kullanıcı</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Bileşenleri -->
+        <section id="forms" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-3xl font-bold lite-text-primary mb-2">Form Bileşenleri</h2>
+                <div class="w-16 h-1 lite-bg-accent rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Input'lar -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                    <h3 class="font-semibold lite-text-primary mb-4">Input Alanları</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium lite-text-primary mb-1">Email</label>
+                            <input type="email"
+                                class="lite-bg-primary lite-text-primary border lite-border rounded-lg outline-none focus:border-red-500 p-3 w-full"
+                                placeholder="email@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium lite-text-primary mb-1">Şifre</label>
+                            <input type="password"
+                                class="lite-bg-primary lite-text-primary border lite-border rounded-lg outline-none focus:border-red-500 p-3 w-full"
+                                placeholder="••••••••">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium lite-text-primary mb-1">Mesaj</label>
+                            <textarea
+                                class="lite-bg-primary lite-text-primary border lite-border rounded-lg outline-none focus:border-red-500 p-3 w-full h-20 resize-none"
+                                placeholder="Mesajınızı yazın..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Checkbox & Radio -->
+                <div class="lite-bg-secondary p-6 rounded-lg border lite-border">
+                    <h3 class="font-semibold lite-text-primary mb-4">Seçim Alanları</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-sm font-medium lite-text-primary mb-2">Checkbox</p>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="checkbox" class="w-4 h-4 text-red-500 rounded">
+                                <span class="text-sm lite-text-primary">Haber bültenine abone ol</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer mt-2">
+                                <input type="checkbox" class="w-4 h-4 text-red-500 rounded" checked>
+                                <span class="text-sm lite-text-primary">Kullanım şartlarını kabul ediyorum</span>
+                            </label>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium lite-text-primary mb-2">Radio Button</p>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="subscription" class="w-4 h-4 text-red-500">
+                                <span class="text-sm lite-text-primary">Günlük bildirim</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer mt-2">
+                                <input type="radio" name="subscription" class="w-4 h-4 text-red-500" checked>
+                                <span class="text-sm lite-text-primary">Haftalık bildirim</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="lite-bg-secondary border-t lite-border mt-16">
+        <!-- Üst Alan -->
+        <div class="max-w-6xl mx-auto px-5 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Sol - Logo ve Açıklama -->
+                <div class="lg:col-span-1">
+                    <div class="mb-4">
+                        <img src="assets/light-logo.png" alt="Lite Tema"
+                            class="h-10 w-auto transition-opacity duration-300" id="liteDocFooterLogo">
+                    </div>
+                    <p class="lite-text-secondary text-sm leading-relaxed">
+                        Güncel haberler, derinlemesine analizler ve objektif bakış açısıyla sizlere hizmet veriyoruz.
+                        Türkiye'nin güvenilir haber kaynağı olma yolunda ilerlemeye devam ediyoruz.
+                    </p>
+                    <div class="flex gap-3 mt-6">
+                        <a href="#" class="lite-social-icon p-2 text-lg" title="Facebook">
+                            <i class="ri-facebook-fill transition-transform duration-300"></i>
+                        </a>
+                        <a href="#" class="lite-social-icon p-2 text-lg" title="Twitter">
+                            <i class="ri-twitter-x-fill transition-transform duration-300"></i>
+                        </a>
+                        <a href="#" class="lite-social-icon p-2 text-lg" title="Instagram">
+                            <i class="ri-instagram-fill transition-transform duration-300"></i>
+                        </a>
+                        <a href="#" class="lite-social-icon p-2 text-lg" title="YouTube">
+                            <i class="ri-youtube-fill transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Orta - Sayfalar -->
+                <div class="lg:col-span-1">
+                    <h3 class="font-semibold lite-text-primary mb-4 text-lg">Sayfalar</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="space-y-3">
+                            <a href="index.html" class="lite-footer-link block lite-text-secondary text-sm">Ana
+                                Sayfa</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Gündem</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Teknoloji</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Spor</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Sağlık</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Ekonomi</a>
+                        </div>
+                        <div class="space-y-3">
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Kültür</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Eğitim</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Hakkımızda</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">İletişim</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Künye</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Gizlilik</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sağ - Tasarım Bileşenleri -->
+                <div class="lg:col-span-1">
+                    <h3 class="font-semibold lite-text-primary mb-4 text-lg flex items-center gap-2">
+                        <i class="ri-palette-line lite-text-accent"></i>
+                        Tasarım Sistemi
+                    </h3>
+                    <div class="space-y-3">
+                        <a href="#colors" class="lite-footer-link block lite-text-secondary text-sm">Renk Paleti</a>
+                        <a href="#typography" class="lite-footer-link block lite-text-secondary text-sm">Tipografi</a>
+                        <a href="#buttons" class="lite-footer-link block lite-text-secondary text-sm">Buton Sistemi</a>
+                        <a href="#cards" class="lite-footer-link block lite-text-secondary text-sm">Kart Bileşenleri</a>
+                        <a href="#forms" class="lite-footer-link block lite-text-secondary text-sm">Form Bileşenleri</a>
+                        <a href="#sliders" class="lite-footer-link block lite-text-secondary text-sm">Slider
+                            Bileşenleri</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alt Alan - Copyright -->
+        <div class="border-t lite-border lite-bg-primary">
+            <div class="max-w-6xl mx-auto px-5 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm lite-text-secondary">
+                    <div class="text-center md:text-left">
+                        <p>&copy; 2025 Lite Tema. Tüm hakları saklıdır.</p>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <p>Yazılım
+                            <a href="https://vmgmedya.com" target="_blank" rel="noopener noreferrer"
+                                class="lite-vmg-link lite-text-accent hover:underline font-medium">
+                                VMG Medya
+                            </a>
+                            tarafından yapılmıştır
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Tema toggle için basit JavaScript
+        $(document).ready(function () {
+            $('#liteThemeToggleDoc').click(function () {
+                toggleDocTheme();
+            });
+
+            function toggleDocTheme() {
+                const $icon = $('#liteThemeIconDoc');
+                const $headerLogo = $('#liteHeaderLogo');
+                const $footerLogo = $('#liteDocFooterLogo');
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('lite-theme', newTheme);
+
+                if (newTheme === 'dark') {
+                    $icon.removeClass('ri-sun-line').addClass('ri-moon-line');
+                    $headerLogo.attr('src', 'assets/dark-logo.png');
+                    $footerLogo.attr('src', 'assets/dark-logo.png');
+                } else {
+                    $icon.removeClass('ri-moon-line').addClass('ri-sun-line');
+                    $headerLogo.attr('src', 'assets/light-logo.png');
+                    $footerLogo.attr('src', 'assets/light-logo.png');
+                }
+            }
+
+            // Sayfa yüklendiğinde tema kontrolü
+            const savedTheme = localStorage.getItem('lite-theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                const $icon = $('#liteThemeIconDoc');
+                const $headerLogo = $('#liteHeaderLogo');
+                const $footerLogo = $('#liteDocFooterLogo');
+
+                if (savedTheme === 'dark') {
+                    $icon.removeClass('ri-sun-line').addClass('ri-moon-line');
+                    $headerLogo.attr('src', 'assets/dark-logo.png');
+                    $footerLogo.attr('src', 'assets/dark-logo.png');
+                }
+            }
+
+            // Smooth scrolling navigation
+            $('a[href^="#"]').click(function (e) {
+                e.preventDefault();
+                const target = $(this.getAttribute('href'));
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 80
+                    }, 500);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
