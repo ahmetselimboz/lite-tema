@@ -28,6 +28,19 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- Page Loader -->
+    <div class="lite-page-loader" id="litePageLoader">
+        <div class="lite-loader-content">
+            <div class="lite-loader-logo">
+                <img src="assets/light-logo.png" alt="Lite Tema" class="lite-logo-light">
+                <img src="assets/dark-logo.png" alt="Lite Tema" class="lite-logo-dark">
+            </div>
+            <div class="lite-loader-bar">
+                <div class="lite-loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
@@ -55,15 +68,22 @@
 
     <!-- Navbar -->
     <nav
-        class="fixed top-0 left-0 right-0 z-[1000] lite-bg-secondary border-b lite-border h-15 flex items-center justify-between px-5 md:px-8 transition-all duration-300">
-        <div class="flex items-center gap-6">
+        class="fixed top-0 left-0 right-0 z-[1000] lite-bg-secondary border-b lite-border h-auto flex items-center justify-between px-5 md:px-8 py-3 transition-all duration-300">
+        <div class="flex items-center lg:gap-8 gap-4">
             <!-- Menü İkonu -->
             <button class="lite-hover-accent p-2 rounded-md transition-all duration-300 text-2xl" id="liteMenuToggle">
                 <i class="ri-menu-line"></i>
             </button>
 
-
+            <div class="flex items-center justify-center">
+                <a href="index.html">
+                    <img src="assets/light-logo.png" alt="Lite Tema"
+                        class="h-auto w-36 lg:w-40 transition-opacity duration-300" id="liteBannerLogo">
+                </a>
+            </div>
         </div>
+
+
 
         <!-- Kategoriler -->
         <div class="flex items-center justify-center gap-4">
@@ -101,20 +121,14 @@
                 <li><a href="#"
                         class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Yazarlar</a>
                 </li>
-                <li><a href="#"
-                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Dünya</a>
-                </li>
-                <li><a href="#"
-                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Bilim</a>
-                </li>
-                <li><a href="#"
-                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Yaşam</a>
-                </li>
+
 
 
             </ul>
         </div>
-
+        <div class="flex items-center gap-2">
+            <p class="text-sm lite-text-secondary font-medium cursor-default">13.09.2025</p>
+        </div>
         <div class="flex items-center gap-2">
             <!-- Bileşenler Sayfası -->
             <a href="components.html"
@@ -258,12 +272,6 @@
 
             <a href="#"
                 class="block px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent">Magazin</a>
-
-            <a href="#"
-                class="block px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent">Turizm</a>
-
-            <a href="#"
-                class="block px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent">Emlak</a>
         </div>
     </div>
 
@@ -316,86 +324,75 @@
     <main class="mt-15">
         <!-- Hero/Banner Bölümü -->
         <section class="lite-bg-primary ">
-            <div class="max-w-6xl mx-auto px-5 text-center py-8 md:py-8">
-                <!-- Ana Logo -->
-                <div>
-                    <img src="assets/light-logo.png" alt="Lite Tema"
-                        class="mx-auto h-16 md:h-32 lg:h-32 w-auto transition-opacity duration-300" id="liteBannerLogo">
-                </div>
+            <div class="lite-news-slider mx-auto">
+                <div class="lite-slider-container">
+                    <!-- Slider İtemi 1 -->
+                    <div class="lite-slider-item">
+                        <a href="#" class="block">
+                            <div class="flex items-center justify-center gap-3 py-3 px-6">
+                                <span class="lite-accent text-sm font-semibold">14:30</span>
+                                <span
+                                    class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
+                                    Teknoloji dünyasında büyük gelişme: Yapay zeka alanında yeni atılım
+                                </span>
+                            </div>
+                        </a>
+                    </div>
 
+                    <!-- Slider İtemi 2 -->
+                    <div class="lite-slider-item">
+                        <a href="#" class="block">
+                            <div class="flex items-center justify-center gap-3 py-3 px-6">
+                                <span class="lite-accent text-sm font-semibold">13:45</span>
+                                <span
+                                    class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
+                                    Ekonomide son durum: Borsa endeksleri yükselişte
+                                </span>
+                            </div>
+                        </a>
+                    </div>
 
-            </div>
-            <!-- Son Dakika Haberleri Slider -->
-            <div class="">
-                <div class="lite-news-slider mx-auto">
-                    <div class="lite-slider-container">
-                        <!-- Slider İtemi 1 -->
-                        <div class="lite-slider-item">
-                            <a href="#" class="block">
-                                <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                    <span class="lite-accent text-sm font-semibold">14:30</span>
-                                    <span
-                                        class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
-                                        Teknoloji dünyasında büyük gelişme: Yapay zeka alanında yeni atılım
-                                    </span>
-                                </div>
-                            </a>
-                        </div>
+                    <!-- Slider İtemi 3 -->
+                    <div class="lite-slider-item">
+                        <a href="#" class="block">
+                            <div class="flex items-center justify-center gap-3 py-3 px-6">
+                                <span class="lite-accent text-sm font-semibold">12:20</span>
+                                <span
+                                    class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
+                                    Spor haberleri: Milli takım kampı başladı
+                                </span>
+                            </div>
+                        </a>
+                    </div>
 
-                        <!-- Slider İtemi 2 -->
-                        <div class="lite-slider-item">
-                            <a href="#" class="block">
-                                <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                    <span class="lite-accent text-sm font-semibold">13:45</span>
-                                    <span
-                                        class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
-                                        Ekonomide son durum: Borsa endeksleri yükselişte
-                                    </span>
-                                </div>
-                            </a>
-                        </div>
+                    <!-- Slider İtemi 4 -->
+                    <div class="lite-slider-item">
+                        <a href="#" class="block">
+                            <div class="flex items-center justify-center gap-3 py-3 px-6">
+                                <span class="lite-accent text-sm font-semibold">11:55</span>
+                                <span
+                                    class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
+                                    Sağlık alanında önemli araştırma sonuçları açıklandı
+                                </span>
+                            </div>
+                        </a>
+                    </div>
 
-                        <!-- Slider İtemi 3 -->
-                        <div class="lite-slider-item">
-                            <a href="#" class="block">
-                                <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                    <span class="lite-accent text-sm font-semibold">12:20</span>
-                                    <span
-                                        class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
-                                        Spor haberleri: Milli takım kampı başladı
-                                    </span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Slider İtemi 4 -->
-                        <div class="lite-slider-item">
-                            <a href="#" class="block">
-                                <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                    <span class="lite-accent text-sm font-semibold">11:55</span>
-                                    <span
-                                        class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
-                                        Sağlık alanında önemli araştırma sonuçları açıklandı
-                                    </span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <!-- Slider İtemi 5 -->
-                        <div class="lite-slider-item">
-                            <a href="#" class="block">
-                                <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                    <span class="lite-accent text-sm font-semibold">10:30</span>
-                                    <span
-                                        class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
-                                        Eğitim reformu ile ilgili yeni kararlar alındı
-                                    </span>
-                                </div>
-                            </a>
-                        </div>
+                    <!-- Slider İtemi 5 -->
+                    <div class="lite-slider-item">
+                        <a href="#" class="block">
+                            <div class="flex items-center justify-center gap-3 py-3 px-6">
+                                <span class="lite-accent text-sm font-semibold">10:30</span>
+                                <span
+                                    class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
+                                    Eğitim reformu ile ilgili yeni kararlar alındı
+                                </span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
+
 
         </section>
         <section class="max-w-6xl mx-auto px-5 text-center py-2 md:py-8">

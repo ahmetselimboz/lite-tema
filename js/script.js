@@ -149,48 +149,6 @@ $(document).ready(function () {
         }
     });
 
-    // Sayfa yüklendiğinde tema kontrolü
-    initializeTheme();
-
-    // Slick Slider başlat
-    initializeSlider();
-
-    // Manşet Slider başlat
-    initializeMansetSlider();
-
-    // Yazarlar Slider başlat
-    initializeAuthorsSlider();
-
-    // Cards Slider başlatma fonksiyonu
-    initializeCardsSlider();
-
-    function initializeTheme() {
-        // LocalStorage'dan tema tercihi al
-        const savedTheme = localStorage.getItem('lite-theme');
-        const $icon = $('#liteThemeIcon');
-        const $bannerLogo = $('#liteBannerLogo');
-
-        if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-
-            // Icon ve logo'yu güncelle
-            if (savedTheme === 'dark') {
-                $icon.removeClass('ri-sun-line').addClass('ri-moon-line');
-                $bannerLogo.attr('src', 'assets/dark-logo.png');
-                $('#liteFooterLogo').attr('src', 'assets/dark-logo.png');
-            } else {
-                $icon.removeClass('ri-moon-line').addClass('ri-sun-line');
-                $bannerLogo.attr('src', 'assets/light-logo.png');
-                $('#liteFooterLogo').attr('src', 'assets/light-logo.png');
-            }
-        }
-    }
-
-    // Global tema değiştirme fonksiyonu
-    window.liteToggleTheme = function () {
-        toggleTheme();
-    };
-
     // Slick Slider başlatma fonksiyonu
     function initializeSlider() {
         $('.lite-slider-container').slick({
@@ -312,6 +270,116 @@ $(document).ready(function () {
         console.log('Cards Slider başlatıldı');
     }
 
+    function initializeTheme() {
+        // LocalStorage'dan tema tercihi al
+        const savedTheme = localStorage.getItem('lite-theme');
+        const $icon = $('#liteThemeIcon');
+        const $bannerLogo = $('#liteBannerLogo');
+
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            // Icon ve logo'yu güncelle
+            if (savedTheme === 'dark') {
+                $icon.removeClass('ri-sun-line').addClass('ri-moon-line');
+                $bannerLogo.attr('src', 'assets/dark-logo.png');
+                $('#liteFooterLogo').attr('src', 'assets/dark-logo.png');
+            } else {
+                $icon.removeClass('ri-moon-line').addClass('ri-sun-line');
+                $bannerLogo.attr('src', 'assets/light-logo.png');
+                $('#liteFooterLogo').attr('src', 'assets/light-logo.png');
+            }
+        }
+    }
+
+
+
+    // Loader initialization
+    function initLoader() {
+        const loader = document.getElementById('litePageLoader');
+        if (!loader) return;
+
+        // Simulate loading progress
+        simulateLoading();
+
+        // Hide loader when page is fully loaded
+        window.addEventListener('load', function () {
+            setTimeout(() => {
+                hideLoader();
+            }, 1000); // Minimum 1 second display
+        });
+    }
+
+    // Simulate realistic loading progress
+    function simulateLoading() {
+        const progressBar = document.querySelector('.lite-loader-progress');
+        if (!progressBar) return;
+
+        let progress = 0;
+        const targetProgress = 100;
+        const duration = 1000; 
+        const startTime = performance.now();
+
+        function updateProgress(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progressPercent = Math.min(elapsed / duration, 1);
+
+            // Realistic loading curve (fast start, slow end)
+            const easedProgress = 1 - Math.pow(1 - progressPercent, 2);
+            progress = Math.floor(easedProgress * targetProgress);
+
+            // Update progress bar width
+            progressBar.style.width = progress + '%';
+
+            if (progressPercent < 1) {
+                requestAnimationFrame(updateProgress);
+            }
+        }
+
+        requestAnimationFrame(updateProgress);
+    }
+
+    // Hide loader with fade out effect
+    function hideLoader() {
+        const loader = document.getElementById('litePageLoader');
+        if (!loader) return;
+
+        loader.classList.add('fade-out');
+
+        // Remove from DOM after animation
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+    }
+
+    // Initialize loader when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLoader);
+    } else {
+        initLoader();
+    }
+
+    // Sayfa yüklendiğinde tema kontrolü
+    initializeTheme();
+
+    // Slick Slider başlat
+    initializeSlider();
+
+    // Manşet Slider başlat
+    initializeMansetSlider();
+
+    // Yazarlar Slider başlat
+    initializeAuthorsSlider();
+
+    // Cards Slider başlatma fonksiyonu
+    initializeCardsSlider();
+
+
+    // Global tema değiştirme fonksiyonu
+    window.liteToggleTheme = function () {
+        toggleTheme();
+    };
+
     // Smooth scrolling için
     $('a[href^="#"]').click(function (e) {
         e.preventDefault();
@@ -324,4 +392,8 @@ $(document).ready(function () {
     });
 
 });
+
+
+
+
 
