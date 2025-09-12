@@ -28,18 +28,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Page Loader -->
-    <div class="lite-page-loader" id="litePageLoader">
-        <div class="lite-loader-content">
-            <div class="lite-loader-logo">
-                <img src="assets/light-logo.png" alt="Lite Tema" class="lite-logo-light">
-                <img src="assets/dark-logo.png" alt="Lite Tema" class="lite-logo-dark">
-            </div>
-            <div class="lite-loader-bar">
-                <div class="lite-loader-progress"></div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -65,7 +54,18 @@
 </head>
 
 <body class="font-inter lite-bg-primary lite-text-primary transition-all duration-300">
-
+    <!-- Page Loader -->
+    <div class="lite-page-loader" id="litePageLoader">
+        <div class="lite-loader-content">
+            <div class="lite-loader-logo">
+                <img src="assets/light-logo.png" alt="Lite Tema" class="lite-logo-light">
+                <img src="assets/dark-logo.png" alt="Lite Tema" class="lite-logo-dark">
+            </div>
+            <div class="lite-loader-bar">
+                <div class="lite-loader-progress"></div>
+            </div>
+        </div>
+    </div>
     <!-- Navbar -->
     <nav
         class="fixed top-0 left-0 right-0 z-[1000] lite-bg-secondary border-b lite-border h-auto flex items-center justify-between px-5 md:px-8 py-3 transition-all duration-300">
@@ -127,7 +127,7 @@
             </ul>
         </div>
         <div class="flex items-center gap-2">
-            <p class="text-sm lite-text-secondary font-medium cursor-default">13.09.2025</p>
+            <p class="text-sm lite-text-secondary font-medium cursor-default hidden md:block">13.09.2025</p>
         </div>
         <div class="flex items-center gap-2">
             <!-- Bileşenler Sayfası -->
