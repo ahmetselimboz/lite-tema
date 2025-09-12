@@ -298,3 +298,58 @@ $(document).ready(function () {
     });
 
 });
+
+// Lite Cards Slider (3'erli kayar, ok yok, solda numarali noktalar)
+(function () {
+    var slider = document.querySelector('.lite-cards-slider');
+    if (!slider) return;
+
+    var dots = slider.querySelectorAll('.lite-cards-dots .lite-dot');
+    var track = slider.querySelector('.lite-cards-track');
+    var slides = slider.querySelectorAll('.lite-cards-slide');
+    var current = 0;
+    var total = slides.length; // 3
+
+    function update() {
+        var offset = -(current * 100);
+        track.style.transform = 'translateX(' + offset + '%)';
+        dots.forEach(function (btn, idx) {
+            btn.classList.toggle('is-active', idx === current);
+            btn.setAttribute('aria-current', idx === current ? 'true' : 'false');
+        });
+    }
+
+    dots.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var idx = parseInt(btn.getAttribute('data-slide'), 10) || 0;
+            if (idx < 0 || idx >= total) return;
+            current = idx;
+            update();
+        });
+    });
+
+    // Swipe/drag (opsiyonel basitlikte)
+    var startX = 0;
+    var isDown = false;
+
+    slider.addEventListener('pointerdown', function (e) {
+        isDown = true;
+        startX = e.clientX;
+    });
+    window.addEventListener('pointerup', function (e) {
+        if (!isDown) return;
+        isDown = false;
+        var diff = e.clientX - startX;
+        if (Math.abs(diff) > 50) {
+            if (diff < 0 && current < total - 1) {
+                current++;
+            } else if (diff > 0 && current > 0) {
+                current--;
+            }
+            update();
+        }
+    });
+
+    // İlk yükleme
+    update();
+})();
