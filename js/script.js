@@ -256,7 +256,7 @@ $(document).ready(function () {
             slidesToShow: 3,
             slidesToScroll: 1,
             autoplay: false,
-            arrows: false, 
+            arrows: false,
             responsive: [
                 {
                     breakpoint: 1024,
