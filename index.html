@@ -66,6 +66,9 @@
             </div>
         </div>
     </div>
+
+
+
     <!-- Navbar -->
     <nav
         class="fixed top-0 left-0 right-0 z-[1000] lite-bg-secondary border-b lite-border h-auto flex items-center justify-between px-5 md:px-8 py-3 transition-all duration-300">
@@ -127,7 +130,7 @@
             </ul>
         </div>
         <div class="flex items-center gap-2">
-            <p class="text-sm lite-text-secondary font-medium cursor-default hidden md:block">13.09.2025</p>
+            <p class="text-sm lite-text-accent font-bold cursor-default hidden md:block ">13.09.2025</p>
         </div>
         <div class="flex items-center gap-2">
             <!-- Bileşenler Sayfası -->
@@ -138,6 +141,8 @@
                 <span class="text-sm">Bileşenler</span>
             </a>
 
+
+
             <!-- Arama Butonu -->
             <button class="lite-hover-accent p-2 rounded-md transition-all duration-300 text-xl" id="liteSearchToggle">
                 <i class="ri-search-line"></i>
@@ -147,6 +152,11 @@
             <button class="lite-hover-accent p-2 rounded-md transition-all duration-300 text-xl"
                 id="liteNotificationToggle">
                 <i class="ri-notification-line"></i>
+            </button>
+
+            <!-- User Butonu -->
+            <button class="lite-hover-accent p-2 rounded-md transition-all duration-300 text-xl" >
+                <i class="ri-user-line"></i>
             </button>
 
             <!-- Tema Toggle Butonu -->
@@ -321,18 +331,18 @@
         id="liteOverlay"></div>
 
     <!-- Ana İçerik Alanı -->
-    <main class="mt-15">
+    <main class="mt-24">
         <!-- Hero/Banner Bölümü -->
-        <section class="lite-bg-primary ">
-            <div class="lite-news-slider mx-auto">
-                <div class="lite-slider-container">
+        <section class="lite-bg-primary max-w-7xl mx-auto px-5 text-center py-2 md:py-4">
+            <div class="lite-news-slider mx-auto relative overflow-hidden">
+                <div class="lite-slider-container !mb-0 relative rounded-lg">
                     <!-- Slider İtemi 1 -->
                     <div class="lite-slider-item">
                         <a href="#" class="block">
                             <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                <span class="lite-accent text-sm font-semibold">14:30</span>
+                                <span class="lite-text-accent text-sm font-semibold">14:30</span>
                                 <span
-                                    class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
+                                    class="lite-text-primary text-base font-base hover:lite-text-accent transition-colors duration-300">
                                     Teknoloji dünyasında büyük gelişme: Yapay zeka alanında yeni atılım
                                 </span>
                             </div>
@@ -343,9 +353,9 @@
                     <div class="lite-slider-item">
                         <a href="#" class="block">
                             <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                <span class="lite-accent text-sm font-semibold">13:45</span>
+                                <span class="lite-text-accent text-sm font-semibold">13:45</span>
                                 <span
-                                    class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
+                                    class="lite-text-primary text-base font-base hover:lite-text-accent transition-colors duration-300">
                                     Ekonomide son durum: Borsa endeksleri yükselişte
                                 </span>
                             </div>
@@ -356,9 +366,9 @@
                     <div class="lite-slider-item">
                         <a href="#" class="block">
                             <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                <span class="lite-accent text-sm font-semibold">12:20</span>
+                                <span class="lite-text-accent text-sm font-semibold">12:20</span>
                                 <span
-                                    class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
+                                    class="lite-text-primary text-base font-base hover:lite-text-accent transition-colors duration-300">
                                     Spor haberleri: Milli takım kampı başladı
                                 </span>
                             </div>
@@ -369,9 +379,9 @@
                     <div class="lite-slider-item">
                         <a href="#" class="block">
                             <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                <span class="lite-accent text-sm font-semibold">11:55</span>
+                                <span class="lite-text-accent text-sm font-semibold">11:55</span>
                                 <span
-                                    class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
+                                    class="lite-text-primary text-base font-base hover:lite-text-accent transition-colors duration-300">
                                     Sağlık alanında önemli araştırma sonuçları açıklandı
                                 </span>
                             </div>
@@ -382,20 +392,26 @@
                     <div class="lite-slider-item">
                         <a href="#" class="block">
                             <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                <span class="lite-accent text-sm font-semibold">10:30</span>
+                                <span class="lite-text-accent text-sm font-semibold">10:30</span>
                                 <span
-                                    class="lite-text-primary text-base font-base hover:lite-accent transition-colors duration-300">
+                                    class="lite-text-primary text-base font-base hover:lite-text-accent transition-colors duration-300">
                                     Eğitim reformu ile ilgili yeni kararlar alındı
                                 </span>
                             </div>
                         </a>
                     </div>
+
+
+                </div>
+                <div
+                    class="lite-bg-accent px-4 py-3 h-full rounded-s-lg flex items-center justify-center w-36 absolute top-0 left-0 hidden md:block">
+                    <h3 class="lite-text-third font-semibold text-lg  leading-tight">Son Dakika</h3>
                 </div>
             </div>
 
 
         </section>
-        <section class="max-w-6xl mx-auto px-5 text-center py-2 md:py-8">
+        <section class="max-w-7xl mx-auto px-5 text-center py-2 md:py-4">
             <div class="lite-cards-slider">
 
                 <div class="lite-cards-container">
@@ -408,16 +424,16 @@
                                 <div class="relative overflow-hidden">
                                     <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                         alt="Teknoloji Haberi"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     </div>
                                 </div>
                                 <div class="p-4">
                                     <h4
-                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                         Yapay Zeka Teknolojisinde Çığır Açan Yenilik</h4>
-                                    <p class="lite-text-secondary text-sm mb-3 line-clamp-2">Teknoloji
+                                    <p class="lite-text-secondary text-xs mb-3 line-clamp-2">Teknoloji
                                         devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
                                         büyük değişimlere yol açmaya hazırlanıyor.</p>
                                     <div class="flex items-center justify-between text-xs lite-text-secondary">
@@ -442,16 +458,16 @@
                                 <div class="relative overflow-hidden">
                                     <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                         alt="Teknoloji Haberi"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     </div>
                                 </div>
                                 <div class="p-4">
                                     <h4
-                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                         Yapay Zeka Teknolojisinde Çığır Açan Yenilik</h4>
-                                    <p class="lite-text-secondary text-sm mb-3 line-clamp-2">Teknoloji
+                                    <p class="lite-text-secondary text-xs mb-3 line-clamp-2">Teknoloji
                                         devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
                                         büyük değişimlere yol açmaya hazırlanıyor.</p>
                                     <div class="flex items-center justify-between text-xs lite-text-secondary">
@@ -476,16 +492,16 @@
                                 <div class="relative overflow-hidden">
                                     <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                         alt="Teknoloji Haberi"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     </div>
                                 </div>
                                 <div class="p-4">
                                     <h4
-                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                         Yapay Zeka Teknolojisinde Çığır Açan Yenilik</h4>
-                                    <p class="lite-text-secondary text-sm mb-3 line-clamp-2">Teknoloji
+                                    <p class="lite-text-secondary text-xs mb-3 line-clamp-2">Teknoloji
                                         devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
                                         büyük değişimlere yol açmaya hazırlanıyor.</p>
                                     <div class="flex items-center justify-between text-xs lite-text-secondary">
@@ -510,16 +526,16 @@
                                 <div class="relative overflow-hidden">
                                     <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                         alt="Teknoloji Haberi"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     </div>
                                 </div>
                                 <div class="p-4">
                                     <h4
-                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                         Yapay Zeka Teknolojisinde Çığır Açan Yenilik</h4>
-                                    <p class="lite-text-secondary text-sm mb-3 line-clamp-2">Teknoloji
+                                    <p class="lite-text-secondary text-xs mb-3 line-clamp-2">Teknoloji
                                         devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
                                         büyük değişimlere yol açmaya hazırlanıyor.</p>
                                     <div class="flex items-center justify-between text-xs lite-text-secondary">
@@ -544,16 +560,16 @@
                                 <div class="relative overflow-hidden">
                                     <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                         alt="Teknoloji Haberi"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     </div>
                                 </div>
                                 <div class="p-4">
                                     <h4
-                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                         Yapay Zeka Teknolojisinde Çığır Açan Yenilik</h4>
-                                    <p class="lite-text-secondary text-sm mb-3 line-clamp-2">Teknoloji
+                                    <p class="lite-text-secondary text-xs mb-3 line-clamp-2">Teknoloji
                                         devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
                                         büyük değişimlere yol açmaya hazırlanıyor.</p>
                                     <div class="flex items-center justify-between text-xs lite-text-secondary">
@@ -578,16 +594,16 @@
                                 <div class="relative overflow-hidden">
                                     <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                         alt="Teknoloji Haberi"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     </div>
                                 </div>
                                 <div class="p-4">
                                     <h4
-                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                         Yapay Zeka Teknolojisinde Çığır Açan Yenilik</h4>
-                                    <p class="lite-text-secondary text-sm mb-3 line-clamp-2">Teknoloji
+                                    <p class="lite-text-secondary text-xs mb-3 line-clamp-2">Teknoloji
                                         devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
                                         büyük değişimlere yol açmaya hazırlanıyor.</p>
                                     <div class="flex items-center justify-between text-xs lite-text-secondary">
@@ -612,16 +628,16 @@
                                 <div class="relative overflow-hidden">
                                     <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                         alt="Teknoloji Haberi"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     </div>
                                 </div>
                                 <div class="p-4">
                                     <h4
-                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                         Yapay Zeka Teknolojisinde Çığır Açan Yenilik</h4>
-                                    <p class="lite-text-secondary text-sm mb-3 line-clamp-2">Teknoloji
+                                    <p class="lite-text-secondary text-xs mb-3 line-clamp-2">Teknoloji
                                         devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
                                         büyük değişimlere yol açmaya hazırlanıyor.</p>
                                     <div class="flex items-center justify-between text-xs lite-text-secondary">
@@ -646,16 +662,16 @@
                                 <div class="relative overflow-hidden">
                                     <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                         alt="Teknoloji Haberi"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     </div>
                                 </div>
                                 <div class="p-4">
                                     <h4
-                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                         Yapay Zeka Teknolojisinde Çığır Açan Yenilik</h4>
-                                    <p class="lite-text-secondary text-sm mb-3 line-clamp-2">Teknoloji
+                                    <p class="lite-text-secondary text-xs mb-3 line-clamp-2">Teknoloji
                                         devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
                                         büyük değişimlere yol açmaya hazırlanıyor.</p>
                                     <div class="flex items-center justify-between text-xs lite-text-secondary">
@@ -680,16 +696,16 @@
                                 <div class="relative overflow-hidden">
                                     <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                         alt="Teknoloji Haberi"
-                                        class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                        class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                                     <div
                                         class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                     </div>
                                 </div>
                                 <div class="p-4">
                                     <h4
-                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                         Yapay Zeka Teknolojisinde Çığır Açan Yenilik</h4>
-                                    <p class="lite-text-secondary text-sm mb-3 line-clamp-2">Teknoloji
+                                    <p class="lite-text-secondary text-xs mb-3 line-clamp-2">Teknoloji
                                         devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
                                         büyük değişimlere yol açmaya hazırlanıyor.</p>
                                     <div class="flex items-center justify-between text-xs lite-text-secondary">
@@ -710,12 +726,7 @@
             </div>
         </section>
         <!-- Manşet Bölümü -->
-        <section class="max-w-6xl mx-auto px-5 py-8">
-            <!-- Manşet Başlığı -->
-            <!-- <div class="mb-6">
-                <h2 class="text-2xl md:text-3xl font-bold lite-text-primary mb-2">Manşet</h2>
-                <div class="w-16 h-1 lite-bg-accent rounded-full"></div>
-            </div> -->
+        <section class="max-w-7xl mx-auto px-5 py-4">
 
             <!-- Manşet İçeriği -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -726,9 +737,10 @@
                             <!-- Manşet Haberi 1 -->
                             <div class="lite-manset-item">
                                 <a href="#" class="block group">
-                                    <div class="relative overflow-hidden rounded-lg">
+                                    <div
+                                        class="relative overflow-hidden rounded-lg  h-[400px] md:h-[500px] lg:h-[600px] object-cover">
                                         <img src="https://picsum.photos/1920/1080" alt="Manşet Haberi"
-                                            class="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover transition-transform duration-500 group-hover:scale-105">
+                                            class="h-full  transition-transform duration-500 group-hover:scale-105">
                                         <div
                                             class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
                                         </div>
@@ -885,7 +897,7 @@
                                 </div>
                                 <div class="p-4">
                                     <h4
-                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                         Otomotiv sektöründe elektrikli araç satışları rekor kırıyor
                                     </h4>
                                     <p class="lite-text-secondary text-xs mb-3 line-clamp-2">Bu yıl elektrikli araç
@@ -909,7 +921,7 @@
                                 </div>
                                 <div class="p-4">
                                     <h4
-                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                        class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                         Turizm sezonu başladı: Rezervasyonlar beklentileri aştı
                                     </h4>
                                     <p class="lite-text-secondary text-xs mb-3 line-clamp-2">Yaz turizm sezonunda
@@ -924,7 +936,7 @@
             </div>
         </section>
         <!-- Yazarlar Alanı -->
-        <section class="max-w-6xl mx-auto px-5 py-8">
+        <section class="max-w-7xl mx-auto px-5 py-4">
             <!-- Yazarlar Başlığı -->
             <div class="flex items-center justify-between gap-2">
                 <div class="">
@@ -958,7 +970,7 @@
                                         <!-- Sol taraf - Yazı İçeriği -->
                                         <div class="flex-1">
                                             <h3
-                                                class="font-semibold lite-text-primary text-base mb-2 group-hover:lite-accent transition-colors duration-300">
+                                                class="font-semibold lite-text-primary text-base mb-2 group-hover:lite-text-accent transition-colors duration-300">
                                                 Teknolojinin Geleceği ve Yapay Zeka
                                             </h3>
                                             <p class="lite-text-secondary text-sm font-medium">
@@ -988,7 +1000,7 @@
                                     <div class="flex items-center justify-between gap-4">
                                         <div class="flex-1">
                                             <h3
-                                                class="font-semibold lite-text-primary text-base mb-2 group-hover:lite-accent transition-colors duration-300">
+                                                class="font-semibold lite-text-primary text-base mb-2 group-hover:lite-text-accent transition-colors duration-300">
                                                 Ekonomideki Son Gelişmeler
                                             </h3>
                                             <p class="lite-text-secondary text-sm font-medium">
@@ -1017,7 +1029,7 @@
                                     <div class="flex items-center justify-between gap-4">
                                         <div class="flex-1">
                                             <h3
-                                                class="font-semibold lite-text-primary text-base mb-2 group-hover:lite-accent transition-colors duration-300">
+                                                class="font-semibold lite-text-primary text-base mb-2 group-hover:lite-text-accent transition-colors duration-300">
                                                 Spor Dünyasından Haberler
                                             </h3>
                                             <p class="lite-text-secondary text-sm font-medium">
@@ -1046,7 +1058,7 @@
                                     <div class="flex items-center justify-between gap-4">
                                         <div class="flex-1">
                                             <h3
-                                                class="font-semibold lite-text-primary text-base mb-2 group-hover:lite-accent transition-colors duration-300">
+                                                class="font-semibold lite-text-primary text-base mb-2 group-hover:lite-text-accent transition-colors duration-300">
                                                 Sağlıklı Yaşam Önerileri
                                             </h3>
                                             <p class="lite-text-secondary text-sm font-medium">
@@ -1075,7 +1087,7 @@
                                     <div class="flex items-center justify-between gap-4">
                                         <div class="flex-1">
                                             <h3
-                                                class="font-semibold lite-text-primary text-base mb-2 group-hover:lite-accent transition-colors duration-300">
+                                                class="font-semibold lite-text-primary text-base mb-2 group-hover:lite-text-accent transition-colors duration-300">
                                                 Kültür ve Sanat Yazıları
                                             </h3>
                                             <p class="lite-text-secondary text-sm font-medium">
@@ -1104,7 +1116,7 @@
                                     <div class="flex items-center justify-between gap-4">
                                         <div class="flex-1">
                                             <h3
-                                                class="font-semibold lite-text-primary text-base mb-2 group-hover:lite-accent transition-colors duration-300">
+                                                class="font-semibold lite-text-primary text-base mb-2 group-hover:lite-text-accent transition-colors duration-300">
                                                 Otomotiv ve Teknoloji
                                             </h3>
                                             <p class="lite-text-secondary text-sm font-medium">
@@ -1130,7 +1142,7 @@
         </section>
 
         <!-- Kategoriler Alanı -->
-        <section class="max-w-6xl mx-auto px-5 py-8">
+        <section class="max-w-7xl mx-auto px-5 py-4">
             <!-- Haberler Başlığı -->
             <div class="flex items-center justify-between gap-2 mb-8">
                 <div class="">
@@ -1143,7 +1155,7 @@
             </div>
 
             <!-- Haberler Listesi -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Haber Item 1 -->
                 <div
                     class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
@@ -1151,17 +1163,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                 alt="Teknoloji Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Yapay Zeka Teknolojisinde Çığır Açan Yenilik
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Teknoloji devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
                                 büyük değişimlere yol açmaya hazırlanıyor.
                             </p>
@@ -1186,17 +1198,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=250&fit=crop"
                                 alt="Ekonomi Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Borsa Endeksleri Rekor Seviyelerde
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Ekonomik göstergeler iyileşmeye devam ederken, borsa endeksleri tarihi
                                 zirvelerine ulaştı.
                             </p>
@@ -1221,17 +1233,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=400&h=250&fit=crop"
                                 alt="Spor Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Milli Takım Büyük Başarıya İmza Attı
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Olimpiyat elemelerinde gösterilen performans, spor camiasında büyük sevinç
                                 yarattı.
                             </p>
@@ -1256,17 +1268,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop"
                                 alt="Sağlık Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Sağlık Alanında Umut Verici Gelişme
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Yeni tedavi yöntemi klinik denemelerinde başarılı sonuçlar vererek hastaları
                                 umutlandırıyor.
                             </p>
@@ -1291,17 +1303,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
                                 alt="Kültür Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Kültür ve Sanat Festivali Başladı
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Şehrin en büyük kültür-sanat etkinliği, yerli ve yabancı sanatçıları bir araya
                                 getiriyor.
                             </p>
@@ -1326,17 +1338,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
                                 alt="Otomotiv Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Elektrikli Araç Satışları Artışta
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Çevre dostu ulaşım tercihlerinde artış, otomotiv sektörünü yeniden
                                 şekillendiriyor.
                             </p>
@@ -1353,217 +1365,58 @@
                         </div>
                     </a>
                 </div>
-            </div>
-        </section>
-
-        <!-- Kategoriler Alanı -->
-        <section class="max-w-6xl mx-auto px-5 py-8">
-            <!-- Haberler Başlığı -->
-            <div class="flex items-center justify-between gap-2 mb-8">
-                <div class="">
-                    <h2 class="text-2xl md:text-3xl font-bold lite-text-primary mb-2">Teknoloji</h2>
-                    <div class="w-16 h-1 lite-bg-accent rounded-full"></div>
-                </div>
-                <div class="flex items-center gap-2">
-                    <a href="#" class="lite-btn underline lite-btn-ghost lite-btn-md">Tümünü Gör</a>
-                </div>
-            </div>
-
-            <!-- Haberler Listesi -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Haber Item 1 -->
-                <div
-                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
-                    <a href="/haber/teknoloji-yapay-zeka-gelismeleri" class="block">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                alt="Teknoloji Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
-                                Yapay Zeka Teknolojisinde Çığır Açan Yenilik
-                            </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
-                                Teknoloji devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
-                                büyük değişimlere yol açmaya hazırlanıyor.
-                            </p>
-                            <div class="flex items-center justify-between text-xs lite-text-secondary">
-                                <div class="flex items-center gap-1">
-                                    <i class="ri-user-line"></i>
-                                    <span>Dr. Mehmet Yılmaz</span>
-                                </div>
-                                <div class="flex items-center gap-1">
-                                    <i class="ri-time-line"></i>
-                                    <span>2 saat önce</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Haber Item 2 -->
-                <div
-                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
-                    <a href="/haber/ekonomi-borsa-yükselisi" class="block">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=250&fit=crop"
-                                alt="Ekonomi Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
-                                Borsa Endeksleri Rekor Seviyelerde
-                            </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
-                                Ekonomik göstergeler iyileşmeye devam ederken, borsa endeksleri tarihi
-                                zirvelerine ulaştı.
-                            </p>
-                            <div class="flex items-center justify-between text-xs lite-text-secondary">
-                                <div class="flex items-center gap-1">
-                                    <i class="ri-user-line"></i>
-                                    <span>Prof. Ayşe Demir</span>
-                                </div>
-                                <div class="flex items-center gap-1">
-                                    <i class="ri-time-line"></i>
-                                    <span>4 saat önce</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Haber Item 3 -->
-                <div
-                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
-                    <a href="/haber/spor-milli-takim-basarisi" class="block">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=400&h=250&fit=crop"
-                                alt="Spor Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
-                                Milli Takım Büyük Başarıya İmza Attı
-                            </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
-                                Olimpiyat elemelerinde gösterilen performans, spor camiasında büyük sevinç
-                                yarattı.
-                            </p>
-                            <div class="flex items-center justify-between text-xs lite-text-secondary">
-                                <div class="flex items-center gap-1">
-                                    <i class="ri-user-line"></i>
-                                    <span>Emre Kaya</span>
-                                </div>
-                                <div class="flex items-center gap-1">
-                                    <i class="ri-time-line"></i>
-                                    <span>6 saat önce</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Haber Item 4 -->
-                <div
-                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
-                    <a href="/haber/saglik-yeni-tedavi-yöntemi" class="block">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop"
-                                alt="Sağlık Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
-                                Sağlık Alanında Umut Verici Gelişme
-                            </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
-                                Yeni tedavi yöntemi klinik denemelerinde başarılı sonuçlar vererek hastaları
-                                umutlandırıyor.
-                            </p>
-                            <div class="flex items-center justify-between text-xs lite-text-secondary">
-                                <div class="flex items-center gap-1">
-                                    <i class="ri-user-line"></i>
-                                    <span>Dr. Zeynep Özkan</span>
-                                </div>
-                                <div class="flex items-center gap-1">
-                                    <i class="ri-time-line"></i>
-                                    <span>8 saat önce</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Haber Item 5 -->
-                <div
-                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
-                    <a href="/haber/kültür-sanat-etkinlikleri" class="block">
-                        <div class="relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
-                                alt="Kültür Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
-                                Kültür ve Sanat Festivali Başladı
-                            </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
-                                Şehrin en büyük kültür-sanat etkinliği, yerli ve yabancı sanatçıları bir araya
-                                getiriyor.
-                            </p>
-                            <div class="flex items-center justify-between text-xs lite-text-secondary">
-                                <div class="flex items-center gap-1">
-                                    <i class="ri-user-line"></i>
-                                    <span>Elif Şahin</span>
-                                </div>
-                                <div class="flex items-center gap-1">
-                                    <i class="ri-time-line"></i>
-                                    <span>12 saat önce</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Haber Item 6 -->
+                <!-- Haber Item 7 -->
                 <div
                     class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
                     <a href="/haber/otomotiv-elektrikli-araç" class="block">
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
                                 alt="Otomotiv Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Elektrikli Araç Satışları Artışta
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Çevre dostu ulaşım tercihlerinde artış, otomotiv sektörünü yeniden
+                                şekillendiriyor.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Murat Aslan</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>1 gün önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Haber Item 8 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/otomotiv-elektrikli-araç" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+                                alt="Otomotiv Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Elektrikli Araç Satışları Artışta
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Çevre dostu ulaşım tercihlerinde artış, otomotiv sektörünü yeniden
                                 şekillendiriyor.
                             </p>
@@ -1584,7 +1437,7 @@
         </section>
 
         <!-- Kategoriler Alanı -->
-        <section class="max-w-6xl mx-auto px-5 py-8">
+        <section class="max-w-7xl mx-auto px-5 py-4">
             <!-- Haberler Başlığı -->
             <div class="flex items-center justify-between gap-2 mb-8">
                 <div class="">
@@ -1597,7 +1450,7 @@
             </div>
 
             <!-- Haberler Listesi -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Haber Item 1 -->
                 <div
                     class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
@@ -1605,17 +1458,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                 alt="Teknoloji Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Yapay Zeka Teknolojisinde Çığır Açan Yenilik
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Teknoloji devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
                                 büyük değişimlere yol açmaya hazırlanıyor.
                             </p>
@@ -1640,17 +1493,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=250&fit=crop"
                                 alt="Ekonomi Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Borsa Endeksleri Rekor Seviyelerde
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Ekonomik göstergeler iyileşmeye devam ederken, borsa endeksleri tarihi
                                 zirvelerine ulaştı.
                             </p>
@@ -1675,17 +1528,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=400&h=250&fit=crop"
                                 alt="Spor Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Milli Takım Büyük Başarıya İmza Attı
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Olimpiyat elemelerinde gösterilen performans, spor camiasında büyük sevinç
                                 yarattı.
                             </p>
@@ -1710,17 +1563,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop"
                                 alt="Sağlık Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Sağlık Alanında Umut Verici Gelişme
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Yeni tedavi yöntemi klinik denemelerinde başarılı sonuçlar vererek hastaları
                                 umutlandırıyor.
                             </p>
@@ -1745,17 +1598,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
                                 alt="Kültür Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Kültür ve Sanat Festivali Başladı
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Şehrin en büyük kültür-sanat etkinliği, yerli ve yabancı sanatçıları bir araya
                                 getiriyor.
                             </p>
@@ -1780,17 +1633,85 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
                                 alt="Otomotiv Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Elektrikli Araç Satışları Artışta
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Çevre dostu ulaşım tercihlerinde artış, otomotiv sektörünü yeniden
+                                şekillendiriyor.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Murat Aslan</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>1 gün önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Haber Item 7 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/otomotiv-elektrikli-araç" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+                                alt="Otomotiv Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Elektrikli Araç Satışları Artışta
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Çevre dostu ulaşım tercihlerinde artış, otomotiv sektörünü yeniden
+                                şekillendiriyor.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Murat Aslan</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>1 gün önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Haber Item 8 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/otomotiv-elektrikli-araç" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+                                alt="Otomotiv Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Elektrikli Araç Satışları Artışta
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Çevre dostu ulaşım tercihlerinde artış, otomotiv sektörünü yeniden
                                 şekillendiriyor.
                             </p>
@@ -1809,9 +1730,302 @@
                 </div>
             </div>
         </section>
-
         <!-- Kategoriler Alanı -->
-        <section class="max-w-6xl mx-auto px-5 py-8">
+        <section class="max-w-7xl mx-auto px-5 py-4">
+            <!-- Haberler Başlığı -->
+            <div class="flex items-center justify-between gap-2 mb-8">
+                <div class="">
+                    <h2 class="text-2xl md:text-3xl font-bold lite-text-primary mb-2">Teknoloji</h2>
+                    <div class="w-16 h-1 lite-bg-accent rounded-full"></div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="#" class="lite-btn underline lite-btn-ghost lite-btn-md">Tümünü Gör</a>
+                </div>
+            </div>
+
+            <!-- Haberler Listesi -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Haber Item 1 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/teknoloji-yapay-zeka-gelismeleri" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
+                                alt="Teknoloji Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Yapay Zeka Teknolojisinde Çığır Açan Yenilik
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Teknoloji devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
+                                büyük değişimlere yol açmaya hazırlanıyor.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Dr. Mehmet Yılmaz</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>2 saat önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Haber Item 2 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/ekonomi-borsa-yükselisi" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=250&fit=crop"
+                                alt="Ekonomi Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Borsa Endeksleri Rekor Seviyelerde
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Ekonomik göstergeler iyileşmeye devam ederken, borsa endeksleri tarihi
+                                zirvelerine ulaştı.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Prof. Ayşe Demir</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>4 saat önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Haber Item 3 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/spor-milli-takim-basarisi" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=400&h=250&fit=crop"
+                                alt="Spor Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Milli Takım Büyük Başarıya İmza Attı
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Olimpiyat elemelerinde gösterilen performans, spor camiasında büyük sevinç
+                                yarattı.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Emre Kaya</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>6 saat önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Haber Item 4 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/saglik-yeni-tedavi-yöntemi" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop"
+                                alt="Sağlık Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Sağlık Alanında Umut Verici Gelişme
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Yeni tedavi yöntemi klinik denemelerinde başarılı sonuçlar vererek hastaları
+                                umutlandırıyor.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Dr. Zeynep Özkan</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>8 saat önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Haber Item 5 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/kültür-sanat-etkinlikleri" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+                                alt="Kültür Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Kültür ve Sanat Festivali Başladı
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Şehrin en büyük kültür-sanat etkinliği, yerli ve yabancı sanatçıları bir araya
+                                getiriyor.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Elif Şahin</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>12 saat önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Haber Item 6 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/otomotiv-elektrikli-araç" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+                                alt="Otomotiv Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Elektrikli Araç Satışları Artışta
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Çevre dostu ulaşım tercihlerinde artış, otomotiv sektörünü yeniden
+                                şekillendiriyor.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Murat Aslan</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>1 gün önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Haber Item 7 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/otomotiv-elektrikli-araç" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+                                alt="Otomotiv Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Elektrikli Araç Satışları Artışta
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Çevre dostu ulaşım tercihlerinde artış, otomotiv sektörünü yeniden
+                                şekillendiriyor.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Murat Aslan</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>1 gün önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Haber Item 8 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/otomotiv-elektrikli-araç" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+                                alt="Otomotiv Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Elektrikli Araç Satışları Artışta
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Çevre dostu ulaşım tercihlerinde artış, otomotiv sektörünü yeniden
+                                şekillendiriyor.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Murat Aslan</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>1 gün önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Kategoriler Alanı -->
+        <section class="max-w-7xl mx-auto px-5 py-4">
             <!-- Haberler Başlığı -->
             <div class="flex items-center justify-between gap-2 mb-8">
                 <div class="">
@@ -1824,7 +2038,7 @@
             </div>
 
             <!-- Haberler Listesi -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Haber Item 1 -->
                 <div
                     class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
@@ -1832,17 +2046,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                 alt="Teknoloji Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Yapay Zeka Teknolojisinde Çığır Açan Yenilik
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Teknoloji devleri tarafından geliştirilen yeni yapay zeka modeli, endüstride
                                 büyük değişimlere yol açmaya hazırlanıyor.
                             </p>
@@ -1867,17 +2081,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=250&fit=crop"
                                 alt="Ekonomi Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Borsa Endeksleri Rekor Seviyelerde
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Ekonomik göstergeler iyileşmeye devam ederken, borsa endeksleri tarihi
                                 zirvelerine ulaştı.
                             </p>
@@ -1902,17 +2116,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=400&h=250&fit=crop"
                                 alt="Spor Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Milli Takım Büyük Başarıya İmza Attı
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Olimpiyat elemelerinde gösterilen performans, spor camiasında büyük sevinç
                                 yarattı.
                             </p>
@@ -1937,17 +2151,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop"
                                 alt="Sağlık Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Sağlık Alanında Umut Verici Gelişme
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Yeni tedavi yöntemi klinik denemelerinde başarılı sonuçlar vererek hastaları
                                 umutlandırıyor.
                             </p>
@@ -1972,17 +2186,17 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
                                 alt="Kültür Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Kültür ve Sanat Festivali Başladı
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Şehrin en büyük kültür-sanat etkinliği, yerli ve yabancı sanatçıları bir araya
                                 getiriyor.
                             </p>
@@ -2007,17 +2221,85 @@
                         <div class="relative overflow-hidden">
                             <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
                                 alt="Otomotiv Haberi"
-                                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
                         </div>
                         <div class="p-4">
                             <h4
-                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-accent transition-colors duration-300">
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
                                 Elektrikli Araç Satışları Artışta
                             </h4>
-                            <p class="lite-text-secondary text-sm mb-3 line-clamp-2">
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Çevre dostu ulaşım tercihlerinde artış, otomotiv sektörünü yeniden
+                                şekillendiriyor.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Murat Aslan</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>1 gün önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Haber Item 7 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/otomotiv-elektrikli-araç" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+                                alt="Otomotiv Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Elektrikli Araç Satışları Artışta
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
+                                Çevre dostu ulaşım tercihlerinde artış, otomotiv sektörünü yeniden
+                                şekillendiriyor.
+                            </p>
+                            <div class="flex items-center justify-between text-xs lite-text-secondary">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-user-line"></i>
+                                    <span>Murat Aslan</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-time-line"></i>
+                                    <span>1 gün önce</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Haber Item 8 -->
+                <div
+                    class="lite-news-item lite-bg-secondary border lite-border rounded-lg overflow-hidden group hover:shadow-lg transition-all duration-300">
+                    <a href="/haber/otomotiv-elektrikli-araç" class="block">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop"
+                                alt="Otomotiv Haberi"
+                                class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4
+                                class="lite-text-primary font-semibold text-lg mb-2 leading-tight group-hover:lite-text-accent transition-colors duration-300">
+                                Elektrikli Araç Satışları Artışta
+                            </h4>
+                            <p class="lite-text-secondary text-xs mb-3 line-clamp-2">
                                 Çevre dostu ulaşım tercihlerinde artış, otomotiv sektörünü yeniden
                                 şekillendiriyor.
                             </p>
@@ -2036,8 +2318,10 @@
                 </div>
             </div>
         </section>
+
+
         <!--Öne Çıkanlar Alanı-->
-        <section class="max-w-6xl mx-auto px-5 py-8">
+        <section class="max-w-7xl mx-auto px-5 py-4">
             <!-- Başlık -->
             <div class="mb-8 flex flex-col items-center justify-center">
                 <h2 class="text-2xl md:text-3xl font-bold lite-text-primary mb-2">Öne Çıkan Haberler</h2>
@@ -2050,7 +2334,7 @@
                 <div class="space-y-3 lg:border-r border-b lg:border-b-0 lite-border pr-0 lg:pr-4 pb-4 lg:pb-0">
 
                     <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2066,7 +2350,7 @@
                         </div>
                     </a>
                     <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2080,8 +2364,9 @@
                                 önemli
                                 oturumlar düzenleniyor</span>
                         </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                    </a>
+                    <a href="/haber/siyaset-gelismeleri"
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2095,8 +2380,9 @@
                                 önemli
                                 oturumlar düzenleniyor</span>
                         </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                    </a>
+                    <a href="/haber/siyaset-gelismeleri"
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2110,113 +2396,9 @@
                                 önemli
                                 oturumlar düzenleniyor</span>
                         </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                    </a>
+                    <a href="/haber/siyaset-gelismeleri"
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2236,7 +2418,7 @@
                 <div class="space-y-3 lg:border-r border-b lg:border-b-0 lite-border pr-0 lg:pr-4 pb-4 lg:pb-0">
 
                     <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2252,7 +2434,7 @@
                         </div>
                     </a>
                     <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2266,8 +2448,9 @@
                                 önemli
                                 oturumlar düzenleniyor</span>
                         </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                    </a>
+                    <a href="/haber/siyaset-gelismeleri"
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2281,8 +2464,9 @@
                                 önemli
                                 oturumlar düzenleniyor</span>
                         </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                    </a>
+                    <a href="/haber/siyaset-gelismeleri"
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2296,113 +2480,9 @@
                                 önemli
                                 oturumlar düzenleniyor</span>
                         </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                    </a>
+                    <a href="/haber/siyaset-gelismeleri"
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2422,7 +2502,7 @@
                 <div class="space-y-3">
 
                     <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2438,7 +2518,7 @@
                         </div>
                     </a>
                     <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2452,8 +2532,9 @@
                                 önemli
                                 oturumlar düzenleniyor</span>
                         </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                    </a>
+                    <a href="/haber/siyaset-gelismeleri"
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2467,8 +2548,9 @@
                                 önemli
                                 oturumlar düzenleniyor</span>
                         </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                    </a>
+                    <a href="/haber/siyaset-gelismeleri"
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
@@ -2482,113 +2564,9 @@
                                 önemli
                                 oturumlar düzenleniyor</span>
                         </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
-                        <div class="flex-shrink-0">
-                            <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
-                                <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
-                                    alt="Murat Aslan"
-                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                            </div>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-sm lite-text-primary ">Siyasette yeni gelişmeler yaşanıyor: Meclis'te
-                                önemli
-                                oturumlar düzenleniyor</span>
-                        </div>
-                    </a> <a href="/haber/siyaset-gelismeleri"
-                        class="lite-news-link block py-2 hover:lite-accent flex items-center justify-center gap-4">
+                    </a>
+                    <a href="/haber/siyaset-gelismeleri"
+                        class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
                                 class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">

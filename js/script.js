@@ -252,8 +252,8 @@ $(document).ready(function () {
             infinite: true,
             arrows: false,
             dots: true,
-            slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToShow: 4,
+            slidesToScroll: 4,
             adaptiveHeight: false,
             cssEase: 'ease',
             responsive: [
@@ -317,7 +317,7 @@ $(document).ready(function () {
 
         let progress = 0;
         const targetProgress = 100;
-        const duration = 1000; 
+        const duration = 1000;
         const startTime = performance.now();
 
         function updateProgress(currentTime) {

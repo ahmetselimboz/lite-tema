@@ -11,6 +11,8 @@
     --lite-bg-secondary: #ffffff;
     /* Beyaz kartlar */
     --lite-text-secondary: #4a5568;
+
+    --lite-text-third: #fafafa;
     /* Açık gri yazılar */
     --lite-border: #e2e8f0;
     /* Açık gri borderlar */
@@ -22,6 +24,7 @@
     --lite-dark-bg-secondary: #2d3748;
     --lite-dark-text-secondary: #cbd5e0;
     --lite-dark-border: #4a5568;
+    --lite-dark-text-third: #fafafa;
 }
 
 [data-theme="dark"] {
@@ -31,6 +34,7 @@
     --lite-bg-secondary: var(--lite-dark-bg-secondary);
     --lite-text-secondary: var(--lite-dark-text-secondary);
     --lite-border: var(--lite-dark-border);
+    --lite-text-third: var(--lite-dark-text-third);
 }
 
 /* Custom Animations */
@@ -111,7 +115,11 @@
     color: var(--lite-text-secondary);
 }
 
-.lite-accent {
+.lite-text-third {
+    color: var(--lite-text-third);
+}
+
+.lite-text-accent {
     color: var(--lite-accent-primary);
 }
 
@@ -504,16 +512,10 @@
 /* News Slider Styles */
 .lite-news-slider {
     position: relative;
-
-
-    padding: 8px 0;
-    /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--lite-border); */
 }
 
 .lite-slider-container {
-    border-top: 1px solid var(--lite-border);
-    border-bottom: 1px solid var(--lite-border);
+    border: 1px solid var(--lite-border);
     overflow: hidden;
 }
 
@@ -609,10 +611,10 @@
 }
 
 .lite-manset-item img {
-    width: 100%;
+    /* width: 100%;
     max-width: 800px;
     height: 600px;
-    object-fit: cover;
+    object-fit: cover; */
 }
 
 .lite-manset-slider .slick-prev,
