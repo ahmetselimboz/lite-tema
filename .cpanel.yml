@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/vmgmedya/lite.theme/
+    - /bin/cp -R * $DEPLOYPATH
