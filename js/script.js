@@ -161,6 +161,9 @@ $(document).ready(function () {
     // Yazarlar Slider başlat
     initializeAuthorsSlider();
 
+    // Cards Slider başlatma fonksiyonu
+    initializeCardsSlider();
+
     function initializeTheme() {
         // LocalStorage'dan tema tercihi al
         const savedTheme = localStorage.getItem('lite-theme');
@@ -253,7 +256,7 @@ $(document).ready(function () {
             slidesToShow: 3,
             slidesToScroll: 1,
             autoplay: false,
-            arrows: false, // Default arrows'u kapatıyoruz
+            arrows: false, 
             responsive: [
                 {
                     breakpoint: 1024,
@@ -286,6 +289,29 @@ $(document).ready(function () {
         console.log('Yazarlar Slider başlatıldı');
     }
 
+    function initializeCardsSlider() {
+        $('.lite-cards-container').slick({
+            infinite: true,
+            arrows: false,
+            dots: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            adaptiveHeight: false,
+            cssEase: 'ease',
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+        console.log('Cards Slider başlatıldı');
+    }
+
     // Smooth scrolling için
     $('a[href^="#"]').click(function (e) {
         e.preventDefault();
@@ -299,57 +325,3 @@ $(document).ready(function () {
 
 });
 
-// Lite Cards Slider (3'erli kayar, ok yok, solda numarali noktalar)
-(function () {
-    var slider = document.querySelector('.lite-cards-slider');
-    if (!slider) return;
-
-    var dots = slider.querySelectorAll('.lite-cards-dots .lite-dot');
-    var track = slider.querySelector('.lite-cards-track');
-    var slides = slider.querySelectorAll('.lite-cards-slide');
-    var current = 0;
-    var total = slides.length; // 3
-
-    function update() {
-        var offset = -(current * 100);
-        track.style.transform = 'translateX(' + offset + '%)';
-        dots.forEach(function (btn, idx) {
-            btn.classList.toggle('is-active', idx === current);
-            btn.setAttribute('aria-current', idx === current ? 'true' : 'false');
-        });
-    }
-
-    dots.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            var idx = parseInt(btn.getAttribute('data-slide'), 10) || 0;
-            if (idx < 0 || idx >= total) return;
-            current = idx;
-            update();
-        });
-    });
-
-    // Swipe/drag (opsiyonel basitlikte)
-    var startX = 0;
-    var isDown = false;
-
-    slider.addEventListener('pointerdown', function (e) {
-        isDown = true;
-        startX = e.clientX;
-    });
-    window.addEventListener('pointerup', function (e) {
-        if (!isDown) return;
-        isDown = false;
-        var diff = e.clientX - startX;
-        if (Math.abs(diff) > 50) {
-            if (diff < 0 && current < total - 1) {
-                current++;
-            } else if (diff > 0 && current > 0) {
-                current--;
-            }
-            update();
-        }
-    });
-
-    // İlk yükleme
-    update();
-})();
