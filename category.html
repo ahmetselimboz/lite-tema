@@ -7,6 +7,7 @@
     <title>Lite Tema - Kategori</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pagination.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
@@ -330,7 +331,7 @@
         <!-- Kategoriler Alanı -->
         <section class="max-w-7xl mx-auto px-5 py-4">
             <!-- Haberler Başlığı -->
-            <div class="flex items-center justify-between gap-2 mb-8">
+            <div class="flex items-center justify-between gap-2 my-8">
                 <div class="">
                     <h2 class="text-2xl md:text-3xl font-bold lite-text-primary mb-2">Gündem</h2>
                     <div class="w-16 h-1 lite-bg-accent rounded-full"></div>
@@ -951,6 +952,74 @@
                 </div>
             </div>
         </section>
+        <!-- Pagination -->
+        <div class="lite-bg-secondary rounded-lg border lite-border p-6 mt-8">
+            <div class="flex flex-col md:flex-row items-center justify-between hidden lg:block gap-4">
+                <!-- Sol taraf - Sayfa bilgisi -->
+                <div class="lite-text-secondary text-sm">
+                    <span>Toplam <strong class="lite-text-primary">1,234</strong> sonuçtan <strong
+                            class="lite-text-primary">1-20</strong> arası gösteriliyor</span>
+                </div>
+
+                <!-- Orta - Pagination -->
+                <nav class="flex items-center gap-1" aria-label="Pagination">
+                    <!-- İlk sayfa -->
+                    <a href="#" class="lite-pagination-btn lite-pagination-disabled" aria-label="İlk sayfa">
+                        <i class="ri-skip-back-line"></i>
+                    </a>
+
+                    <!-- Önceki sayfa -->
+                    <a href="#" class="lite-pagination-btn lite-pagination-disabled" aria-label="Önceki sayfa">
+                        <i class="ri-arrow-left-s-line"></i>
+                    </a>
+
+                    <!-- Sayfa numaraları -->
+                    <a href="#" class="lite-pagination-btn lite-pagination-active">1</a>
+                    <a href="#" class="lite-pagination-btn">2</a>
+                    <a href="#" class="lite-pagination-btn">3</a>
+                    <span class="lite-pagination-dots">...</span>
+                    <a href="#" class="lite-pagination-btn">8</a>
+                    <a href="#" class="lite-pagination-btn">9</a>
+                    <a href="#" class="lite-pagination-btn">10</a>
+
+                    <!-- Sonraki sayfa -->
+                    <a href="#" class="lite-pagination-btn" aria-label="Sonraki sayfa">
+                        <i class="ri-arrow-right-s-line"></i>
+                    </a>
+
+                    <!-- Son sayfa -->
+                    <a href="#" class="lite-pagination-btn" aria-label="Son sayfa">
+                        <i class="ri-skip-forward-line"></i>
+                    </a>
+                </nav>
+
+                <!-- Sağ taraf - Sayfa seçici -->
+                <div class="flex items-center gap-2 text-sm lite-text-secondary">
+                    <span>Sayfa başına:</span>
+                    <select
+                        class="lite-bg-primary lite-text-primary border lite-border rounded-md px-2 py-1 text-sm outline-none focus:border-red-500">
+                        <option value="20" selected>20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Mobil için basitleştirilmiş pagination -->
+            <div class="md:hidden border-t lite-border ">
+                <div class="flex items-center justify-center gap-2">
+                    <button class="lite-btn lite-btn-outline lite-btn-sm" disabled>
+                        <i class="ri-arrow-left-line"></i>
+                        Önceki
+                    </button>
+                    <span class="px-4 py-2 lite-text-primary font-medium">1 / 10</span>
+                    <button class="lite-btn lite-btn-outline lite-btn-sm">
+                        Sonraki
+                        <i class="ri-arrow-right-line"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </main>
     <!-- Footer -->
     <footer class="lite-bg-secondary border-t lite-border mt-16">
