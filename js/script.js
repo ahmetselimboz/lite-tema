@@ -288,6 +288,7 @@ $(document).ready(function () {
 
         console.log('Cards Slider başlatıldı');
     }
+
     function initializeGallerySlider() {
         $('.lite-gallery-container').slick({
             infinite: true,
@@ -297,10 +298,7 @@ $(document).ready(function () {
             slidesToScroll: 2,
             adaptiveHeight: false,
             cssEase: 'cubic-bezier(0.4, 0, 0.2, 1)',
-            autoplay: true,
-            autoplaySpeed: 4000,
-            pauseOnHover: true,
-            pauseOnFocus: true,
+            autoplay: false,
             speed: 600,
             responsive: [
                 {
