@@ -56,6 +56,13 @@ $(document).ready(function () {
         $popup.toggleClass('opacity-0 invisible -translate-y-2 opacity-100 visible translate-y-0');
     });
 
+    // Bildirim popup toggle işlevi
+    $('#liteWhatsappToggle').click(function (e) {
+        e.stopPropagation();
+        const $popup = $('#liteWhatsappPopup');
+        $popup.toggleClass('opacity-0 invisible -translate-y-2 opacity-100 visible translate-y-0');
+    });
+
     // Tema toggle işlevi
     $('#liteThemeToggle').click(function () {
         toggleTheme();
@@ -111,6 +118,14 @@ $(document).ready(function () {
         }
     });
 
+    // Popup dışına tıklandığında popup'ı kapat
+    $(document).click(function (e) {
+        if (!$(e.target).closest('#liteWhatsappPopup, #liteWhatsappToggle').length) {
+            const $popup = $('#liteWhatsappPopup');
+            $popup.removeClass('opacity-100 visible translate-y-0').addClass('opacity-0 invisible -translate-y-2');
+        }
+    });
+
     // Arama kutusunda Enter tuşu
     $('#liteSearchInput').keypress(function (e) {
         if (e.which === 13) {
@@ -146,6 +161,10 @@ $(document).ready(function () {
             // Bildirimi kapat
             const $popup = $('#liteNotificationPopup');
             $popup.removeClass('opacity-100 visible translate-y-0').addClass('opacity-0 invisible -translate-y-2');
+
+            // Whatsapp kutusunu kapat
+            const $popupWhatsapp = $('#liteWhatsappPopup');
+            $popupWhatsapp.removeClass('opacity-100 visible translate-y-0').addClass('opacity-0 invisible -translate-y-2');
         }
     });
 
@@ -269,6 +288,49 @@ $(document).ready(function () {
 
         console.log('Cards Slider başlatıldı');
     }
+    function initializeGallerySlider() {
+        $('.lite-gallery-container').slick({
+            infinite: true,
+            arrows: false,
+            dots: true,
+            slidesToShow: 4,
+            slidesToScroll: 2,
+            adaptiveHeight: false,
+            cssEase: 'cubic-bezier(0.4, 0, 0.2, 1)',
+            autoplay: true,
+            autoplaySpeed: 4000,
+            pauseOnHover: true,
+            pauseOnFocus: true,
+            speed: 600,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        autoplaySpeed: 3000
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        autoplaySpeed: 3000
+                    }
+                }
+            ]
+        });
+
+        console.log('Gallery Slider başlatıldı');
+    }
 
     function initializeTheme() {
         // LocalStorage'dan tema tercihi al
@@ -373,6 +435,9 @@ $(document).ready(function () {
 
     // Cards Slider başlatma fonksiyonu
     initializeCardsSlider();
+
+    // Gallery Slider başlatma fonksiyonu
+    initializeGallerySlider();
 
 
     // Global tema değiştirme fonksiyonu
