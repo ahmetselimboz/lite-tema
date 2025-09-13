@@ -7,6 +7,7 @@
     --lite-text-primary: #2d3748;
     /* Koyu gri yazılar */
     --lite-accent-primary: #e53e3e;
+    --lite-accent-border: #e53e3e;
     /* Kırmızı detaylar */
     --lite-bg-secondary: #ffffff;
     /* Beyaz kartlar */
@@ -21,6 +22,7 @@
     --lite-dark-bg-primary: #1a202c;
     --lite-dark-text-primary: #f7fafc;
     --lite-dark-accent-primary: #fc8181;
+    --lite-dark-accent-border: #fc8181;
     --lite-dark-bg-secondary: #2d3748;
     --lite-dark-text-secondary: #cbd5e0;
     --lite-dark-border: #4a5568;
@@ -31,6 +33,7 @@
     --lite-bg-primary: var(--lite-dark-bg-primary);
     --lite-text-primary: var(--lite-dark-text-primary);
     --lite-accent-primary: var(--lite-dark-accent-primary);
+    --lite-accent-border: var(--lite-dark-accent-border);
     --lite-bg-secondary: var(--lite-dark-bg-secondary);
     --lite-text-secondary: var(--lite-dark-text-secondary);
     --lite-border: var(--lite-dark-border);
@@ -125,6 +128,10 @@
 
 .lite-bg-accent {
     background-color: var(--lite-accent-primary);
+}
+
+.lite-accent-border {
+    border-color: var(--lite-accent-border);
 }
 
 .lite-border {
@@ -1137,7 +1144,7 @@
     height: 100%;
     background: linear-gradient(90deg,
             var(--lite-accent-primary) 0%,
-            #dc2626 50%,
+            var(--lite-accent-primary) 50%,
             var(--lite-accent-primary) 100%);
     border-radius: 2px;
     position: relative;

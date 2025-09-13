@@ -48,7 +48,16 @@
                         '15': '60px',
                     }
                 }
-            }
+            },
+            plugins: [
+                function ({ addUtilities }) {
+                    addUtilities({
+                        '.lite-accent-border': {
+                            borderColor: 'var(--lite-accent-border)',
+                        },
+                    }, ['responsive', 'hover', 'focus']);
+                }
+            ]
         }
     </script>
 </head>
@@ -155,7 +164,7 @@
             </button>
 
             <!-- User Butonu -->
-            <button class="lite-hover-accent p-2 rounded-md transition-all duration-300 text-xl" >
+            <button class="lite-hover-accent p-2 rounded-md transition-all duration-300 text-xl">
                 <i class="ri-user-line"></i>
             </button>
 
@@ -290,7 +299,7 @@
         id="liteSearchContainer">
         <div class="w-full max-w-2xl mx-auto relative">
             <input type="text"
-                class="w-full px-4 py-3 pr-12 border-2 lite-border rounded-lg text-base lite-bg-primary lite-text-primary outline-none transition-all duration-300 focus:border-red-500"
+                class="w-full px-4 py-3 pr-12 border-2 lite-border rounded-lg text-base lite-bg-primary lite-text-primary outline-none transition-all duration-300 focus:lite-accent-border"
                 placeholder="Haber ara..." id="liteSearchInput">
             <button
                 class="absolute right-2 top-1/2 transform -translate-y-1/2 lite-bg-accent text-white px-3 py-2 rounded-md cursor-pointer text-base"
@@ -310,11 +319,11 @@
             <div class="flex flex-col   gap-2 w-full">
                 <label for="liteNotificationEmail" class="text-xs">Email</label>
                 <input type="email" id="liteNotificationEmail"
-                    class="lite-bg-primary lite-text-primary border lite-border rounded-lg outline-none focus:border-red-500 p-2 w-full  text-sm"
+                    class="lite-bg-primary lite-text-primary border lite-border rounded-lg outline-none focus:lite-accent-border p-2 w-full  text-sm"
                     placeholder="Email">
                 <label for="liteNotificationWhatsapp" class="text-xs">Whatsapp</label>
                 <input type="tel" id="liteNotificationWhatsapp"
-                    class="lite-bg-primary lite-text-primary border lite-border rounded-lg outline-none focus:border-red-500 p-2 w-full text-sm"
+                    class="lite-bg-primary lite-text-primary border lite-border rounded-lg outline-none focus:lite-accent-border p-2 w-full text-sm"
                     placeholder="Whatsapp">
 
 
@@ -981,7 +990,7 @@
                                         <!-- Sağ taraf - Yazar Fotoğrafı -->
                                         <div class="flex-shrink-0">
                                             <div
-                                                class="w-16 h-16 rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                                class="w-16 h-16 rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
                                                     alt="Dr. Mehmet Yılmaz"
                                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -1010,7 +1019,7 @@
                                         </div>
                                         <div class="flex-shrink-0">
                                             <div
-                                                class="w-16 h-16 rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                                class="w-16 h-16 rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
                                                     alt="Prof. Ayşe Demir"
                                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -1039,7 +1048,7 @@
                                         </div>
                                         <div class="flex-shrink-0">
                                             <div
-                                                class="w-16 h-16 rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                                class="w-16 h-16 rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                                 <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
                                                     alt="Emre Kaya"
                                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -1068,7 +1077,7 @@
                                         </div>
                                         <div class="flex-shrink-0">
                                             <div
-                                                class="w-16 h-16 rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                                class="w-16 h-16 rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                                 <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
                                                     alt="Dr. Zeynep Özkan"
                                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -1097,7 +1106,7 @@
                                         </div>
                                         <div class="flex-shrink-0">
                                             <div
-                                                class="w-16 h-16 rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                                class="w-16 h-16 rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                                 <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face"
                                                     alt="Elif Şahin"
                                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -1126,7 +1135,7 @@
                                         </div>
                                         <div class="flex-shrink-0">
                                             <div
-                                                class="w-16 h-16 rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                                class="w-16 h-16 rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face"
                                                     alt="Murat Aslan"
                                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2337,7 +2346,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2353,7 +2362,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2369,7 +2378,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2385,7 +2394,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2401,7 +2410,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2421,7 +2430,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2437,7 +2446,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2453,7 +2462,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2469,7 +2478,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2485,7 +2494,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2505,7 +2514,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2521,7 +2530,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2537,7 +2546,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2553,7 +2562,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2569,7 +2578,7 @@
                         class="lite-news-link block py-2 hover:lite-text-accent flex items-center justify-center gap-4">
                         <div class="flex-shrink-0">
                             <div
-                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:border-red-500 transition-all duration-300">
+                                class="w-24  rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
                                 <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop"
                                     alt="Murat Aslan"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
@@ -2583,6 +2592,87 @@
                     </a>
                 </div>
 
+            </div>
+        </section>
+        <section class="max-w-7xl mx-auto px-5 py-4">
+            <div class="flex items-center justify-between gap-2 mb-8">
+                <div class="">
+                    <h2 class="text-2xl md:text-3xl font-bold lite-text-primary mb-2">Firmalar</h2>
+                    <div class="w-16 h-1 lite-bg-accent rounded-full"></div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="#" class="lite-btn underline lite-btn-ghost lite-btn-md">Tümünü Gör</a>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="#"
+                    class="lite-bg-accent rounded-lg border p-4 lite-border overflow-hidden group hover:shadow-lg transition-all duration-300 cursor-pointer">
+                    <div class="flex items-center justify-between mb-2 gap-2">
+                        <div
+                            class="w-24 h-24 rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                                alt="Dr. Mehmet Yılmaz"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        </div>
+                        <div class="">
+                            <h3 class="font-semibold lite-text-third mb-2">Lite Yazılım A.Ş.</h3>
+                        </div>
+                    </div>
+                    <p class="lite-text-third font-light text-sm">Lite Yazılım A.Ş. için yenilikçi yazılım çözümleri
+                        sunan, sektörde öncü bir firmadır.</p>
+
+                </a>
+                <a href="#"
+                    class="lite-bg-accent rounded-lg border p-4 lite-border overflow-hidden group hover:shadow-lg transition-all duration-300 cursor-pointer">
+                    <div class="flex items-center justify-between mb-2 gap-2">
+                        <div
+                            class="w-24 h-24 rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                                alt="Dr. Mehmet Yılmaz"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        </div>
+                        <div class="">
+                            <h3 class="font-semibold lite-text-third mb-2">Lite Yazılım A.Ş.</h3>
+                        </div>
+                    </div>
+                    <p class="lite-text-third font-light text-sm">Lite Yazılım A.Ş. için yenilikçi yazılım çözümleri
+                        sunan, sektörde öncü bir firmadır.</p>
+
+                </a>
+                <a href="#"
+                    class="lite-bg-accent rounded-lg border p-4 lite-border overflow-hidden group hover:shadow-lg transition-all duration-300 cursor-pointer">
+                    <div class="flex items-center justify-between mb-2 gap-2">
+                        <div
+                            class="w-24 h-24 rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                                alt="Dr. Mehmet Yılmaz"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        </div>
+                        <div class="">
+                            <h3 class="font-semibold lite-text-third mb-2">Lite Yazılım A.Ş.</h3>
+                        </div>
+                    </div>
+                    <p class="lite-text-third font-light text-sm">Lite Yazılım A.Ş. için yenilikçi yazılım çözümleri
+                        sunan, sektörde öncü bir firmadır.</p>
+
+                </a>
+                <a href="#"
+                    class="lite-bg-accent rounded-lg border p-4 lite-border overflow-hidden group hover:shadow-lg transition-all duration-300 cursor-pointer">
+                    <div class="flex items-center justify-between mb-2 gap-2">
+                        <div
+                            class="w-24 h-24 rounded-lg overflow-hidden border-2 lite-border group-hover:lite-accent-border transition-all duration-300">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                                alt="Dr. Mehmet Yılmaz"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                        </div>
+                        <div class="">
+                            <h3 class="font-semibold lite-text-third mb-2">Lite Yazılım A.Ş.</h3>
+                        </div>
+                    </div>
+                    <p class="lite-text-third font-light text-sm">Lite Yazılım A.Ş. için yenilikçi yazılım çözümleri
+                        sunan, sektörde öncü bir firmadır.</p>
+
+                </a>
             </div>
         </section>
     </main>
