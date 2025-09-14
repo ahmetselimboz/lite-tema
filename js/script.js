@@ -173,21 +173,31 @@ $(document).ready(function () {
         $('.lite-slider-container').slick({
             dots: false,
             infinite: true,
-            speed: 500,
-            fade: true,
+            speed: 4500, // Kayma hızı (daha yüksek değer daha yavaş kayar)
+            fade: false,
             autoplay: true,
-            autoplaySpeed: 4000,
-            pauseOnHover: true,
-            pauseOnFocus: true,
-            cssEase: 'ease-in-out',
+            autoplaySpeed: 0, // Otomatik kayma arası bekleme süresi sıfır
+            pauseOnHover: false,
+            pauseOnFocus: false,
+            cssEase: 'linear', // Düzgün ve sürekli kayma için linear
+            slidesToShow: 2,
+            slidesToScroll: 1,
             arrows: false,
             prevArrow: '<button type="button" class="slick-prev"><i class="ri-arrow-left-line"></i></button>',
             nextArrow: '<button type="button" class="slick-next"><i class="ri-arrow-right-line"></i></button>',
             responsive: [
                 {
-                    breakpoint: 768,
-
+                    breakpoint: 1024,
                     settings: {
+                        slidesToShow: 1,
+                        arrows: false,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
                         arrows: false,
                         dots: true
                     }

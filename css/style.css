@@ -148,6 +148,11 @@
     background-color: var(--lite-bg-primary);
 }
 
+.lite-detail-interesting-news:hover h5,
+.lite-detail-interesting-news:hover p {
+    color: var(--lite-text-third);
+}
+
 /* Footer gelişmiş hover efektleri */
 .lite-footer-link {
     position: relative;
@@ -1379,4 +1384,374 @@
     .lite-loader-bar {
         height: 3px;
     }
+}
+
+/* ===== CKEDITOR CONTENT STYLES ===== */
+.lite-ckeditor-content {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--lite-text-primary);
+}
+
+.lite-ckeditor-content h1,
+.lite-ckeditor-content h2,
+.lite-ckeditor-content h3,
+.lite-ckeditor-content h4,
+.lite-ckeditor-content h5,
+.lite-ckeditor-content h6 {
+    color: var(--lite-text-primary);
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.lite-ckeditor-content h1 {
+    font-size: 2.25rem;
+}
+
+.lite-ckeditor-content h2 {
+    font-size: 1.875rem;
+    border-bottom: 2px solid var(--lite-border);
+    padding-bottom: 0.5rem;
+}
+
+.lite-ckeditor-content h3 {
+    font-size: 1.5rem;
+}
+
+.lite-ckeditor-content h4 {
+    font-size: 1.25rem;
+}
+
+.lite-ckeditor-content h5 {
+    font-size: 1.125rem;
+}
+
+.lite-ckeditor-content h6 {
+    font-size: 1rem;
+}
+
+.lite-ckeditor-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: var(--lite-text-primary);
+}
+
+.lite-ckeditor-content a {
+    color: var(--lite-accent-primary);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.lite-ckeditor-content a:hover {
+    color: var(--lite-text-primary);
+    text-decoration: none;
+}
+
+.lite-ckeditor-content strong,
+.lite-ckeditor-content b {
+    font-weight: 700;
+    color: var(--lite-text-primary);
+}
+
+.lite-ckeditor-content em,
+.lite-ckeditor-content i {
+    font-style: italic;
+}
+
+.lite-ckeditor-content ul,
+.lite-ckeditor-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.lite-ckeditor-content ul li,
+.lite-ckeditor-content ol li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: var(--lite-text-primary);
+}
+
+.lite-ckeditor-content ul {
+    list-style-type: disc;
+}
+
+.lite-ckeditor-content ol {
+    list-style-type: decimal;
+}
+
+.lite-ckeditor-content ul ul,
+.lite-ckeditor-content ol ol,
+.lite-ckeditor-content ul ol,
+.lite-ckeditor-content ol ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.lite-ckeditor-content blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-left: 4px solid var(--lite-accent-primary);
+    background: var(--lite-bg-secondary);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    position: relative;
+}
+
+.lite-ckeditor-content blockquote::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--lite-accent-primary);
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    font-family: serif;
+    opacity: 0.3;
+}
+
+.lite-ckeditor-content blockquote p {
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+.lite-ckeditor-content blockquote cite {
+    display: block;
+    text-align: right;
+    font-size: 0.875rem;
+    color: var(--lite-text-secondary);
+    font-style: normal;
+    margin-top: 1rem;
+}
+
+.lite-ckeditor-content code {
+    background: var(--lite-bg-secondary);
+    border: 1px solid var(--lite-border);
+    border-radius: 4px;
+    padding: 0.2rem 0.4rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    color: var(--lite-accent-primary);
+}
+
+.lite-ckeditor-content pre {
+    background: var(--lite-bg-secondary);
+    border: 1px solid var(--lite-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.lite-ckeditor-content pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--lite-text-primary);
+}
+
+.lite-ckeditor-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: var(--lite-bg-secondary);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lite-ckeditor-content table th,
+.lite-ckeditor-content table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--lite-border);
+}
+
+.lite-ckeditor-content table th {
+    background: var(--lite-accent-primary);
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.lite-ckeditor-content table tr:hover {
+    background: rgba(239, 68, 68, 0.02);
+}
+
+.lite-ckeditor-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.lite-ckeditor-content img:hover {
+    transform: scale(1.02);
+}
+
+.lite-ckeditor-content figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.lite-ckeditor-content figure img {
+    margin: 0 auto 1rem;
+}
+
+.lite-ckeditor-content figcaption {
+    font-size: 0.875rem;
+    color: var(--lite-text-secondary);
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.lite-ckeditor-content hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--lite-accent-primary), transparent);
+    margin: 3rem 0;
+    border-radius: 1px;
+}
+
+/* CKEditor Alert Boxes */
+.lite-ckeditor-content .alert {
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    border-left: 4px solid;
+    position: relative;
+}
+
+.lite-ckeditor-content .alert-info {
+    background: rgba(59, 130, 246, 0.1);
+    border-left-color: #3b82f6;
+    color: var(--lite-text-primary);
+}
+
+.lite-ckeditor-content .alert-warning {
+    background: rgba(245, 158, 11, 0.1);
+    border-left-color: #f59e0b;
+    color: var(--lite-text-primary);
+}
+
+.lite-ckeditor-content .alert-danger {
+    background: rgba(239, 68, 68, 0.1);
+    border-left-color: var(--lite-accent-primary);
+    color: var(--lite-text-primary);
+}
+
+.lite-ckeditor-content .alert-success {
+    background: rgba(34, 197, 94, 0.1);
+    border-left-color: #22c55e;
+    color: var(--lite-text-primary);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    .lite-ckeditor-content {
+        font-size: 15px;
+    }
+
+    .lite-ckeditor-content h1 {
+        font-size: 1.875rem;
+    }
+
+    .lite-ckeditor-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .lite-ckeditor-content h3 {
+        font-size: 1.25rem;
+    }
+
+    .lite-ckeditor-content table {
+        font-size: 0.875rem;
+    }
+
+    .lite-ckeditor-content table th,
+    .lite-ckeditor-content table td {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .lite-ckeditor-content table {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .lite-ckeditor-content table tr:hover {
+    background: rgba(252, 129, 129, 0.05);
+}
+
+[data-theme="dark"] .lite-ckeditor-content img {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== DETAIL SIDEBAR STYLES ===== */
+.lite-detail-sidebar {
+    width: 320px;
+}
+
+@media (max-width: 1279px) {
+    .lite-detail-sidebar {
+        display: none;
+    }
+}
+
+/* Sidebar mobile toggle for smaller screens */
+.lite-sidebar-mobile-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 45;
+    display: none;
+}
+
+@media (max-width: 1279px) {
+    .lite-sidebar-mobile-toggle {
+        display: block;
+    }
+}
+
+.lite-sidebar-mobile {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 320px;
+    height: 100vh;
+    background: var(--lite-bg-primary);
+    z-index: 50;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    border-right: 1px solid var(--lite-border);
+}
+
+.lite-sidebar-mobile.active {
+    left: 0;
+}
+
+.lite-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 45;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lite-sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
