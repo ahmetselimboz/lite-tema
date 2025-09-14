@@ -50,12 +50,23 @@ $(document).ready(function () {
 
     });
 
-    // Arama toggle işlevi
-    $('#liteSearchToggle').click(function () {
+    // Arama toggle işlevi - Tüm arama butonları için
+    $('#liteSearchToggleDesktop, #liteSearchToggleMobile, #liteSearchToggleDetail').click(function () {
         const searchContainer = $('#liteSearchContainer');
         if (!searchContainer.length) return;
 
         searchContainer.toggleClass('-translate-y-full translate-y-0');
+
+        // Mobil menüde aktif durumu göster
+        if ($(this).attr('id') === 'liteSearchToggleMobile') {
+            $('.mobile-menu-btn').removeClass('active');
+            $(this).addClass('active');
+
+            // 2 saniye sonra aktif durumu kaldır
+            setTimeout(() => {
+                $(this).removeClass('active');
+            }, 2000);
+        }
     });
 
     // Bildirim popup toggle işlevi
@@ -67,44 +78,66 @@ $(document).ready(function () {
         popup.toggleClass('opacity-0 invisible -translate-y-2 opacity-100 visible translate-y-0');
     });
 
-    // Whatsapp popup toggle işlevi
-    $('#liteWhatsappToggle').click(function (e) {
+    // Whatsapp popup toggle işlevi - Tüm whatsapp butonları için
+    $('#liteWhatsappToggleDesktop, #liteWhatsappToggleMobile').click(function (e) {
         e.stopPropagation();
         const popup = $('#liteWhatsappPopup');
         if (!popup.length) return;
 
         popup.toggleClass('opacity-0 invisible -translate-y-2 opacity-100 visible translate-y-0');
+
+        // Mobil menüde aktif durumu göster
+        if ($(this).attr('id') === 'liteWhatsappToggleMobile') {
+            $('.mobile-menu-btn').removeClass('active');
+            $(this).addClass('active');
+
+            // 2 saniye sonra aktif durumu kaldır
+            setTimeout(() => {
+                $(this).removeClass('active');
+            }, 2000);
+        }
     });
 
-    // Tema toggle işlevi
-    $('#liteThemeToggle').click(function () {
+    // Tema toggle işlevi - Tüm tema butonları için
+    $('#liteThemeToggleDesktop, #liteThemeToggleMobile, #liteThemeToggleDetail').click(function () {
         toggleTheme();
+
+        // Mobil menüde aktif durumu göster
+        if ($(this).attr('id') === 'liteThemeToggleMobile') {
+            $('.mobile-menu-btn').removeClass('active');
+            $(this).addClass('active');
+
+            // 2 saniye sonra aktif durumu kaldır
+            setTimeout(() => {
+                $(this).removeClass('active');
+            }, 2000);
+        }
     });
 
     function toggleTheme() {
-        const icon = $('#liteThemeIcon');
+        const icons = $('#liteThemeIcon, #liteThemeIconDesktop, #liteThemeIconMobile, #liteThemeIconDetail');
         const bannerLogo = $('#liteBannerLogo');
-        if (!icon.length || !bannerLogo.length) return;
+        if (!icons.length || !bannerLogo.length) return;
 
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-        // Icon animasyonu
-        icon.addClass('lite-theme-icon-spin');
+        // Tüm iconlara animasyon ekle
+        icons.addClass('lite-theme-icon-spin');
 
         setTimeout(() => {
             // Tema değiştir
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('lite-theme', newTheme);
 
-            // Icon'u değiştir
+            // Tüm iconları değiştir
             if (newTheme === 'dark') {
-                icon.removeClass('ri-sun-line').addClass('ri-moon-line');
+                icons.removeClass('ri-sun-line').addClass('ri-moon-line');
                 // Dark tema logosu
                 bannerLogo.attr('src', 'assets/dark-logo.png');
                 $('#liteFooterLogo').attr('src', 'assets/dark-logo.png');
             } else {
-                icon.removeClass('ri-moon-line').addClass('ri-sun-line');
+                icons.removeClass('ri-moon-line').addClass('ri-sun-line');
                 // Light tema logosu
                 bannerLogo.attr('src', 'assets/light-logo.png');
                 $('#liteFooterLogo').attr('src', 'assets/light-logo.png');
@@ -112,13 +145,24 @@ $(document).ready(function () {
 
             // Animasyonu kaldır
             setTimeout(() => {
-                icon.removeClass('lite-theme-icon-spin');
+                icons.removeClass('lite-theme-icon-spin');
             }, 250);
 
         }, 250);
 
         console.log('Tema değiştirildi:', newTheme);
     }
+
+    // Canlı yayın butonuna aktif durumu ekle
+    $('.mobile-menu-btn').first().click(function () {
+        $('.mobile-menu-btn').removeClass('active');
+        $(this).addClass('active');
+
+        // 2 saniye sonra aktif durumu kaldır
+        setTimeout(() => {
+            $(this).removeClass('active');
+        }, 2000);
+    });
 
     // Overlay tıklandığında menüyü kapat
     $('#liteOverlay').click(function () {
@@ -181,8 +225,8 @@ $(document).ready(function () {
             $popup.removeClass('opacity-100 visible translate-y-0').addClass('opacity-0 invisible -translate-y-2');
 
             // Whatsapp kutusunu kapat
-            const $popupWhatsapp = $('#liteWhatsappPopup');
-            $popupWhatsapp.removeClass('opacity-100 visible translate-y-0').addClass('opacity-0 invisible -translate-y-2');
+            const popupWhatsapp = $('#liteWhatsappPopup');
+            popupWhatsapp.removeClass('opacity-100 visible translate-y-0').addClass('opacity-0 invisible -translate-y-2');
         }
     });
 
@@ -251,7 +295,8 @@ $(document).ready(function () {
                 {
                     breakpoint: 768,
                     settings: {
-                        arrows: true
+                        arrows: true,
+                        dots: true
                     }
                 }
             ]
@@ -378,20 +423,20 @@ $(document).ready(function () {
     function initializeTheme() {
         // LocalStorage'dan tema tercihi al
         const savedTheme = localStorage.getItem('lite-theme');
-        const icon = $('#liteThemeIcon');
+        const icons = $('#liteThemeIcon, #liteThemeIconDesktop, #liteThemeIconMobile, #liteThemeIconDetail');
         const bannerLogo = $('#liteBannerLogo');
-        if (!icon.length || !bannerLogo.length) return;
+        if (!icons.length || !bannerLogo.length) return;
 
         if (savedTheme) {
             document.documentElement.setAttribute('data-theme', savedTheme);
 
-            // Icon ve logo'yu güncelle
+            // Tüm iconları ve logo'yu güncelle
             if (savedTheme === 'dark') {
-                icon.removeClass('ri-sun-line').addClass('ri-moon-line');
+                icons.removeClass('ri-sun-line').addClass('ri-moon-line');
                 bannerLogo.attr('src', 'assets/dark-logo.png');
                 $('#liteFooterLogo').attr('src', 'assets/dark-logo.png');
             } else {
-                icon.removeClass('ri-moon-line').addClass('ri-sun-line');
+                icons.removeClass('ri-moon-line').addClass('ri-sun-line');
                 bannerLogo.attr('src', 'assets/light-logo.png');
                 $('#liteFooterLogo').attr('src', 'assets/light-logo.png');
             }
