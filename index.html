@@ -175,7 +175,7 @@
         <div class="flex items-center gap-2">
             <p class="text-sm lite-text-accent font-bold cursor-default hidden md:block ">13.09.2025</p>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center lg:gap-2">
             <!-- Bileşenler Sayfası -->
             <a href="components.html"
                 class="lite-hover-accent  p-2 rounded-md transition-all duration-300 text-lg hidden md:hidden items-center gap-1"
@@ -374,21 +374,23 @@
         id="liteOverlay"></div>
 
     <!-- Ana İçerik Alanı -->
-    <main class="mt-24">
+    <main class="mt-12">
         <!-- Hero/Banner Bölümü -->
-        <section class="lite-bg-primary max-w-7xl mx-auto px-5 text-center py-2 md:py-4">
-            <div class="block md:hidden lite-bg-accent lite-text-third px-3 py-1 font-semibold rounded-lg w-fit text-sm mx-auto relative z-[1003] translate-y-2">
-                <p>Son Dakika</p>
-            </div>
-            <div class="lite-news-slider  mx-auto relative overflow-hidden">
-                <div class="lite-slider-container !mb-0 relative rounded-lg border md:border-none lite-accent-border">
+        <section class="lite-bg-primary max-w-7xl relative  mx-auto px-5 text-center py-2 md:py-4">
+
+            <div class="lite-news-slider  mx-auto relative ">
+                <div
+                    class="block md:hidden lite-bg-primary lite-text-accent pl-3 pr-1 py-1  font-semibold  w-fit text-sm mb-1 relative z-[1000] top-10">
+                    <p>Son Dakika</p>
+                </div>
+                <div class="lite-slider-container shadow-lg  !mb-0 relative rounded-lg">
                     <!-- Slider İtemi 1 -->
                     <div class="lite-slider-item">
                         <a href="#" class="block">
-                            <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                <span class="lite-text-accent text-sm font-semibold">14:30</span>
+                            <div class="flex flex-row items-center justify-center gap-3 py-3 px-6">
+                                <span class="lite-text-accent lg:text-sm text-xs font-semibold">14:30</span>
                                 <span
-                                    class="lite-text-primary text-base font-base hover:lite-text-accent transition-colors duration-300">
+                                    class="lite-text-primary lg:text-base text-sm font-semibold hover:lite-text-accent transition-colors duration-300">
                                     Teknoloji dünyasında büyük gelişme: Yapay zeka alanında yeni atılım
                                 </span>
                             </div>
@@ -398,10 +400,10 @@
                     <!-- Slider İtemi 2 -->
                     <div class="lite-slider-item">
                         <a href="#" class="block">
-                            <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                <span class="lite-text-accent text-sm font-semibold">13:45</span>
+                            <div class="flex flex-row items-center justify-center gap-3 py-3 px-6">
+                                <span class="lite-text-accent lg:text-sm text-xs font-semibold">13:45</span>
                                 <span
-                                    class="lite-text-primary text-base font-base hover:lite-text-accent transition-colors duration-300">
+                                    class="lite-text-primary lg:text-base text-sm font-semibold hover:lite-text-accent transition-colors duration-300">
                                     Ekonomide son durum: Borsa endeksleri yükselişte
                                 </span>
                             </div>
@@ -411,10 +413,10 @@
                     <!-- Slider İtemi 3 -->
                     <div class="lite-slider-item">
                         <a href="#" class="block">
-                            <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                <span class="lite-text-accent text-sm font-semibold">12:20</span>
+                            <div class="flex flex-row items-center justify-center gap-3 py-3 px-6">
+                                <span class="lite-text-accent lg:text-sm text-xs font-semibold">12:20</span>
                                 <span
-                                    class="lite-text-primary text-base font-base hover:lite-text-accent transition-colors duration-300">
+                                    class="lite-text-primary lg:text-base text-sm font-semibold hover:lite-text-accent transition-colors duration-300">
                                     Spor haberleri: Milli takım kampı başladı
                                 </span>
                             </div>
@@ -424,10 +426,10 @@
                     <!-- Slider İtemi 4 -->
                     <div class="lite-slider-item">
                         <a href="#" class="block">
-                            <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                <span class="lite-text-accent text-sm font-semibold">11:55</span>
+                            <div class="flex flex-row items-center justify-center gap-3 py-3 px-6">
+                                <span class="lite-text-accent lg:text-sm text-xs font-semibold">11:55</span>
                                 <span
-                                    class="lite-text-primary text-base font-base hover:lite-text-accent transition-colors duration-300">
+                                    class="lite-text-primary lg:text-base text-sm font-semibold hover:lite-text-accent transition-colors duration-300">
                                     Sağlık alanında önemli araştırma sonuçları açıklandı
                                 </span>
                             </div>
@@ -437,10 +439,10 @@
                     <!-- Slider İtemi 5 -->
                     <div class="lite-slider-item">
                         <a href="#" class="block">
-                            <div class="flex items-center justify-center gap-3 py-3 px-6">
-                                <span class="lite-text-accent text-sm font-semibold">10:30</span>
+                            <div class="flex flex-row items-center justify-center gap-3 py-3 px-6">
+                                <span class="lite-text-accent lg:text-sm text-xs font-semibold">10:30</span>
                                 <span
-                                    class="lite-text-primary text-base font-base hover:lite-text-accent transition-colors duration-300">
+                                    class="lite-text-primary lg:text-base text-sm font-semibold hover:lite-text-accent transition-colors duration-300">
                                     Eğitim reformu ile ilgili yeni kararlar alındı
                                 </span>
                             </div>
@@ -453,11 +455,12 @@
                     class="lite-bg-accent px-4 py-3 h-full rounded-s-lg flex items-center justify-center w-36 absolute top-0 left-0 hidden md:block">
                     <h3 class="lite-text-third font-semibold text-lg  leading-tight">Son Dakika</h3>
                 </div>
+
             </div>
 
 
         </section>
-        <section class="max-w-7xl mx-auto px-5 text-center py-2 md:py-4">
+        <section class="max-w-7xl mx-auto px-5 text-center py-b md:py-4 lg:block hidden">
             <div class="lite-cards-slider">
 
                 <div class="lite-cards-container">
@@ -955,7 +958,7 @@
                                 </a>
                             </div>
 
-                           
+
                         </div>
                     </div>
                 </div>

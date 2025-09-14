@@ -191,18 +191,20 @@ $(document).ready(function () {
         const slider = $('.lite-slider-container');
         if (!slider.length) return;
 
+        // İtemları sığdığı kadar göstermek için slidesToShow: 'auto' ve variableWidth: true kullanıyoruz.
         slider.slick({
             dots: false,
             infinite: true,
-            speed: 4500, // Kayma hızı (daha yüksek değer daha yavaş kayar)
+            speed: 10000, // Kayma hızı (daha yüksek değer daha yavaş kayar)
             fade: false,
             autoplay: true,
-            autoplaySpeed: 0, // Otomatik kayma arası bekleme süresi sıfır
-            pauseOnHover: false,
+            autoplaySpeed: 1, // Otomatik kayma arası bekleme süresi çok kısa (0 olunca bazen kaymıyor)
+            pauseOnHover: true,
             pauseOnFocus: false,
             cssEase: 'linear', // Düzgün ve sürekli kayma için linear
-            slidesToShow: 2,
+            slidesToShow: 2, // 'auto' yerine 2 yazdık, çünkü slick 'auto' değerini desteklemez
             slidesToScroll: 1,
+            variableWidth: true, // Her item genişliğine göre sığdır
             arrows: false,
             prevArrow: '<button type="button" class="slick-prev"><i class="ri-arrow-left-line"></i></button>',
             nextArrow: '<button type="button" class="slick-next"><i class="ri-arrow-right-line"></i></button>',
@@ -546,16 +548,16 @@ $(document).ready(function () {
     let isSaved = localStorage.getItem('lite-article-saved') === 'true';
 
     function updateSaveStatus() {
-        const $navIcon = $('#liteSaveBtn i');
-        const $sidebarIcon = $('#liteSidebarSaveIcon');
+        const navIcon = $('#liteSaveBtn i');
+        const sidebarIcon = $('#liteSidebarSaveIcon');
 
         if (isSaved) {
-            $navIcon.removeClass('ri-bookmark-line').addClass('ri-bookmark-fill');
-            $sidebarIcon.removeClass('ri-bookmark-line').addClass('ri-bookmark-fill');
+            navIcon.removeClass('ri-bookmark-line').addClass('ri-bookmark-fill');
+            sidebarIcon.removeClass('ri-bookmark-line').addClass('ri-bookmark-fill');
             $('#liteSaveBtn').addClass('text-red-500');
         } else {
-            $navIcon.removeClass('ri-bookmark-fill').addClass('ri-bookmark-line');
-            $sidebarIcon.removeClass('ri-bookmark-fill').addClass('ri-bookmark-line');
+            navIcon.removeClass('ri-bookmark-fill').addClass('ri-bookmark-line');
+            sidebarIcon.removeClass('ri-bookmark-fill').addClass('ri-bookmark-line');
             $('#liteSaveBtn').removeClass('text-red-500');
         }
     }
@@ -609,6 +611,7 @@ $(document).ready(function () {
 
     function updateReadingProgress() {
         const article = $('#liteArticleContent');
+        if (!article.length) return;
         const articleTop = article.offset().top;
         const articleHeight = article.outerHeight();
         const windowTop = $(window).scrollTop();
@@ -623,6 +626,7 @@ $(document).ready(function () {
 
     function toggleBackToTop() {
         const btn = $('#liteBackToTop');
+        if (!btn.length) return;
         if ($(window).scrollTop() > 300) {
             btn.removeClass('opacity-0 pointer-events-none').addClass('opacity-100');
         } else {
