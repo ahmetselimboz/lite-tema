@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+
+
     // Menü toggle işlevi - TailwindCSS sınıfları ile
     $('#liteMenuToggle').click(function () {
         openSlideMenu();
@@ -11,56 +13,67 @@ $(document).ready(function () {
     });
 
     function openSlideMenu() {
-        const $slideMenu = $('#liteSlideMenu');
-        const $overlay = $('#liteOverlay');
+        const slideMenu = $('#liteSlideMenu');
+        const overlay = $('#liteOverlay');
+        if (!slideMenu.length || !overlay.length) return;
 
-        $slideMenu.removeClass('-translate-x-full').addClass('translate-x-0');
-        $overlay.removeClass('opacity-0 invisible').addClass('opacity-100 visible');
+        slideMenu.removeClass('-translate-x-full').addClass('translate-x-0');
+        overlay.removeClass('opacity-0 invisible').addClass('opacity-100 visible');
     }
 
     function closeSlideMenu() {
-        const $slideMenu = $('#liteSlideMenu');
-        const $overlay = $('#liteOverlay');
+        const slideMenu = $('#liteSlideMenu');
+        const overlay = $('#liteOverlay');
+        if (!slideMenu.length || !overlay.length) return;
 
-        $slideMenu.removeClass('translate-x-0').addClass('-translate-x-full');
-        $overlay.removeClass('opacity-100 visible').addClass('opacity-0 invisible');
+        slideMenu.removeClass('translate-x-0').addClass('-translate-x-full');
+        overlay.removeClass('opacity-100 visible').addClass('opacity-0 invisible');
     }
 
     // Alt menü toggle işlevi
     $('.lite-submenu-toggle').click(function () {
         const target = $(this).data('target');
-        const $submenu = $('#' + target);
-        const $icon = $(this).find('i');
+        if (!target) return;
+
+        const submenu = $('#' + target);
+        const icon = $(this).find('i');
+        if (!submenu.length || !icon.length) return;
 
 
         // Diğer alt menüleri kapat
-        $('.lite-submenu').not($submenu).removeClass('lite-submenu-active');
+        $('.lite-submenu').not(submenu).removeClass('lite-submenu-active');
         $('.lite-submenu-toggle').not(this).removeClass('lite-submenu-open');
 
         // Bu alt menüyü toggle et
-        $submenu.toggleClass('lite-submenu-active');
+        submenu.toggleClass('lite-submenu-active');
         $(this).toggleClass('lite-submenu-open');
 
     });
 
     // Arama toggle işlevi
     $('#liteSearchToggle').click(function () {
-        const $searchContainer = $('#liteSearchContainer');
-        $searchContainer.toggleClass('-translate-y-full translate-y-0');
+        const searchContainer = $('#liteSearchContainer');
+        if (!searchContainer.length) return;
+
+        searchContainer.toggleClass('-translate-y-full translate-y-0');
     });
 
     // Bildirim popup toggle işlevi
     $('#liteNotificationToggle').click(function (e) {
         e.stopPropagation();
-        const $popup = $('#liteNotificationPopup');
-        $popup.toggleClass('opacity-0 invisible -translate-y-2 opacity-100 visible translate-y-0');
+        const popup = $('#liteNotificationPopup');
+        if (!popup.length) return;
+
+        popup.toggleClass('opacity-0 invisible -translate-y-2 opacity-100 visible translate-y-0');
     });
 
-    // Bildirim popup toggle işlevi
+    // Whatsapp popup toggle işlevi
     $('#liteWhatsappToggle').click(function (e) {
         e.stopPropagation();
-        const $popup = $('#liteWhatsappPopup');
-        $popup.toggleClass('opacity-0 invisible -translate-y-2 opacity-100 visible translate-y-0');
+        const popup = $('#liteWhatsappPopup');
+        if (!popup.length) return;
+
+        popup.toggleClass('opacity-0 invisible -translate-y-2 opacity-100 visible translate-y-0');
     });
 
     // Tema toggle işlevi
@@ -69,13 +82,15 @@ $(document).ready(function () {
     });
 
     function toggleTheme() {
-        const $icon = $('#liteThemeIcon');
-        const $bannerLogo = $('#liteBannerLogo');
+        const icon = $('#liteThemeIcon');
+        const bannerLogo = $('#liteBannerLogo');
+        if (!icon.length || !bannerLogo.length) return;
+
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
         // Icon animasyonu
-        $icon.addClass('lite-theme-icon-spin');
+        icon.addClass('lite-theme-icon-spin');
 
         setTimeout(() => {
             // Tema değiştir
@@ -84,20 +99,20 @@ $(document).ready(function () {
 
             // Icon'u değiştir
             if (newTheme === 'dark') {
-                $icon.removeClass('ri-sun-line').addClass('ri-moon-line');
+                icon.removeClass('ri-sun-line').addClass('ri-moon-line');
                 // Dark tema logosu
-                $bannerLogo.attr('src', 'assets/dark-logo.png');
+                bannerLogo.attr('src', 'assets/dark-logo.png');
                 $('#liteFooterLogo').attr('src', 'assets/dark-logo.png');
             } else {
-                $icon.removeClass('ri-moon-line').addClass('ri-sun-line');
+                icon.removeClass('ri-moon-line').addClass('ri-sun-line');
                 // Light tema logosu
-                $bannerLogo.attr('src', 'assets/light-logo.png');
+                bannerLogo.attr('src', 'assets/light-logo.png');
                 $('#liteFooterLogo').attr('src', 'assets/light-logo.png');
             }
 
             // Animasyonu kaldır
             setTimeout(() => {
-                $icon.removeClass('lite-theme-icon-spin');
+                icon.removeClass('lite-theme-icon-spin');
             }, 250);
 
         }, 250);
@@ -140,7 +155,10 @@ $(document).ready(function () {
 
     // Arama fonksiyonu
     function performSearch() {
-        var searchTerm = $('#liteSearchInput').val().trim();
+        const searchInput = $('#liteSearchInput');
+        if (!searchInput.length) return;
+
+        const searchTerm = searchInput.val().trim();
         if (searchTerm) {
             console.log('Arama yapılıyor:', searchTerm);
             // Burada arama işlemi yapılacak
@@ -170,7 +188,10 @@ $(document).ready(function () {
 
     // Slick Slider başlatma fonksiyonu
     function initializeSlider() {
-        $('.lite-slider-container').slick({
+        const slider = $('.lite-slider-container');
+        if (!slider.length) return;
+
+        slider.slick({
             dots: false,
             infinite: true,
             speed: 4500, // Kayma hızı (daha yüksek değer daha yavaş kayar)
@@ -210,7 +231,10 @@ $(document).ready(function () {
 
     // Manşet Slider başlatma fonksiyonu
     function initializeMansetSlider() {
-        $('.lite-manset-container').slick({
+        const mansetSlider = $('.lite-manset-container');
+        if (!mansetSlider.length) return;
+
+        mansetSlider.slick({
             dots: false,
             infinite: true,
             speed: 500,
@@ -236,7 +260,10 @@ $(document).ready(function () {
 
     // Yazarlar Slider başlatma fonksiyonu
     function initializeAuthorsSlider() {
-        $('.lite-authors-container').slick({
+        const authorsSlider = $('.lite-authors-container');
+        if (!authorsSlider.length) return;
+
+        authorsSlider.slick({
             dots: false,
             infinite: true,
             speed: 300,
@@ -277,7 +304,10 @@ $(document).ready(function () {
     }
 
     function initializeCardsSlider() {
-        $('.lite-cards-container').slick({
+        const cardsSlider = $('.lite-cards-container');
+        if (!cardsSlider.length) return;
+
+        cardsSlider.slick({
             infinite: true,
             arrows: false,
             dots: true,
@@ -300,7 +330,10 @@ $(document).ready(function () {
     }
 
     function initializeGallerySlider() {
-        $('.lite-gallery-container').slick({
+        const gallerySlider = $('.lite-gallery-container');
+        if (!gallerySlider.length) return;
+
+        gallerySlider.slick({
             infinite: true,
             arrows: false,
             dots: true,
@@ -343,20 +376,21 @@ $(document).ready(function () {
     function initializeTheme() {
         // LocalStorage'dan tema tercihi al
         const savedTheme = localStorage.getItem('lite-theme');
-        const $icon = $('#liteThemeIcon');
-        const $bannerLogo = $('#liteBannerLogo');
+        const icon = $('#liteThemeIcon');
+        const bannerLogo = $('#liteBannerLogo');
+        if (!icon.length || !bannerLogo.length) return;
 
         if (savedTheme) {
             document.documentElement.setAttribute('data-theme', savedTheme);
 
             // Icon ve logo'yu güncelle
             if (savedTheme === 'dark') {
-                $icon.removeClass('ri-sun-line').addClass('ri-moon-line');
-                $bannerLogo.attr('src', 'assets/dark-logo.png');
+                icon.removeClass('ri-sun-line').addClass('ri-moon-line');
+                bannerLogo.attr('src', 'assets/dark-logo.png');
                 $('#liteFooterLogo').attr('src', 'assets/dark-logo.png');
             } else {
-                $icon.removeClass('ri-moon-line').addClass('ri-sun-line');
-                $bannerLogo.attr('src', 'assets/light-logo.png');
+                icon.removeClass('ri-moon-line').addClass('ri-sun-line');
+                bannerLogo.attr('src', 'assets/light-logo.png');
                 $('#liteFooterLogo').attr('src', 'assets/light-logo.png');
             }
         }
@@ -366,8 +400,8 @@ $(document).ready(function () {
 
     // Loader initialization
     function initLoader() {
-        const loader = document.getElementById('litePageLoader');
-        if (!loader) return;
+        const loader = $('#litePageLoader');
+        if (!loader.length) return;
 
         // Simulate loading progress
         simulateLoading();
@@ -382,8 +416,8 @@ $(document).ready(function () {
 
     // Simulate realistic loading progress
     function simulateLoading() {
-        const progressBar = document.querySelector('.lite-loader-progress');
-        if (!progressBar) return;
+        const progressBar = $('.lite-loader-progress');
+        if (!progressBar.length) return;
 
         let progress = 0;
         const targetProgress = 100;
@@ -399,7 +433,7 @@ $(document).ready(function () {
             progress = Math.floor(easedProgress * targetProgress);
 
             // Update progress bar width
-            progressBar.style.width = progress + '%';
+            progressBar.css('width', progress + '%');
 
             if (progressPercent < 1) {
                 requestAnimationFrame(updateProgress);
@@ -411,14 +445,14 @@ $(document).ready(function () {
 
     // Hide loader with fade out effect
     function hideLoader() {
-        const loader = document.getElementById('litePageLoader');
-        if (!loader) return;
+        const loader = $('#litePageLoader');
+        if (!loader.length) return;
 
-        loader.classList.add('fade-out');
+        loader.addClass('fade-out');
 
         // Remove from DOM after animation
         setTimeout(() => {
-            loader.style.display = 'none';
+            loader.hide();
         }, 500);
     }
 
@@ -456,13 +490,170 @@ $(document).ready(function () {
     // Smooth scrolling için
     $('a[href^="#"]').click(function (e) {
         e.preventDefault();
-        const target = $(this.getAttribute('href'));
-        if (target.length) {
-            $('html, body').animate({
-                scrollTop: target.offset().top - 60
-            }, 500);
-        }
+        const href = this.getAttribute('href');
+        if (!href) return;
+
+        const target = $(href);
+        if (!target.length) return;
+
+        $('html, body').animate({
+            scrollTop: target.offset().top - 60
+        }, 500);
     });
+
+    // Reading progress bar
+    updateReadingProgress();
+
+    $(window).scroll(updateReadingProgress);
+
+    // Back to top button
+    $(window).scroll(toggleBackToTop);
+    $('#liteBackToTop').click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 600);
+    });
+
+    // Font size controls (both navbar and sidebar)
+    let currentFontSize = 16;
+
+    function increaseFontSize() {
+        if (currentFontSize < 20) {
+            currentFontSize += 1;
+            $('#liteArticleContent').css('font-size', currentFontSize + 'px');
+            localStorage.setItem('lite-font-size', currentFontSize);
+        }
+    }
+
+    function decreaseFontSize() {
+        if (currentFontSize > 12) {
+            currentFontSize -= 1;
+            $('#liteArticleContent').css('font-size', currentFontSize + 'px');
+            localStorage.setItem('lite-font-size', currentFontSize);
+        }
+    }
+
+    // Load saved font size
+    const savedFontSize = localStorage.getItem('lite-font-size');
+    if (savedFontSize) {
+        currentFontSize = parseInt(savedFontSize);
+        $('#liteArticleContent').css('font-size', currentFontSize + 'px');
+    }
+
+    // Bind events to both navbar and sidebar controls
+    $('#liteFontIncrease, #liteSidebarFontIncrease').click(increaseFontSize);
+    $('#liteFontDecrease, #liteSidebarFontDecrease').click(decreaseFontSize);
+
+    // Save/Bookmark functionality (both navbar and sidebar)
+    let isSaved = localStorage.getItem('lite-article-saved') === 'true';
+
+    function updateSaveStatus() {
+        const $navIcon = $('#liteSaveBtn i');
+        const $sidebarIcon = $('#liteSidebarSaveIcon');
+
+        if (isSaved) {
+            $navIcon.removeClass('ri-bookmark-line').addClass('ri-bookmark-fill');
+            $sidebarIcon.removeClass('ri-bookmark-line').addClass('ri-bookmark-fill');
+            $('#liteSaveBtn').addClass('text-red-500');
+        } else {
+            $navIcon.removeClass('ri-bookmark-fill').addClass('ri-bookmark-line');
+            $sidebarIcon.removeClass('ri-bookmark-fill').addClass('ri-bookmark-line');
+            $('#liteSaveBtn').removeClass('text-red-500');
+        }
+    }
+
+    function toggleSave() {
+        isSaved = !isSaved;
+        localStorage.setItem('lite-article-saved', isSaved);
+        updateSaveStatus();
+
+        if (isSaved) {
+            showToast('Makale kaydedildi!');
+        } else {
+            showToast('Makale kayıtlardan kaldırıldı!');
+        }
+    }
+
+    // Initialize save status
+    updateSaveStatus();
+
+    // Bind save events
+    $('#liteSaveBtn, #liteSidebarSave').click(toggleSave);
+
+    // Share modal (both navbar and sidebar)
+    function openShareModal() {
+        $('#liteShareModal').removeClass('hidden').addClass('flex');
+    }
+
+    $('#liteShareBtn, #liteSidebarShare').click(openShareModal);
+
+    $('#liteShareModalClose').click(function () {
+        $('#liteShareModal').addClass('hidden').removeClass('flex');
+    });
+
+    function openToolBoxModal() {
+        console.log('openToolBoxModal');
+        $('#liteToolBoxContainer').removeClass('hidden').addClass('block');
+    }
+
+    $('#liteToolBox').click(openToolBoxModal);
+
+    // Copy link functionality
+    $('#liteCopyLinkBtn, #liteModalCopyLink').click(function () {
+        navigator.clipboard.writeText(window.location.href).then(function () {
+            showToast('Link kopyalandı!');
+            $('#liteShareModal').addClass('hidden').removeClass('flex');
+        });
+    });
+
+
+
+
+
+    function updateReadingProgress() {
+        const article = $('#liteArticleContent');
+        const articleTop = article.offset().top;
+        const articleHeight = article.outerHeight();
+        const windowTop = $(window).scrollTop();
+        const windowHeight = $(window).height();
+
+        const progress = Math.max(0, Math.min(100,
+            ((windowTop - articleTop + windowHeight) / articleHeight) * 100
+        ));
+
+        $('#liteReadingProgress div').css('width', progress + '%');
+    }
+
+    function toggleBackToTop() {
+        const btn = $('#liteBackToTop');
+        if ($(window).scrollTop() > 300) {
+            btn.removeClass('opacity-0 pointer-events-none').addClass('opacity-100');
+        } else {
+            btn.addClass('opacity-0 pointer-events-none').removeClass('opacity-100');
+        }
+    }
+
+    function showToast(message) {
+        // Simple toast notification
+        const toast = $(`
+            <div class="fixed top-20 right-6 bg-lite-accent-primary text-white px-4 py-2 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300">
+                ${message}
+            </div>
+        `);
+
+        $('body').append(toast);
+
+        setTimeout(() => {
+            toast.removeClass('translate-x-full');
+        }, 100);
+
+        setTimeout(() => {
+            toast.addClass('translate-x-full');
+            setTimeout(() => {
+                toast.remove();
+            }, 300);
+        }, 3000);
+    }
+
+
 
 });
 

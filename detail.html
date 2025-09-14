@@ -145,8 +145,8 @@
 
 <body class="lite-bg-primary lite-text-primary min-h-screen">
     <!-- Reading Progress Bar -->
-    <div id="liteReadingProgress" class="fixed top-0 left-0 w-full h-1 bg-lite-border z-50">
-        <div class="h-full bg-lite-accent-primary transition-all duration-150 ease-out" style="width: 0%"></div>
+    <div id="liteReadingProgress" class="fixed top-0 left-0 w-full h-1  z-[1005]">
+        <div class="h-full lite-bg-accent transition-all duration-150 ease-out" style="width: 0%"></div>
     </div>
 
     <!-- Page Loader -->
@@ -788,7 +788,8 @@
                         <div class="space-y-6">
 
 
-                            <div class="flex gap-4 p-6 lite-bg-secondary border lite-border rounded-lg">
+                            <div
+                                class="flex lg:flex-row flex-col gap-4 p-6 lite-bg-secondary border lite-border rounded-lg">
                                 <img src="assets/haber-gorsel.png" alt="Prof. Dr. Ayşe Demir"
                                     class="w-40 h-40 rounded-full object-cover flex-shrink-0">
                                 <div>
@@ -802,7 +803,8 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="flex gap-4 p-6 lite-bg-secondary border lite-border rounded-lg">
+                            <div
+                                class="flex lg:flex-row flex-col gap-4 p-6 lite-bg-secondary border lite-border rounded-lg">
                                 <img src="assets/haber-gorsel.png" alt="Prof. Dr. Ayşe Demir"
                                     class="w-40 h-40 rounded-full object-cover flex-shrink-0">
                                 <div>
@@ -822,7 +824,8 @@
                     <section class="mb-12">
                         <!-- İlginç Haber Kartı -->
                         <div class="">
-                            <a href="#" class="lite-interesting-news-card flex flex-row items-center gap-4 px-4">
+                            <a href="#"
+                                class="lite-interesting-news-card flex lg:flex-row flex-col items-center gap-4 px-4">
                                 <div class="overflow-hidden rounded-lg lite-interesting-news-card-img-box p-6">
                                     <img src="assets/haber-gorsel.png" alt="Haber Görseli" class="w-full">
                                 </div>
@@ -834,7 +837,8 @@
                                         et dolore magna aliqua.</p>
                                     <div class="meta">
                                         <span>5 dakika önce</span>
-                                        <span class="lite-text-third font-semibold">Görüntüle <i class="ri-arrow-right-line m-l-1"></i></span>
+                                        <span class="lite-text-third font-semibold">Görüntüle <i
+                                                class="ri-arrow-right-line m-l-1"></i></span>
                                     </div>
                                 </div>
                             </a>
@@ -1402,12 +1406,85 @@
 
     <!-- Back to Top Button -->
     <button id="liteBackToTop"
-        class="fixed bottom-6 right-6 w-12 h-12 bg-lite-accent-primary text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 pointer-events-none z-50">
+        class="fixed lg:bottom-4 bottom-20 right-4 w-12 h-12 bg-lite-accent-primary text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 pointer-events-none z-50">
         <i class="ri-arrow-up-line"></i>
     </button>
 
+    <!-- ToolBox Button -->
+    <button id="liteToolBox"
+        class="fixed bottom-4 right-4 w-12 h-12 lg:hidden block bg-lite-accent-primary text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300  pointer-events-none z-50">
+        <i class="ri-tools-line"></i>
+    </button>
+
+    <div class="fixed bottom-12 right-4 z-[1002] w-64 hidden" id="liteToolBoxContainer">
+        <!-- Article Tools -->
+        <div class="lite-bg-secondary border lite-border rounded-lg p-6 mb-6">
+            <h4 class="font-semibold lite-text-primary mb-4 flex items-center gap-2">
+                <i class="ri-tools-line lite-text-accent"></i>
+                Makale Araçları
+            </h4>
+            <div class="space-y-4">
+                <!-- Share Tool -->
+                <div class="flex items-center justify-between p-3 border lite-border rounded-lg hover:bg-lite-accent-primary hover:text-white hover:border-lite-accent-primary transition-all duration-300 cursor-pointer group"
+                    id="liteSidebarShare">
+                    <div class="flex items-center gap-3">
+                        <i class="ri-share-line text-lg"></i>
+                        <span class="font-medium">Paylaş</span>
+                    </div>
+                    <i class="ri-arrow-right-s-line group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
+
+                <!-- Save Tool -->
+                <div class="flex items-center justify-between p-3 border lite-border rounded-lg hover:bg-lite-accent-primary hover:text-white hover:border-lite-accent-primary transition-all duration-300 cursor-pointer group"
+                    id="liteSidebarSave">
+                    <div class="flex items-center gap-3">
+                        <i class="ri-volume-up-line text-lg"></i>
+                        <span class="font-medium">Sesli Oku</span>
+                    </div>
+                    <i class="ri-arrow-right-s-line group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
+                <!-- Save Tool
+                <div class="flex items-center justify-between p-3 border lite-border rounded-lg hover:bg-lite-accent-primary hover:text-white hover:border-lite-accent-primary transition-all duration-300 cursor-pointer group"
+                    id="liteSidebarSave">
+                    <div class="flex items-center gap-3">
+                        <i class="ri-bookmark-line text-lg" id="liteSidebarSaveIcon"></i>
+                        <span class="font-medium">Kaydet</span>
+                    </div>
+                    <i
+                        class="ri-arrow-right-s-line group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div> -->
+
+                <!-- Font Size Tool -->
+                <div class="p-3 border lite-border rounded-lg">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="ri-font-size lite-text-accent text-lg"></i>
+                            <span class="font-medium lite-text-primary">Yazı Boyutu</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center gap-3">
+                        <button id="liteSidebarFontDecrease"
+                            class="w-8 h-8 bg-lite-accent-primary text-white rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
+                            title="Küçült">
+                            <i class="ri-subtract-line text-sm"></i>
+                        </button>
+                        <span class="lite-text-secondary text-sm font-medium px-3">A</span>
+                        <button id="liteSidebarFontIncrease"
+                            class="w-8 h-8 bg-lite-accent-primary text-white rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
+                            title="Büyüt">
+                            <i class="ri-add-line text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <!-- Share Modal -->
-    <div id="liteShareModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+    <div id="liteShareModal" class="fixed inset-0 bg-black bg-opacity-50 z-[1005] hidden items-center justify-center p-4">
         <div class="lite-bg-secondary rounded-lg max-w-md w-full p-6">
             <div class="flex items-center justify-between mb-6">
                 <h3 class="text-lg font-semibold lite-text-primary">Makaleyi Paylaş</h3>
@@ -1596,250 +1673,8 @@
             </div>
         </div>
     </footer>
-
-
+  
     <script src="js/script.js"></script>
-
-    <!-- Detail Page Specific Scripts -->
-    <script>
-        $(document).ready(function () {
-            // Initialize theme for detail page
-            initializeDetailTheme();
-
-            // İlginç haber kartı görünürlük kontrolü
-            let lastScrollTop = 0;
-            const interestingNewsCard = $('.lite-interesting-news-card').parent();
-
-            $(window).scroll(function () {
-                const st = $(this).scrollTop();
-                const windowHeight = $(window).height();
-                const documentHeight = $(document).height();
-
-                // Sayfanın %25'inden sonra göster
-                if (st > documentHeight * 0.25) {
-                    interestingNewsCard.fadeIn();
-                } else {
-                    interestingNewsCard.fadeOut();
-                }
-
-                // Sayfa sonuna yaklaşırken gizle
-                if (st + windowHeight > documentHeight - 100) {
-                    interestingNewsCard.fadeOut();
-                }
-
-                lastScrollTop = st;
-            });
-
-            // Başlangıçta gizle
-            interestingNewsCard.hide();
-
-            // Reading progress bar
-            updateReadingProgress();
-            $(window).scroll(updateReadingProgress);
-
-            // Back to top button
-            $(window).scroll(toggleBackToTop);
-            $('#liteBackToTop').click(function () {
-                $('html, body').animate({ scrollTop: 0 }, 600);
-            });
-
-            // Font size controls (both navbar and sidebar)
-            let currentFontSize = 16;
-
-            function increaseFontSize() {
-                if (currentFontSize < 20) {
-                    currentFontSize += 1;
-                    $('#liteArticleContent').css('font-size', currentFontSize + 'px');
-                    localStorage.setItem('lite-font-size', currentFontSize);
-                }
-            }
-
-            function decreaseFontSize() {
-                if (currentFontSize > 12) {
-                    currentFontSize -= 1;
-                    $('#liteArticleContent').css('font-size', currentFontSize + 'px');
-                    localStorage.setItem('lite-font-size', currentFontSize);
-                }
-            }
-
-            // Load saved font size
-            const savedFontSize = localStorage.getItem('lite-font-size');
-            if (savedFontSize) {
-                currentFontSize = parseInt(savedFontSize);
-                $('#liteArticleContent').css('font-size', currentFontSize + 'px');
-            }
-
-            // Bind events to both navbar and sidebar controls
-            $('#liteFontIncrease, #liteSidebarFontIncrease').click(increaseFontSize);
-            $('#liteFontDecrease, #liteSidebarFontDecrease').click(decreaseFontSize);
-
-            // Save/Bookmark functionality (both navbar and sidebar)
-            let isSaved = localStorage.getItem('lite-article-saved') === 'true';
-
-            function updateSaveStatus() {
-                const $navIcon = $('#liteSaveBtn i');
-                const $sidebarIcon = $('#liteSidebarSaveIcon');
-
-                if (isSaved) {
-                    $navIcon.removeClass('ri-bookmark-line').addClass('ri-bookmark-fill');
-                    $sidebarIcon.removeClass('ri-bookmark-line').addClass('ri-bookmark-fill');
-                    $('#liteSaveBtn').addClass('text-red-500');
-                } else {
-                    $navIcon.removeClass('ri-bookmark-fill').addClass('ri-bookmark-line');
-                    $sidebarIcon.removeClass('ri-bookmark-fill').addClass('ri-bookmark-line');
-                    $('#liteSaveBtn').removeClass('text-red-500');
-                }
-            }
-
-            function toggleSave() {
-                isSaved = !isSaved;
-                localStorage.setItem('lite-article-saved', isSaved);
-                updateSaveStatus();
-
-                if (isSaved) {
-                    showToast('Makale kaydedildi!');
-                } else {
-                    showToast('Makale kayıtlardan kaldırıldı!');
-                }
-            }
-
-            // Initialize save status
-            updateSaveStatus();
-
-            // Bind save events
-            $('#liteSaveBtn, #liteSidebarSave').click(toggleSave);
-
-            // Share modal (both navbar and sidebar)
-            function openShareModal() {
-                $('#liteShareModal').removeClass('hidden').addClass('flex');
-            }
-
-            $('#liteShareBtn, #liteSidebarShare').click(openShareModal);
-
-            $('#liteShareModalClose').click(function () {
-                $('#liteShareModal').addClass('hidden').removeClass('flex');
-            });
-
-            // Copy link functionality
-            $('#liteCopyLinkBtn, #liteModalCopyLink').click(function () {
-                navigator.clipboard.writeText(window.location.href).then(function () {
-                    showToast('Link kopyalandı!');
-                    $('#liteShareModal').addClass('hidden').removeClass('flex');
-                });
-            });
-
-            // Smooth scroll for table of contents
-            $('nav a[href^="#"]').click(function (e) {
-                e.preventDefault();
-                const target = $($(this).attr('href'));
-                if (target.length) {
-                    $('html, body').animate({
-                        scrollTop: target.offset().top - 100
-                    }, 800);
-                }
-            });
-
-            // Detail page theme toggle
-            $('#liteDetailThemeToggle').click(function () {
-                toggleDetailTheme();
-            });
-        });
-
-        function initializeDetailTheme() {
-            const savedTheme = localStorage.getItem('lite-theme');
-            const $icon = $('#liteDetailThemeIcon');
-            const $logo = $('#liteDetailLogo');
-            const $footerLogo = $('#liteDetailFooterLogo');
-
-            if (savedTheme) {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-
-                if (savedTheme === 'dark') {
-                    $icon.removeClass('ri-sun-line').addClass('ri-moon-line');
-                    $logo.attr('src', 'assets/dark-logo.png');
-                    $footerLogo.attr('src', 'assets/dark-logo.png');
-                } else {
-                    $icon.removeClass('ri-moon-line').addClass('ri-sun-line');
-                    $logo.attr('src', 'assets/light-logo.png');
-                    $footerLogo.attr('src', 'assets/light-logo.png');
-                }
-            }
-        }
-
-        function toggleDetailTheme() {
-            const $icon = $('#liteDetailThemeIcon');
-            const $logo = $('#liteDetailLogo');
-            const $footerLogo = $('#liteDetailFooterLogo');
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            $icon.addClass('lite-theme-icon-spin');
-
-            setTimeout(() => {
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('lite-theme', newTheme);
-
-                if (newTheme === 'dark') {
-                    $icon.removeClass('ri-sun-line').addClass('ri-moon-line');
-                    $logo.attr('src', 'assets/dark-logo.png');
-                    $footerLogo.attr('src', 'assets/dark-logo.png');
-                } else {
-                    $icon.removeClass('ri-moon-line').addClass('ri-sun-line');
-                    $logo.attr('src', 'assets/light-logo.png');
-                    $footerLogo.attr('src', 'assets/light-logo.png');
-                }
-
-                setTimeout(() => {
-                    $icon.removeClass('lite-theme-icon-spin');
-                }, 250);
-            }, 250);
-        }
-
-        function updateReadingProgress() {
-            const $article = $('#liteArticleContent');
-            const articleTop = $article.offset().top;
-            const articleHeight = $article.outerHeight();
-            const windowTop = $(window).scrollTop();
-            const windowHeight = $(window).height();
-
-            const progress = Math.max(0, Math.min(100,
-                ((windowTop - articleTop + windowHeight) / articleHeight) * 100
-            ));
-
-            $('#liteReadingProgress div').css('width', progress + '%');
-        }
-
-        function toggleBackToTop() {
-            const $btn = $('#liteBackToTop');
-            if ($(window).scrollTop() > 300) {
-                $btn.removeClass('opacity-0 pointer-events-none').addClass('opacity-100');
-            } else {
-                $btn.addClass('opacity-0 pointer-events-none').removeClass('opacity-100');
-            }
-        }
-
-        function showToast(message) {
-            // Simple toast notification
-            const toast = $(`
-                <div class="fixed top-20 right-6 bg-lite-accent-primary text-white px-4 py-2 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300">
-                    ${message}
-                </div>
-            `);
-
-            $('body').append(toast);
-
-            setTimeout(() => {
-                toast.removeClass('translate-x-full');
-            }, 100);
-
-            setTimeout(() => {
-                toast.addClass('translate-x-full');
-                setTimeout(() => {
-                    toast.remove();
-                }, 300);
-            }, 3000);
-        }
-    </script>
 </body>
 
 </html>
