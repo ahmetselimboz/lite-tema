@@ -590,8 +590,7 @@ $(document).ready(function () {
     });
 
     function openToolBoxModal() {
-        console.log('openToolBoxModal');
-        $('#liteToolBoxContainer').removeClass('hidden').addClass('block');
+        $('#liteToolBoxContainer').toggleClass('hidden');
     }
 
     $('#liteToolBox').click(openToolBoxModal);
