@@ -1401,7 +1401,7 @@
 .lite-ckeditor-content h6 {
     color: var(--lite-text-primary);
     font-weight: 700;
-    margin-top: 2rem;
+
     margin-bottom: 1rem;
     line-height: 1.3;
 }
@@ -1440,7 +1440,7 @@
 
 .lite-ckeditor-content a {
     color: var(--lite-accent-primary);
-    text-decoration: underline;
+
     transition: color 0.3s ease;
 }
 
@@ -1693,6 +1693,83 @@
 
 [data-theme="dark"] .lite-ckeditor-content img {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== INTERESTING NEWS CARD ===== */
+.lite-interesting-news-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: var(--lite-accent-primary);
+    border: 1px solid var(--lite-border);
+    
+}
+
+.lite-interesting-news-card:hover {
+    transform: translateY(-5px);
+    transition: all 0.5s ease-in-out;
+    border: 1px solid var(--lite-accent-border);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.lite-interesting-news-card-img-box {
+    width: 800px;
+}
+
+.lite-interesting-news-card img {
+    transition: transform 0.5s ease-in-out;
+}
+
+.lite-interesting-news-card:hover img {
+    transform: scale(1.1);
+}
+
+.lite-interesting-news-card .content {
+    padding: 1.5rem;
+    text-decoration: none;
+}
+
+.lite-interesting-news-card .category {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--lite-bg-secondary);
+    color: var(--lite-text-primary);
+    border-radius: 20px;
+
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 1px solid var(--lite-bg-secondary);
+}
+
+.lite-interesting-news-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0.75rem 0;
+    line-height: 1.4;
+    transition: color 0.3s ease-in-out;
+    color: var(--lite-text-third);
+}
+
+
+.lite-interesting-news-card p {
+    color: var(--lite-text-third);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: var(--lite-text-third);
+}
+
+.lite-interesting-news-card .meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: var(--lite-text-third);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .lite-interesting-news-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== DETAIL SIDEBAR STYLES ===== */
