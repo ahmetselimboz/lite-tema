@@ -420,6 +420,62 @@ $(document).ready(function () {
         console.log('Gallery Slider başlatıldı');
     }
 
+    // Dik Foto Galeri Slider başlatma fonksiyonu
+    function initializeVerticalGallerySlider() {
+        const verticalGallerySlider = $('.lite-vertical-gallery-slider');
+        if (!verticalGallerySlider.length) return;
+
+        verticalGallerySlider.slick({
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            arrows: false,
+            autoplay: false,
+            autoplaySpeed: 4000,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: true
+                    }
+                }
+            ]
+        });
+
+        
+        // Custom navigation butonları için event listeners
+        $('.lite-vertical-gallery-prev').click(function () {
+            $('.lite-vertical-gallery-slider').slick('slickPrev');
+        });
+
+        $('.lite-vertical-gallery-next').click(function () {
+            $('.lite-vertical-gallery-slider').slick('slickNext');
+        });
+
+        console.log('Dik Foto Galeri Slider başlatıldı');
+    }
+
     function initializeTheme() {
         // LocalStorage'dan tema tercihi al
         const savedTheme = localStorage.getItem('lite-theme');
@@ -441,6 +497,48 @@ $(document).ready(function () {
                 $('#liteFooterLogo').attr('src', 'assets/light-logo.png');
             }
         }
+    }
+
+    // Mobil haber kutusu scroll kontrolü
+    function initializeMobileNewsCard() {
+        const mobileNewsCard = $('#mobileNewsCard');
+        if (!mobileNewsCard.length) return;
+
+        let lastScrollTop = 0;
+        let isScrollingDown = false;
+        const scrollThreshold = 200; // 200px scroll sonrası göster
+
+        $(window).scroll(function () {
+            const currentScrollTop = $(this).scrollTop();
+
+            // Scroll yönünü belirle
+            isScrollingDown = currentScrollTop > lastScrollTop;
+
+            // Scroll threshold kontrolü
+            if (currentScrollTop > scrollThreshold) {
+                if (isScrollingDown) {
+                    // Aşağı scroll - kutu göster
+                    mobileNewsCard.addClass('show');
+                } else {
+                    // Yukarı scroll - kutu gizle
+                    mobileNewsCard.removeClass('show');
+                }
+            } else {
+                // Threshold altında - kutu gizli
+                mobileNewsCard.removeClass('show');
+            }
+
+            lastScrollTop = currentScrollTop;
+        });
+
+        // Haber kutusuna tıklama olayı
+        mobileNewsCard.click(function () {
+            // Burada haber detay sayfasına yönlendirme yapılabilir
+            console.log('Mobil haber kutusuna tıklandı');
+            // window.location.href = '/haber-detay.html';
+        });
+
+        console.log('Mobil haber kutusu scroll kontrolü başlatıldı');
     }
 
 
@@ -513,6 +611,9 @@ $(document).ready(function () {
     // Sayfa yüklendiğinde tema kontrolü
     initializeTheme();
 
+    // Mobil haber kutusu scroll kontrolü
+    initializeMobileNewsCard();
+
     // Slick Slider başlat
     initializeSlider();
 
@@ -527,6 +628,9 @@ $(document).ready(function () {
 
     // Gallery Slider başlatma fonksiyonu
     initializeGallerySlider();
+
+    // Dik Foto Galeri Slider başlat
+    initializeVerticalGallerySlider();
 
 
     // Global tema değiştirme fonksiyonu
