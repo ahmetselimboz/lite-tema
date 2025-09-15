@@ -929,14 +929,14 @@
 }
 
 @media (max-width: 768px) {
- 
+
 
     /* Mobile için navigation butonlarını küçült */
     .lite-slider-nav-btn {
         width: 28px;
         height: 28px;
         font-size: 14px;
-        
+
     }
 }
 
@@ -1095,6 +1095,118 @@
     min-width: 0;
     display: flex;
     flex-direction: column;
+}
+
+/* Mobil responsive düzenlemeleri */
+@media (max-width: 768px) {
+    .lite-cards-container {
+        gap: 20px;
+    }
+
+    .lite-news-item {
+        flex: 0 0 calc(50% - 10px);
+    }
+
+    /* Mobilde flex-row düzeni */
+    .lite-news-item .lite-bg-secondary {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .lite-news-item .relative.overflow-hidden {
+        flex: 0 0 100px;
+        min-width: 100px;
+    }
+
+    .lite-news-item .relative.overflow-hidden img {
+        width: 100px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .lite-news-item .p-4 {
+        flex: 1;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 80px;
+    }
+
+    .lite-news-item .p-4 h4 {
+        font-size: 14px;
+        line-height: 1.3;
+        margin-bottom: 8px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .lite-news-item .p-4 p {
+        font-size: 12px;
+        line-height: 1.4;
+        margin-bottom: 8px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .lite-news-item .flex.items-center.justify-between {
+        font-size: 10px;
+        margin-top: auto;
+        padding-top: 0;
+    }
+
+    /* Hover efektlerini mobilde basitleştir */
+    .lite-news-item .group:hover .group-hover\:scale-105 {
+        transform: none;
+    }
+
+    .lite-news-item .group:hover .group-hover\:opacity-100 {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .lite-cards-container {
+        gap: 15px;
+    }
+
+    .lite-news-item {
+        flex: 0 0 100%;
+    }
+
+    .lite-news-item .relative.overflow-hidden {
+        flex: 0 0 80px;
+        min-width: 80px;
+    }
+
+    .lite-news-item .relative.overflow-hidden img {
+        width: 80px;
+        height: 70px;
+    }
+
+    .lite-news-item .p-4 {
+        min-height: 70px;
+    }
+
+    .lite-news-item .p-4 h4 {
+        font-size: 13px;
+        -webkit-line-clamp: 2;
+    }
+
+    .lite-news-item .p-4 p {
+        font-size: 11px;
+        -webkit-line-clamp: 1;
+    }
 }
 
 /* Gallery Slider Styles */
@@ -2011,14 +2123,10 @@
 
 /* ===== YAZARLAR SLIDER NAVIGATION STYLES ===== */
 .lite-authors-prev,
-.lite-authors-next {
-
-}
+.lite-authors-next {}
 
 .lite-authors-prev:hover,
-.lite-authors-next:hover {
-
-}
+.lite-authors-next:hover {}
 
 
 
@@ -2041,7 +2149,4 @@
 }
 
 /* Yazarlar slider responsive adjustments */
-@media (max-width: 768px) {
-
-
-}
+@media (max-width: 768px) {}
