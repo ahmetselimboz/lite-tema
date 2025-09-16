@@ -463,7 +463,7 @@ $(document).ready(function () {
             ]
         });
 
-        
+
         // Custom navigation butonları için event listeners
         $('.lite-vertical-gallery-prev').click(function () {
             $('.lite-vertical-gallery-slider').slick('slickPrev');
@@ -805,7 +805,356 @@ $(document).ready(function () {
         }, 3000);
     }
 
+    // ===== MINI POLL (COMPACT) =====
+    function updateMiniPollButtons(optionsEls, options) {
+        const total = options.reduce((sum, o) => sum + o.votes, 0);
 
+        optionsEls.each(function (index) {
+            const button = $(this);
+            const option = options[index];
+            const percentage = total > 0 ? Math.round((option.votes / total) * 100) : 0;
+
+            // Buton textini güncelle: "Seçenek (%XX)"
+            const originalText = option.text;
+            button.text(`${originalText} (${percentage}%)`);
+
+            // Buton stilini güncelle
+            button.removeClass('lite-btn-outline').addClass('lite-btn-secondary');
+        });
+    }
+
+    $('.lite-mini-poll').each(function () {
+        const pollEl = $(this);
+        const optionsEls = pollEl.find('.lite-mini-poll-option');
+
+
+        // Mevcut butonlardan başlangıç verisini topla
+        let options = [];
+        optionsEls.each(function () {
+            options.push({
+                text: $(this).text(),
+                votes: parseInt($(this).attr('data-votes') || '0', 10)
+            });
+        });
+
+        // Tıklayınca oy ver ve sonucu göster
+        optionsEls.on('click', function () {
+            const idx = $(this).index();
+            options[idx].votes += 1;
+
+            // Butonları güncelle (yüzdelik sonuçları göster)
+            updateMiniPollButtons(optionsEls, options);
+
+            // Butonları pasifleştir
+            optionsEls.removeClass("lite-btn-secondary");
+            optionsEls.prop('disabled', true).addClass('opacity-60 cursor-not-allowed lite-bg-accent lite-text-third');
+        });
+    });
+
+    // ===== ANKET MODÜLÜ FONKSİYONLARI =====
+
+    // Anket verilerini yükle
+    function loadPollData() {
+        const pollData = localStorage.getItem('litePollData');
+        if (pollData) {
+            return JSON.parse(pollData);
+        }
+
+        // Varsayılan anket verisi
+        return {
+            id: 'poll_' + Date.now(),
+            question: '2025 yılında en çok hangi teknoloji trendini takip ediyorsunuz?',
+            options: [
+                { id: 1, text: 'Yapay Zeka ve Makine Öğrenmesi', votes: 0 },
+                { id: 2, text: 'Blockchain ve Kripto Para', votes: 0 },
+                { id: 3, text: 'Metaverse ve VR/AR', votes: 0 },
+                { id: 4, text: 'Quantum Computing', votes: 0 },
+                { id: 5, text: 'Elektrikli Araçlar', votes: 0 }
+            ],
+            endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 gün sonra
+            totalVotes: 0,
+            userVoted: false
+        };
+    }
+
+    // Anket verilerini kaydet
+    function savePollData(pollData) {
+        localStorage.setItem('litePollData', JSON.stringify(pollData));
+    }
+
+    // Anket arayüzünü oluştur
+    function renderPoll() {
+        const pollData = loadPollData();
+        const container = $('#lite-poll-container');
+        const resultsContainer = $('#lite-poll-results');
+
+        if (!container.length) return;
+
+        // Süre kontrolü
+        const now = new Date();
+        const timeLeft = pollData.endDate - now;
+
+        if (timeLeft <= 0 || pollData.userVoted) {
+            renderPollResults(pollData);
+            return;
+        }
+
+        // Anket formu
+        let pollHTML = `
+            <div class="lite-poll-question">${pollData.question}</div>
+            <div class="lite-poll-timer" id="lite-poll-timer">
+                <i class="ri-time-line"></i>
+                <span id="lite-timer-text">Kalan süre: <span id="lite-time-left"></span></span>
+            </div>
+            <div class="lite-poll-options">
+        `;
+
+        pollData.options.forEach(option => {
+            pollHTML += `
+                <div class="lite-poll-option" data-option-id="${option.id}">
+                    <input type="radio" name="poll_option" value="${option.id}" id="option_${option.id}">
+                    <label for="option_${option.id}">${option.text}</label>
+                </div>
+            `;
+        });
+
+        pollHTML += `
+            </div>
+            <button class="lite-poll-submit" id="lite-poll-submit" disabled>
+                <i class="ri-send-plane-line"></i> Oyu Gönder
+            </button>
+        `;
+
+        container.html(pollHTML);
+
+        // Event listeners
+        $('.lite-poll-option').on('click', function () {
+            $('.lite-poll-option').removeClass('selected');
+            $(this).addClass('selected');
+            $(this).find('input[type="radio"]').prop('checked', true);
+            $('#lite-poll-submit').prop('disabled', false);
+        });
+
+        $('#lite-poll-submit').on('click', function () {
+            const selectedOption = $('input[name="poll_option"]:checked').val();
+            if (selectedOption) {
+                submitPoll(selectedOption);
+            }
+        });
+
+        // Süre sayacı başlat
+        startPollTimer(pollData.endDate);
+    }
+
+    // Anket sonuçlarını göster
+    function renderPollResults(pollData) {
+        const container = $('#lite-poll-container');
+        const resultsContainer = $('#lite-poll-results');
+
+        if (!container.length) return;
+
+        // Sonuçları hesapla
+        const totalVotes = pollData.options.reduce((sum, option) => sum + option.votes, 0);
+
+        let resultsHTML = `
+            <div class="lite-poll-question">${pollData.question}</div>
+            <div class="lite-poll-results show">
+        `;
+
+        pollData.options.forEach(option => {
+            const percentage = totalVotes > 0 ? Math.round((option.votes / totalVotes) * 100) : 0;
+            resultsHTML += `
+                <div class="lite-poll-result-item">
+                    <div class="lite-poll-result-label">${option.text}</div>
+                    <div class="lite-poll-result-bar">
+                        <div class="lite-poll-result-fill" style="width: ${percentage}%"></div>
+                    </div>
+                    <div class="lite-poll-result-percentage">${percentage}%</div>
+                </div>
+            `;
+        });
+
+        resultsHTML += `
+                <div class="lite-poll-total-votes">
+                    <strong>${totalVotes}</strong> toplam oy
+                </div>
+            </div>
+        `;
+
+        container.html(resultsHTML);
+
+        // Sağ sidebar'da da sonuçları göster
+        if (resultsContainer.length) {
+            let sidebarHTML = `
+                <div class="text-center mb-4">
+                    <div class="w-16 h-16 lite-bg-accent rounded-full flex items-center justify-center mx-auto mb-2">
+                        <i class="ri-bar-chart-line text-lite-text-third text-2xl"></i>
+                    </div>
+                    <h4 class="lite-text-primary font-semibold">Anket Sonuçları</h4>
+                </div>
+            `;
+
+            pollData.options.forEach((option, index) => {
+                const percentage = totalVotes > 0 ? Math.round((option.votes / totalVotes) * 100) : 0;
+                const colors = ['#cf1d39', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5'];
+
+                sidebarHTML += `
+                    <div class="mb-3">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="lite-text-primary text-sm font-medium">${option.text}</span>
+                            <span class="lite-text-accent text-sm font-semibold">${percentage}%</span>
+                        </div>
+                        <div class="w-full bg-lite-bg-secondary rounded-full h-2">
+                            <div class="h-2 rounded-full transition-all duration-1000" 
+                                 style="width: ${percentage}%; background-color: ${colors[index % colors.length]}"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            sidebarHTML += `
+                <div class="text-center mt-4 pt-4 border-t lite-border">
+                    <span class="lite-text-secondary text-sm">
+                        <strong class="lite-text-accent">${totalVotes}</strong> toplam oy
+                    </span>
+                </div>
+            `;
+
+            resultsContainer.html(sidebarHTML);
+        }
+    }
+
+    // Anket oyu gönder
+    function submitPoll(optionId) {
+        const pollData = loadPollData();
+
+        // Kullanıcı daha önce oy vermiş mi kontrol et
+        if (pollData.userVoted) {
+            showToast('Zaten oy vermişsiniz!', 'warning');
+            return;
+        }
+
+        // Oyu ekle
+        const option = pollData.options.find(opt => opt.id == optionId);
+        if (option) {
+            option.votes++;
+            pollData.totalVotes++;
+            pollData.userVoted = true;
+
+            savePollData(pollData);
+            showToast('Oyunuz başarıyla kaydedildi!', 'success');
+
+            // Sonuçları göster
+            setTimeout(() => {
+                renderPollResults(pollData);
+            }, 1000);
+        }
+    }
+
+    // Süre sayacı
+    function startPollTimer(endDate) {
+        const timerElement = $('#lite-time-left');
+        const timerContainer = $('#lite-poll-timer');
+
+        if (!timerElement.length) return;
+
+        function updateTimer() {
+            const now = new Date();
+            const timeLeft = endDate - now;
+
+            if (timeLeft <= 0) {
+                timerElement.text('Süre doldu!');
+                timerContainer.addClass('urgent');
+                // Anketi sonuç moduna geçir
+                setTimeout(() => {
+                    const pollData = loadPollData();
+                    renderPollResults(pollData);
+                }, 1000);
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            let timeString = '';
+            if (days > 0) timeString += `${days}g `;
+            if (hours > 0) timeString += `${hours}s `;
+            if (minutes > 0) timeString += `${minutes}dk `;
+            timeString += `${seconds}sn`;
+
+            timerElement.text(timeString);
+
+            // Son 1 saatte uyarı ver
+            if (timeLeft < 60 * 60 * 1000) {
+                timerContainer.addClass('urgent');
+            }
+        }
+
+        updateTimer();
+        const timerInterval = setInterval(updateTimer, 1000);
+
+        // Timer'ı temizle (sayfa değiştiğinde)
+        $(window).on('beforeunload', function () {
+            clearInterval(timerInterval);
+        });
+    }
+
+    // Anket modülünü başlat
+    function initializePollModule() {
+        renderPoll();
+    }
+
+    // Sayfa yüklendiğinde anket modülünü başlat
+    if ($('#lite-poll-container').length) {
+        initializePollModule();
+    }
+
+    // ===== MINI POLL (COMPACT) =====
+    function renderMiniPollResults(container, options) {
+        const total = options.reduce((sum, o) => sum + o.votes, 0);
+        let html = '<div class="lite-mini-results-inner">';
+        options.forEach(o => {
+            const pct = total > 0 ? Math.round((o.votes / total) * 100) : 0;
+            html += `
+                <div class="lite-poll-result-item">
+                    <div class="lite-poll-result-label">${o.text}</div>
+                    <div class="lite-poll-result-bar">
+                        <div class="lite-poll-result-fill" style="width:${pct}%"></div>
+                    </div>
+                    <div class="lite-poll-result-percentage">${pct}%</div>
+                </div>
+            `;
+        });
+        html += '</div>';
+        container.html(html).removeClass('hidden');
+    }
+
+    $('.lite-mini-poll').each(function () {
+        const pollEl = $(this);
+        const optionsEls = pollEl.find('.lite-mini-poll-option');
+        const resultsEl = pollEl.find('.lite-mini-results');
+
+        // Mevcut butonlardan başlangıç verisini topla
+        let options = [];
+        optionsEls.each(function () {
+            options.push({
+                text: $(this).text(),
+                votes: parseInt($(this).attr('data-votes') || '0', 10)
+            });
+        });
+
+        // Tıklayınca oy ver ve sonucu göster
+        optionsEls.on('click', function () {
+            const idx = $(this).index();
+            options[idx].votes += 1;
+            // Butonları pasifleştir
+            optionsEls.prop('disabled', true).addClass('opacity-60 cursor-not-allowed');
+            // Sonuçları render et
+            renderMiniPollResults(resultsEl, options);
+        });
+    });
 
 });
 
