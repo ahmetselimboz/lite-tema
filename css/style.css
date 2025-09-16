@@ -1008,8 +1008,8 @@
     }
 
     .lite-slider .slick-dots li button {
-        width: 10px;
-        height: 10px;
+        width: 3px;
+        height: 3px;
     }
 }
 
@@ -1120,7 +1120,7 @@
     .lite-news-item .lite-bg-secondary {
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
+        align-items: center;
         gap: 12px;
         padding: 12px;
     }
