@@ -1156,6 +1156,264 @@ $(document).ready(function () {
         });
     });
 
+
+    let currentZoom = 1;
+    let currentImageSrc = '';
+    let currentImageTitle = '';
+    let currentImageAuthor = '';
+    let currentImageDate = '';
+
+  // Image loading with fade effect
+  function handleImageLoad() {
+    console.log('Resim yüklendi');
+    const $img = $(this);
+    const $skeleton = $img.siblings('.image-skeleton');
+    
+    // Skeleton'ı gizle
+    $skeleton.fadeOut(500);
+    
+    // Resmi göster
+    $img.animate({ opacity: 1 }, 500);
+    
+    // View count artır
+    const $viewCount = $('#viewCount');
+    let currentViews = parseInt($viewCount.text().replace(/,/g, '')) || 0;
+    $viewCount.text((currentViews + 1).toLocaleString());
+}
+
+// Resim zaten yüklenmişse direkt çalıştır
+$('.article-image').each(function() {
+    if (this.complete && this.naturalHeight !== 0) {
+        console.log('Resim cache\'den geldi');
+        handleImageLoad.call(this);
+    } else {
+        // Resim henüz yüklenmediyse event listener ekle
+        $(this).on('load', handleImageLoad);
+    }
+});
+
+// Error handling
+$('.article-image').on('error', function() {
+    console.log('Resim yükleme hatası');
+    $(this).siblings('.image-skeleton').fadeOut(500);
+    showToast('Resim yüklenemedi!', 'error');
+});
+
+    // Expand image button
+    $('.expand-btn').on('click', function () {
+        const imageSrc = $(this).data('image');
+        const title = $(this).data('title');
+        const description = $(this).data('description');
+        const author = $(this).data('author');
+        const date = $(this).data('date');
+        openModal(imageSrc, title, description, author, date);
+    });
+
+    // Article image click
+    $('.article-image').on('click', function () {
+        const $expandBtn = $('.expand-btn');
+        $expandBtn.trigger('click');
+    });
+
+    // Share button
+    $('.share-btn').on('click', function () {
+        shareImage();
+    });
+
+    // Bookmark button
+    $('.bookmark-btn').on('click', function () {
+        const $icon = $(this).find('.bookmark-icon');
+        if ($icon.hasClass('far')) {
+            $icon.removeClass('far').addClass('fas text-yellow-400');
+            showToast('Yer imlerine eklendi!');
+        } else {
+            $icon.removeClass('fas text-yellow-400').addClass('far');
+            showToast('Yer imlerinden çıkarıldı!');
+        }
+    });
+
+    // Modal açma fonksiyonu
+    function openModal(imageSrc, title, description, author, date) {
+        const $modal = $('#imageModal');
+        const $modalImage = $('#modalImage');
+        const $modalTitle = $('#modalTitle');
+        const $modalDescription = $('#modalDescription');
+        const $imageAuthor = $('#imageAuthor');
+        const $imageDate = $('#imageDate');
+        const $imageSkeleton = $('#imageSkeleton');
+        const $imageControls = $('#imageControls');
+
+        currentImageSrc = imageSrc;
+        currentImageTitle = title;
+        currentImageAuthor = author;
+        currentImageDate = date;
+
+        // Modal'ı göster
+        $modal.removeClass('hidden');
+        $('body').css('overflow', 'hidden');
+
+        // Bilgileri ayarla
+        $modalTitle.text(title);
+        $modalDescription.text(description);
+        $imageAuthor.text(author);
+        $imageDate.text(date);
+
+        // Skeleton'ı göster, resmi gizle
+        $imageSkeleton.removeClass('hidden');
+        $modalImage.addClass('hidden');
+        $imageControls.css('opacity', '0');
+
+        // Resmi lazy load et
+        const img = new Image();
+        $(img).on('load', function () {
+            setTimeout(() => {
+                $modalImage.attr('src', imageSrc);
+                $modalImage.removeClass('hidden');
+                $imageSkeleton.addClass('hidden');
+
+                updateImageSize(this.naturalWidth, this.naturalHeight);
+                resetZoom();
+
+                setTimeout(() => {
+                    $imageControls.css('opacity', '1');
+                }, 300);
+            }, 500);
+        }).on('error', function () {
+            showToast('Resim yüklenemedi!', 'error');
+            closeModal();
+        });
+        img.src = imageSrc;
+    }
+
+    // Modal kapatma fonksiyonu
+    function closeModal() {
+        const $modal = $('#imageModal');
+        $modal.addClass('hidden');
+        $('body').css('overflow', 'auto');
+
+        // Favoriti sıfırla
+        const $favoriteIcon = $('#favoriteIcon');
+        $favoriteIcon.removeClass('fas text-red-500').addClass('far');
+    }
+
+    // Zoom fonksiyonları
+    function zoomIn() {
+        if (currentZoom < 3) {
+            currentZoom += 0.25;
+            applyZoom();
+        }
+    }
+
+    function zoomOut() {
+        if (currentZoom > 0.5) {
+            currentZoom -= 0.25;
+            applyZoom();
+        }
+    }
+
+    function resetZoom() {
+        currentZoom = 1;
+        applyZoom();
+    }
+
+    function applyZoom() {
+        const $modalImage = $('#modalImage');
+        const $zoomLevel = $('#zoomLevel');
+
+        $modalImage.css('transform', `scale(${currentZoom})`);
+        $zoomLevel.text(`${Math.round(currentZoom * 100)}%`);
+    }
+
+    function updateImageSize(width, height) {
+        const $imageSize = $('#imageSize');
+        $imageSize.text(`${width}×${height}`);
+    }
+
+    function downloadImage() {
+        const link = document.createElement('a');
+        link.download = `${currentImageTitle}.jpg`;
+        link.href = currentImageSrc;
+        link.click();
+        showToast('İndirme başlatıldı!');
+    }
+
+    function shareImage() {
+        if (navigator.share) {
+            navigator.share({
+                title: currentImageTitle || 'Yapay Zeka Teknolojileri',
+                text: 'İlginç bir makale görselini sizinle paylaşıyorum',
+                url: window.location.href
+            });
+        } else {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                showToast('Bağlantı kopyalandı!');
+            });
+        }
+    }
+
+    function favoriteImage() {
+        const $favoriteIcon = $('#favoriteIcon');
+
+        if ($favoriteIcon.hasClass('far')) {
+            $favoriteIcon.removeClass('far').addClass('fas text-red-500');
+            showToast('Favorilere eklendi!');
+        } else {
+            $favoriteIcon.removeClass('fas text-red-500').addClass('far');
+            showToast('Favorilerden çıkarıldı!');
+        }
+    }
+
+    function showToast(message, type = 'success') {
+        const $toast = $('#toast');
+        const $toastMessage = $('#toastMessage');
+        const $toastDiv = $toast.find('div');
+        const $toastIcon = $toast.find('i');
+
+        $toastMessage.text(message);
+
+        if (type === 'error') {
+            $toastDiv.removeClass('bg-green-500').addClass('bg-red-500');
+            $toastIcon.removeClass('fa-check-circle').addClass('fa-exclamation-circle');
+        }
+
+        $toast.removeClass('hidden');
+
+        setTimeout(() => {
+            $toast.addClass('hidden');
+            if (type === 'error') {
+                $toastDiv.removeClass('bg-red-500').addClass('bg-green-500');
+                $toastIcon.removeClass('fa-exclamation-circle').addClass('fa-check-circle');
+            }
+        }, 3000);
+    }
+
+    // Event listeners
+    $('#imageModal .modal-backdrop').on('click', closeModal);
+    $('#closeModalBtn, #closeFooterBtn').on('click', closeModal);
+    $('#zoomInBtn').on('click', zoomIn);
+    $('#zoomOutBtn').on('click', zoomOut);
+    $('#resetZoomBtn').on('click', resetZoom);
+    $('#downloadBtn, #downloadFooterBtn').on('click', downloadImage);
+    $('#shareModalBtn').on('click', shareImage);
+    $('#favoriteBtn').on('click', favoriteImage);
+
+    // ESC tuşu ile modal kapatma
+    $(document).on('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    // Mouse wheel ile zoom
+    $('#modalImage').on('wheel', function (e) {
+        e.preventDefault();
+        if (e.originalEvent.deltaY < 0) {
+            zoomIn();
+        } else {
+            zoomOut();
+        }
+    });
+
 });
 
 
