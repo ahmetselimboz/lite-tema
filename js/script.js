@@ -1163,41 +1163,41 @@ $(document).ready(function () {
     let currentImageAuthor = '';
     let currentImageDate = '';
 
-  // Image loading with fade effect
-  function handleImageLoad() {
-    console.log('Resim yüklendi');
-    const $img = $(this);
-    const $skeleton = $img.siblings('.image-skeleton');
-    
-    // Skeleton'ı gizle
-    $skeleton.fadeOut(500);
-    
-    // Resmi göster
-    $img.animate({ opacity: 1 }, 500);
-    
-    // View count artır
-    const $viewCount = $('#viewCount');
-    let currentViews = parseInt($viewCount.text().replace(/,/g, '')) || 0;
-    $viewCount.text((currentViews + 1).toLocaleString());
-}
+    // Image loading with fade effect
+    function handleImageLoad() {
+        console.log('Resim yüklendi');
+        const $img = $(this);
+        const $skeleton = $img.siblings('.image-skeleton');
 
-// Resim zaten yüklenmişse direkt çalıştır
-$('.article-image').each(function() {
-    if (this.complete && this.naturalHeight !== 0) {
-        console.log('Resim cache\'den geldi');
-        handleImageLoad.call(this);
-    } else {
-        // Resim henüz yüklenmediyse event listener ekle
-        $(this).on('load', handleImageLoad);
+        // Skeleton'ı gizle
+        $skeleton.fadeOut(500);
+
+        // Resmi göster
+        $img.animate({ opacity: 1 }, 500);
+
+        // View count artır
+        const $viewCount = $('#viewCount');
+        let currentViews = parseInt($viewCount.text().replace(/,/g, '')) || 0;
+        $viewCount.text((currentViews + 1).toLocaleString());
     }
-});
 
-// Error handling
-$('.article-image').on('error', function() {
-    console.log('Resim yükleme hatası');
-    $(this).siblings('.image-skeleton').fadeOut(500);
-    showToast('Resim yüklenemedi!', 'error');
-});
+    // Resim zaten yüklenmişse direkt çalıştır
+    $('.article-image').each(function () {
+        if (this.complete && this.naturalHeight !== 0) {
+            console.log('Resim cache\'den geldi');
+            handleImageLoad.call(this);
+        } else {
+            // Resim henüz yüklenmediyse event listener ekle
+            $(this).on('load', handleImageLoad);
+        }
+    });
+
+    // Error handling
+    $('.article-image').on('error', function () {
+        console.log('Resim yükleme hatası');
+        $(this).siblings('.image-skeleton').fadeOut(500);
+        showToast('Resim yüklenemedi!', 'error');
+    });
 
     // Expand image button
     $('.expand-btn').on('click', function () {
@@ -1411,6 +1411,348 @@ $('.article-image').on('error', function() {
             zoomIn();
         } else {
             zoomOut();
+        }
+    });
+
+    // ===== INSTAGRAM STORIES FUNCTIONALITY =====
+
+    // Stories Data
+    const storiesData = [
+        {
+            id: 1,
+            title: 'Yapay Zeka Teknolojilerinde Son Gelişmeler',
+            category: 'technology',
+            image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=250&fit=crop',
+            headline: 'Yapay Zeka Teknolojilerinde Son Gelişmeler',
+            summary: 'AI teknolojilerinin günlük hayatımıza olan etkisi her geçen gün artıyor.',
+            time: '2 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 154,
+            url: '/detail.html'
+        },
+        {
+            id: 2,
+            title: 'Spor',
+            category: 'sports',
+            image: 'assets/haber-gorsel.png',
+            headline: 'Futbol Dünyasından Son Dakika Haberleri',
+            summary: 'Transfer döneminin en hareketli günlerinden birini yaşıyoruz.',
+            time: '1 saat önce',
+            isViewed: false,
+            isNew: true,
+            likes: 287,
+            url: '/haber/futbol-transfer-haberleri'
+        },
+        {
+            id: 3,
+            title: 'Ekonomi',
+            category: 'economy',
+            image: 'assets/haber-gorsel.png',
+            headline: 'Küresel Piyasalarda Bugünkü Durum',
+            summary: 'Borsa İstanbul günü yükselişle kapatırken, dolar kurunda önemli hareketler yaşanıyor.',
+            time: '3 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 98,
+            url: '/haber/piyasa-analizi'
+        },
+        {
+            id: 4,
+            title: 'Sağlık',
+            category: 'health',
+            image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop',
+            headline: 'Sağlıklı Yaşam İçin Önemli Öneriler',
+            summary: 'Uzmanlar kış aylarında bağışıklık sistemini güçlendirmek için öneriler paylaşıyor.',
+            time: '4 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 142,
+            url: '/detail.html'
+        },
+        {
+            id: 5,
+            title: 'Eğitim',
+            category: 'education',
+            image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=250&fit=crop',
+            headline: 'Eğitimde Dijital Dönüşüm',
+            summary: 'Pandemi sonrası eğitim sisteminde yaşanan değişiklikler ve gelecek planları.',
+            time: '5 saat önce',
+            isViewed: false,
+            isNew: true,
+            likes: 76,
+            url: '/detail.html'
+        },
+        {
+            id: 6,
+            title: 'Otomotiv',
+            category: 'automotive',
+            image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=250&fit=crop',
+            headline: 'Elektrikli Araçların Geleceği',
+            summary: 'Otomotiv sektöründe elektrikli araçların payı hızla artıyor.',
+            time: '6 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 203,
+            url: '/detail.html'
+        },
+        {
+            id: 7,
+            title: 'Sanat',
+            category: 'art',
+            image: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=250&fit=crop',
+            headline: 'Modern Sanat Sergilerinden Kareler',
+            summary: 'Şehrin prestijli galerilerinde açılan yeni sergiler sanatseverların ilgisini çekiyor.',
+            time: '7 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 89,
+            url: '/detail.html'
+        },
+        {
+            id: 8,
+            title: 'Seyahat',
+            category: 'travel',
+            image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=250&fit=crop',
+            headline: 'Bu Kış Gidilecek En İyi Destinasyonlar',
+            summary: 'Kış tatili için en popüler destinasyonları ve seyahat ipuçlarını derledik.',
+            time: '8 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 256,
+            url: '/detail.html'
+        },
+        {
+            id: 9,
+            title: 'Bilim',
+            category: 'science',
+            image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&h=250&fit=crop',
+            headline: 'Uzay Araştırmalarında Yeni Bulgular',
+            summary: 'NASA\'nın son keşifleri uzay bilimi alanında yeni ufuklar açıyor.',
+            time: '9 saat önce',
+            isViewed: false,
+            isNew: true,
+            likes: 178,
+            url: '/detail.html'
+        },
+        {
+            id: 10,
+            title: 'Müzik',
+            category: 'music',
+            image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop',
+            headline: 'Yeni Çıkan Albümler ve Konserler',
+            summary: 'Bu ay müzik dünyasından en çok konuşulan gelişmeler.',
+            time: '10 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 134,
+            url: '/detail.html'
+        }
+    ];
+
+    // Stories functionality
+    function initializeStories() {
+        console.log('Stories initialized');
+
+        // Create story items dynamically
+        createStoryItems();
+
+        // Initialize Slick Slider
+        initializeStoriesSlider();
+
+        // Bind click events to story items
+        $(document).on('click', '.lite-story-item', function () {
+            const storyId = $(this).data('story-id') || 1;
+            openStoryModal(storyId);
+        });
+
+        // Navigation
+        $('.lite-stories-prev').on('click', function () {
+            $('.lite-stories-slick-slider').slick('slickPrev');
+        });
+
+        $('.lite-stories-next').on('click', function () {
+            $('.lite-stories-slick-slider').slick('slickNext');
+        });
+    }
+
+    function createStoryItems() {
+        const slider = $('.lite-stories-slick-slider');
+        slider.empty();
+
+        storiesData.forEach((story, index) => {
+            const storyItem = $(`
+                <div class="lite-story-item flex flex-col items-center" data-story-id="${story.id}">
+                    <div class="lite-story-circle relative">
+                        <div class="lite-story-gradient ${!story.isViewed ? 'lite-story-unviewed' : ''} absolute inset-0 rounded-full p-1">
+                            <div class="w-full h-full lite-bg-primary rounded-full p-1">
+                                <img src="${story.image}" alt="${story.title}" 
+                                     class="w-full h-full object-cover rounded-full">
+                            </div>
+                        </div>
+                        ${story.isNew ? '<div class="lite-story-new absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></div>' : ''}
+                        ${story.isViewed ? '<div class="lite-story-viewed absolute bottom-1 right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>' : ''}
+                    </div>
+                    <p class="lite-story-title text-sm lite-text-primary mt-2 text-center font-medium group-hover:lite-text-accent transition-colors">
+                        ${story.title}
+                    </p>
+                </div>
+            `);
+
+            slider.append(storyItem);
+        });
+
+        // Mobilde slider'ın başlangıç pozisyonunu ayarla
+        setTimeout(() => {
+            if (window.innerWidth <= 768) {
+                $('.lite-stories-slick-slider').slick('slickGoTo', 0, true);
+            }
+        }, 100);
+
+        // Mobilde daha iyi kontrol için
+        // if (window.innerWidth <= 768) {
+        //     // Mobilde slider'ın başlangıç ve bitiş pozisyonlarını kontrol et
+        //     $('.lite-stories-slick-slider').on('afterChange', function (event, slick, currentSlide) {
+        //         console.log('Current slide:', currentSlide, 'Total slides:', storiesData.length);
+
+        //         // Son slide'da ise infinite scroll'u devre dışı bırak
+        //         if (currentSlide >= storiesData.length - 4) {
+        //             $('.lite-stories-slick-slider').slick('slickSetOption', 'infinite', false, true);
+        //         }
+        //     });
+
+        //     // Touch start event'i ekle
+        //     $('.lite-stories-slick-slider').on('touchstart', function (e) {
+        //         console.log('Touch start');
+        //     });
+
+        //     // Touch end event'i ekle
+        //     $('.lite-stories-slick-slider').on('touchend', function (e) {
+        //         console.log('Touch end');
+        //     });
+        // }
+    }
+
+    function initializeStoriesSlider() {
+        const isMobile = window.innerWidth <= 768;
+
+        const sliderConfig = {
+            infinite: !isMobile, // Mobilde infinite scroll'u kapat
+            slidesToShow: isMobile ? 'auto' : 'auto', // Mobilde sabit sayı
+            slidesToScroll: 1,
+            variableWidth: !isMobile, // Mobilde variableWidth'i kapat
+            centerMode: false,
+            arrows: false,
+            dots: false,
+            swipeToSlide: true,
+            draggable: true,
+            touchMove: true,
+            swipe: true,
+            touchThreshold: isMobile ? 30 : 5,
+            speed: isMobile ? 100 : 300,
+            cssEase: 'ease-out',
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        infinite: false,
+                        slidesToShow: 4,
+                        slidesToScroll: 1,
+                        variableWidth: false,
+                        centerMode: false,
+                        arrows: false,
+                        dots: false,
+                        swipeToSlide: true,
+                        draggable: true,
+                        touchMove: true,
+                        swipe: true,
+                        touchThreshold: 30,
+                        speed: 100,
+                        cssEase: 'ease-out'
+                    }
+                }
+            ]
+        };
+
+        $('.lite-stories-slick-slider').slick(sliderConfig);
+    }
+
+    function openStoryModal(storyId) {
+        const story = storiesData.find(s => s.id === storyId) || storiesData[0];
+        const modal = $('#liteStoryModal');
+
+        // Update modal content
+        $('#liteStoryTitle').text(story.title);
+        $('#liteStoryTime').text(story.time);
+        $('#liteStoryImage').attr('src', story.image);
+        $('#liteStoryImageBackground').attr('src', story.image);
+        $('#liteStoryHeadline').text(story.headline);
+        $('#liteStorySummary').text(story.summary);
+
+        modal.removeClass('hidden').addClass('show');
+        $('body').css('overflow', 'hidden');
+
+        startStoryProgress();
+    }
+
+    function closeStoryModal() {
+        const modal = $('#liteStoryModal');
+        modal.addClass('hidden').removeClass('show');
+        $('body').css('overflow', 'auto');
+        stopStoryProgress();
+    }
+
+    let storyTimer = null;
+    function startStoryProgress() {
+        const progressBar = $('.lite-story-progress-bar');
+        let progress = 0;
+
+        storyTimer = setInterval(() => {
+            progress += 2;
+            progressBar.css('width', progress + '%');
+
+            if (progress >= 100) {
+                closeStoryModal();
+            }
+        }, 100);
+    }
+
+    function stopStoryProgress() {
+        if (storyTimer) {
+            clearInterval(storyTimer);
+            storyTimer = null;
+        }
+    }
+
+    // slideStories function removed - now using slick slider
+
+    // Initialize modal events
+    $('#liteStoryModal .ri-close-line').parent().on('click', closeStoryModal);
+    $('#liteStoryPrev').on('click', function () { console.log('Previous story'); });
+    $('#liteStoryNext').on('click', function () { console.log('Next story'); });
+
+    // Keyboard navigation
+    $(document).on('keydown', function (e) {
+        if (!$('#liteStoryModal').hasClass('hidden')) {
+            if (e.key === 'Escape') {
+                closeStoryModal();
+            }
+        }
+    });
+
+    // Initialize stories when DOM is ready
+    if ($('.lite-stories-container').length) {
+        initializeStories();
+    }
+
+    // Window resize event for responsive slider
+    $(window).on('resize', function () {
+        if ($('.lite-stories-slick-slider').hasClass('slick-initialized')) {
+            // Slider'ı tamamen yeniden başlat
+            $('.lite-stories-slick-slider').slick('unslick');
+            setTimeout(() => {
+                initializeStoriesSlider();
+            }, 100);
         }
     });
 

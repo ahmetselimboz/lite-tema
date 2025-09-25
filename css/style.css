@@ -1770,6 +1770,21 @@
     color: var(--lite-text-primary);
 }
 
+.efe {
+    color: black;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .efe {
+        color: white;
+        font-weight: 800;
+    }
+}
+
+
+
+
 /* Responsive Typography */
 @media (max-width: 768px) {
     .lite-ckeditor-content {
@@ -2182,9 +2197,6 @@
     }
 }
 
-/* Yazarlar slider responsive adjustments */
-@media (max-width: 768px) {}
-
 .modal-backdrop {
     backdrop-filter: blur(8px);
 }
@@ -2282,4 +2294,395 @@
 .image-container:hover .image-actions {
     transform: translateY(0);
     opacity: 1;
+}
+
+/* ===== INSTAGRAM STORIES STYLES ===== */
+
+/* Stories Container */
+.lite-stories-container {
+    position: relative;
+    padding: 0 20px;
+}
+
+/* Stories Slick Slider */
+.lite-stories-slick-slider {
+    position: relative;
+}
+
+.lite-stories-slick-slider .slick-track {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.lite-stories-slick-slider .slick-slide {
+    float: none;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lite-stories-slick-slider .slick-slide>div {
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+}
+
+/* Story Item Base */
+.lite-story-item {
+    width: 80px;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+/* Mobilde sabit genişlik */
+@media (max-width: 768px) {
+    .lite-story-item {
+        width: 70px !important;
+        margin: 0 4px !important;
+        flex-shrink: 0 !important;
+    }
+}
+
+.lite-story-item:hover {
+    transform: translateY(-4px);
+}
+
+/* Story Circle Wrapper */
+.lite-story-circle {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Story Gradient Border - Unviewed (Instagram Style) */
+.lite-story-gradient {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    border-radius: 50%;
+    animation: lite-story-pulse 2s ease-in-out infinite;
+}
+
+.lite-story-gradient.lite-story-unviewed {
+    background: var(--lite-accent-primary);
+}
+
+/* Viewed Stories - Gray Border */
+.lite-story-gradient:not(.lite-story-unviewed) {
+    background: var(--lite-border);
+}
+
+/* Story Image Container */
+.lite-story-circle img {
+    transition: transform 0.3s ease;
+}
+
+.lite-story-item:hover .lite-story-circle img {
+    transform: scale(1.05);
+}
+
+/* Story Title */
+.lite-story-title {
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+/* New Story Indicator */
+.lite-story-new {
+    animation: lite-story-new-pulse 1.5s ease-in-out infinite;
+}
+
+/* Viewed Story Indicator */
+.lite-story-viewed {
+    display: none;
+}
+
+.lite-story-item.viewed .lite-story-viewed {
+    display: block;
+}
+
+.lite-story-item.viewed .lite-story-gradient {
+    background: var(--lite-border);
+}
+
+/* Story Progress Animation */
+@keyframes lite-story-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.02);
+        opacity: 0.9;
+    }
+}
+
+@keyframes lite-story-new-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        background-color: #ef4444;
+    }
+
+    50% {
+        transform: scale(1.1);
+        background-color: #dc2626;
+    }
+}
+
+/* Stories Slider Wrapper */
+.lite-stories-wrapper {
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+}
+
+/* Story Modal Styles */
+#liteStoryModal {
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+#liteStoryModal.show {
+    display: flex !important;
+    animation: lite-story-modal-fade-in 0.3s ease;
+}
+
+@keyframes lite-story-modal-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Story Modal Content */
+.lite-story-modal-content {
+    max-height: 100vh;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Story Progress Bar */
+.lite-story-progress {
+    transition: all 0.3s ease;
+}
+
+.lite-story-progress-bar {
+    transition: width 0.1s linear;
+}
+
+/* Story Modal Responsive */
+@media (max-width: 768px) {
+    .lite-stories-container {
+        padding: 0;
+    }
+
+    .lite-story-item {
+        width: 70px;
+    }
+
+    .lite-story-circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .lite-story-title {
+        font-size: 11px;
+        max-width: 70px;
+    }
+
+    /* Modal Mobile Optimizations */
+    #liteStoryModal .relative {
+        max-width: 100vw;
+        height: 100vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .lite-story-item {
+        width: 80px;
+    }
+
+    .lite-story-circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .lite-story-title {
+        font-size: 10px;
+        max-width: 70px;
+    }
+
+    .lite-stories-slider {
+        margin: 0 8px;
+    }
+}
+
+/* Stories Navigation Buttons */
+.lite-stories-prev,
+.lite-stories-next {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lite-stories-container:hover .lite-stories-prev,
+.lite-stories-container:hover .lite-stories-next {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Slick Slider Custom Styles */
+.lite-stories-slick-slider .slick-prev,
+.lite-stories-slick-slider .slick-next {
+    display: none !important;
+    /* Hide default slick arrows */
+}
+
+/* Hide dots */
+.lite-stories-slick-slider .slick-dots {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+
+    .lite-stories-prev,
+    .lite-stories-next {
+        display: none !important;
+    }
+
+    .lite-stories-slick-slider .slick-prev,
+    .lite-stories-slick-slider .slick-next {
+        display: none !important;
+    }
+
+    /* Mobilde slider için özel ayarlar */
+    .lite-stories-slick-slider .slick-track {
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    .lite-stories-slick-slider .slick-slide {
+        float: none !important;
+        height: auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 10px !important;
+    }
+
+    /* Mobilde daha smooth scrolling */
+    .lite-stories-slick-slider {
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
+    }
+
+    /* Mobilde slider container */
+    .lite-stories-slider {
+        overflow: hidden;
+        touch-action: pan-x;
+    }
+
+    /* Mobilde slick track */
+    .lite-stories-slick-slider .slick-track {
+        display: flex !important;
+        align-items: center !important;
+        touch-action: pan-x !important;
+    }
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .lite-story-gradient:not(.lite-story-unviewed) {
+    background: var(--lite-border);
+}
+
+[data-theme="dark"] .lite-story-circle .bg-white {
+    background-color: var(--lite-bg-secondary) !important;
+}
+
+/* Story Interactive Elements */
+.lite-story-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.lite-story-item::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: transparent;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.lite-story-item:hover::before {
+    background: rgba(var(--lite-accent-primary), 0.05);
+    transform: scale(1.1);
+}
+
+/* Story Loading States */
+.lite-story-loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.lite-story-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: lite-story-shimmer 1.5s infinite;
+}
+
+@keyframes lite-story-shimmer {
+    to {
+        left: 100%;
+    }
+}
+
+/* Story Modal Navigation Areas */
+#liteStoryPrev,
+#liteStoryNext {
+    z-index: 10;
+}
+
+#liteStoryPrev:active,
+#liteStoryNext:active {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Story Action Buttons Hover Effects */
+#liteStoryModal button {
+    transition: all 0.2s ease;
+}
+
+#liteStoryModal button:hover {
+    transform: scale(1.05);
+}
+
+#liteStoryModal button:active {
+    transform: scale(0.95);
 }
