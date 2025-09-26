@@ -2336,6 +2336,18 @@
     transition: all 0.3s ease;
     margin: 0 8px;
     cursor: pointer;
+    outline: none;
+    border-radius: 8px;
+}
+
+.lite-story-item:focus {
+    outline: 0;
+
+}
+
+.lite-story-item:focus-visible {
+    outline: 0;
+
 }
 
 /* Mobilde sabit genişlik */
@@ -2547,11 +2559,35 @@
     visibility: visible;
 }
 
+/* Desktop'ta butonları her zaman görünür yap */
+@media (min-width: 769px) {
+
+    .lite-stories-prev,
+    .lite-stories-next {
+        opacity: 1 !important;
+        visibility: visible !important;
+        z-index: 20 !important;
+        pointer-events: auto !important;
+    }
+
+    /* Desktop'ta hover efektini kaldır */
+    .lite-stories-container:hover .lite-stories-prev,
+    .lite-stories-container:hover .lite-stories-next {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
 /* Slick Slider Custom Styles */
 .lite-stories-slick-slider .slick-prev,
 .lite-stories-slick-slider .slick-next {
     display: none !important;
     /* Hide default slick arrows */
+}
+
+/* Accessibility: aria-hidden kuralı drag'i engellemesin */
+.lite-stories-slick-slider .slick-slide {
+    pointer-events: auto;
 }
 
 /* Hide dots */

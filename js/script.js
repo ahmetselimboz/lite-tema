@@ -1547,7 +1547,137 @@ $(document).ready(function () {
             isNew: false,
             likes: 134,
             url: '/detail.html'
-        }
+        },
+        {
+            id: 11,
+            title: 'Müzik',
+            category: 'music',
+            image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop',
+            headline: 'Yeni Çıkan Albümler ve Konserler',
+            summary: 'Bu ay müzik dünyasından en çok konuşulan gelişmeler.',
+            time: '10 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 134,
+            url: '/detail.html'
+        },
+        {
+            id: 12,
+            title: 'Müzik',
+            category: 'music',
+            image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop',
+            headline: 'Yeni Çıkan Albümler ve Konserler',
+            summary: 'Bu ay müzik dünyasından en çok konuşulan gelişmeler.',
+            time: '10 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 134,
+            url: '/detail.html'
+        },
+        {
+            id: 13,
+            title: 'Müzik',
+            category: 'music',
+            image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop',
+            headline: 'Yeni Çıkan Albümler ve Konserler',
+            summary: 'Bu ay müzik dünyasından en çok konuşulan gelişmeler.',
+            time: '10 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 134,
+            url: '/detail.html'
+        },
+        {
+            id: 14,
+            title: 'Müzik',
+            category: 'music',
+            image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop',
+            headline: 'Yeni Çıkan Albümler ve Konserler',
+            summary: 'Bu ay müzik dünyasından en çok konuşulan gelişmeler.',
+            time: '10 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 134,
+            url: '/detail.html'
+        },
+        {
+            id: 15,
+            title: 'Müzik',
+            category: 'music',
+            image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop',
+            headline: 'Yeni Çıkan Albümler ve Konserler',
+            summary: 'Bu ay müzik dünyasından en çok konuşulan gelişmeler.',
+            time: '10 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 134,
+            url: '/detail.html'
+        },
+        {
+            id: 16,
+            title: 'Müzik',
+            category: 'music',
+            image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop',
+            headline: 'Yeni Çıkan Albümler ve Konserler',
+            summary: 'Bu ay müzik dünyasından en çok konuşulan gelişmeler.',
+            time: '10 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 134,
+            url: '/detail.html'
+        },
+        {
+            id: 17,
+            title: 'Müzik',
+            category: 'music',
+            image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop',
+            headline: 'Yeni Çıkan Albümler ve Konserler',
+            summary: 'Bu ay müzik dünyasından en çok konuşulan gelişmeler.',
+            time: '10 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 134,
+            url: '/detail.html'
+        },
+        {
+            id: 10,
+            title: 'Müzik',
+            category: 'music',
+            image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop',
+            headline: 'Yeni Çıkan Albümler ve Konserler',
+            summary: 'Bu ay müzik dünyasından en çok konuşulan gelişmeler.',
+            time: '10 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 134,
+            url: '/detail.html'
+        },
+        {
+            id: 19,
+            title: 'Müzik',
+            category: 'music',
+            image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop',
+            headline: 'Yeni Çıkan Albümler ve Konserler',
+            summary: 'Bu ay müzik dünyasından en çok konuşulan gelişmeler.',
+            time: '10 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 134,
+            url: '/detail.html'
+        },
+        {
+            id: 20,
+            title: 'Müzik',
+            category: 'music',
+            image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop',
+            headline: 'Yeni Çıkan Albümler ve Konserler',
+            summary: 'Bu ay müzik dünyasından en çok konuşulan gelişmeler.',
+            time: '10 saat önce',
+            isViewed: false,
+            isNew: false,
+            likes: 134,
+            url: '/detail.html'
+        },
     ];
 
     // Stories functionality
@@ -1566,14 +1696,39 @@ $(document).ready(function () {
             openStoryModal(storyId);
         });
 
-        // Navigation
-        $('.lite-stories-prev').on('click', function () {
-            $('.lite-stories-slick-slider').slick('slickPrev');
+        // Keyboard navigation support
+        $(document).on('keydown', '.lite-story-item', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const storyId = $(this).data('story-id') || 1;
+                openStoryModal(storyId);
+            }
         });
 
-        $('.lite-stories-next').on('click', function () {
-            $('.lite-stories-slick-slider').slick('slickNext');
-        });
+        // Navigation - Slider başlatıldıktan sonra bağla
+        setTimeout(() => {
+            console.log('Setting up navigation buttons...');
+            console.log('Prev button:', $('.lite-stories-prev').length);
+            console.log('Next button:', $('.lite-stories-next').length);
+
+            $('.lite-stories-prev').off('click').on('click', function () {
+                console.log('Previous clicked');
+                if ($('.lite-stories-slick-slider').hasClass('slick-initialized')) {
+                    $('.lite-stories-slick-slider').slick('slickPrev');
+                } else {
+                    console.log('Slider not initialized');
+                }
+            });
+
+            $('.lite-stories-next').off('click').on('click', function () {
+                console.log('Next clicked');
+                if ($('.lite-stories-slick-slider').hasClass('slick-initialized')) {
+                    $('.lite-stories-slick-slider').slick('slickNext');
+                } else {
+                    console.log('Slider not initialized');
+                }
+            });
+        }, 500);
     }
 
     function createStoryItems() {
@@ -1582,22 +1737,22 @@ $(document).ready(function () {
 
         storiesData.forEach((story, index) => {
             const storyItem = $(`
-                <div class="lite-story-item flex flex-col items-center" data-story-id="${story.id}">
-                    <div class="lite-story-circle relative">
-                        <div class="lite-story-gradient ${!story.isViewed ? 'lite-story-unviewed' : ''} absolute inset-0 rounded-full p-1">
-                            <div class="w-full h-full lite-bg-primary rounded-full p-1">
-                                <img src="${story.image}" alt="${story.title}" 
-                                     class="w-full h-full object-cover rounded-full">
+                    <div class="lite-story-item flex flex-col items-center" data-story-id="${story.id}" tabindex="0" role="button" aria-label="Hikaye: ${story.title}">
+                        <div class="lite-story-circle relative">
+                            <div class="lite-story-gradient ${!story.isViewed ? 'lite-story-unviewed' : ''} absolute inset-0 rounded-full p-1">
+                                <div class="w-full h-full lite-bg-primary rounded-full p-1">
+                                    <img src="${story.image}" alt="${story.title}" 
+                                         class="w-full h-full object-cover rounded-full">
+                                </div>
                             </div>
+                            ${story.isNew ? '<div class="lite-story-new absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></div>' : ''}
+                            ${story.isViewed ? '<div class="lite-story-viewed absolute bottom-1 right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>' : ''}
                         </div>
-                        ${story.isNew ? '<div class="lite-story-new absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white"></div>' : ''}
-                        ${story.isViewed ? '<div class="lite-story-viewed absolute bottom-1 right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>' : ''}
+                        <p class="lite-story-title text-sm lite-text-primary mt-2 text-center font-medium group-hover:lite-text-accent transition-colors">
+                            ${story.title}
+                        </p>
                     </div>
-                    <p class="lite-story-title text-sm lite-text-primary mt-2 text-center font-medium group-hover:lite-text-accent transition-colors">
-                        ${story.title}
-                    </p>
-                </div>
-            `);
+                `);
 
             slider.append(storyItem);
         });
@@ -1637,17 +1792,19 @@ $(document).ready(function () {
         const isMobile = window.innerWidth <= 768;
 
         const sliderConfig = {
-            infinite: !isMobile, // Mobilde infinite scroll'u kapat
-            slidesToShow: isMobile ? 'auto' : 'auto', // Mobilde sabit sayı
+            infinite: !isMobile,
+            slidesToShow: isMobile ? 4 : 1,
             slidesToScroll: 1,
-            variableWidth: !isMobile, // Mobilde variableWidth'i kapat
+            variableWidth: !isMobile, // Desktop: serbest genişlik; Mobile: sabit
             centerMode: false,
-            arrows: false,
+            arrows: false, // Custom okları kullanıyoruz
             dots: false,
             swipeToSlide: true,
             draggable: true,
             touchMove: true,
             swipe: true,
+            waitForAnimate: false,
+            edgeFriction: 0.15,
             touchThreshold: isMobile ? 30 : 5,
             speed: isMobile ? 100 : 300,
             cssEase: 'ease-out',
@@ -1675,6 +1832,22 @@ $(document).ready(function () {
         };
 
         $('.lite-stories-slick-slider').slick(sliderConfig);
+
+        // Accessibility fix - Remove aria-hidden from focusable elements
+        setTimeout(() => {
+            $('.lite-stories-slick-slider .slick-slide').each(function () {
+                const $slide = $(this);
+                const $focusableElements = $slide.find('button, [tabindex], input, select, textarea, a[href]');
+
+                if ($focusableElements.length > 0) {
+                    $slide.removeAttr('aria-hidden');
+                }
+            });
+        }, 100);
+
+        console.log('Slider initialized with config:', sliderConfig);
+        console.log('Slider element:', $('.lite-stories-slick-slider'));
+        console.log('Slider has slick class:', $('.lite-stories-slick-slider').hasClass('slick-initialized'));
     }
 
     function openStoryModal(storyId) {
@@ -1745,15 +1918,30 @@ $(document).ready(function () {
         initializeStories();
     }
 
-    // Window resize event for responsive slider
+    // Window resize event for responsive slider (debounced, breakpoint-aware)
+    let storiesResizeTimer = null;
+    let wasMobile = window.innerWidth <= 768;
     $(window).on('resize', function () {
-        if ($('.lite-stories-slick-slider').hasClass('slick-initialized')) {
-            // Slider'ı tamamen yeniden başlat
-            $('.lite-stories-slick-slider').slick('unslick');
-            setTimeout(() => {
+        clearTimeout(storiesResizeTimer);
+        storiesResizeTimer = setTimeout(() => {
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile === wasMobile) return; // breakpoint değişmediyse dokunma
+
+            const $slider = $('.lite-stories-slick-slider');
+            if ($slider.hasClass('slick-initialized')) {
+                const currentIndex = $slider.slick('slickCurrentSlide');
+                $slider.slick('unslick');
                 initializeStoriesSlider();
-            }, 100);
-        }
+                // Eski index'e mümkün olduğunca yakın konumlandır
+                setTimeout(() => {
+                    if ($('.lite-stories-slick-slider').hasClass('slick-initialized')) {
+                        $('.lite-stories-slick-slider').slick('slickGoTo', currentIndex, true);
+                    }
+                }, 50);
+            }
+
+            wasMobile = isMobile;
+        }, 150);
     });
 
 });
