@@ -1954,9 +1954,18 @@ function openCommentModal() {
 
 $('#liteCommentLoadMore').click(openCommentModal);
 
+
 $('#liteCommentModalClose').click(function () {
     $('#liteCommentModal').addClass('hidden').removeClass('flex');
 });
+
+$('#liteCommentModal').on('click', function (e) {
+    if (e.target === this) {
+        $(this).addClass('hidden').removeClass('flex');
+    }
+});
+
+
 
 
 
