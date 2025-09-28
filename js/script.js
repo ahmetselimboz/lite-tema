@@ -1948,5 +1948,19 @@ $(document).ready(function () {
 
 
 
+function openCommentModal() {
+    $('#liteCommentModal').removeClass('hidden').addClass('flex');
+}
+
+$('#liteCommentLoadMore').click(openCommentModal);
+
+$('#liteCommentModalClose').click(function () {
+    $('#liteCommentModal').addClass('hidden').removeClass('flex');
+});
+
+
+
+
+
 
 

@@ -139,6 +139,16 @@
 }
 
 /* Hover Effects */
+.lite-btn-hover-accent {
+    color: var(--lite-accent-primary);
+    background-color: rgb(92 92 92 / 10%) !important;
+}
+
+.lite-btn-hover-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
 .lite-hover-accent:hover {
     color: var(--lite-accent-primary);
     background-color: rgb(92 92 92 / 10%) !important;
