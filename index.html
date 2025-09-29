@@ -121,7 +121,8 @@
         class="fixed top-0 left-0 right-0 z-[1002] lite-bg-secondary border-b lite-border h-auto flex items-center justify-between px-5 md:px-8 py-3 transition-all duration-300">
         <div class="flex items-center lg:gap-8 gap-4">
             <!-- Menü İkonu -->
-            <button class="lite-btn-hover-accent p-2 rounded-md transition-all duration-300 text-2xl" id="liteMenuToggle">
+            <button class="lite-btn-hover-accent p-2 rounded-md transition-all duration-300 text-2xl"
+                id="liteMenuToggle">
                 <i class="ri-menu-line"></i>
             </button>
 
@@ -379,30 +380,42 @@
     <div class="fixed inset-0 bg-black bg-opacity-50 z-[998] opacity-0 invisible transition-all duration-300"
         id="liteOverlay"></div>
 
-    <div class="fixed bottom-2 px-4 w-full z-[1000] lg:hidden block">
+    <div class="fixed bottom-2 px-1 w-full z-[1000] lg:hidden block">
+        <ul
+            class="mobile-menu-container flex items-center justify-between gap-2 text-xs font-semibold w-full py-4 px-2  rounded-2xl lite-text-accent">
+
+            <li><a href="">Anasayfa</a></li>
+            <li><a href="">Trendler</a></li>
+            <li><a href="" class="active">Haber Gönder</a></li>
+            <li><a href="">Kategoriler</a></li>
+            <li><a href="">Üye Girişi</a></li>
+
+        </ul>
+    </div>
+    <!-- <div class="fixed bottom-2 px-4 w-full z-[1000] lg:hidden block">
         <div
             class="mobile-menu-container flex items-center justify-between w-full py-4 px-4 h-16 rounded-2xl lite-text-accent">
-            <!-- Canlı Yayın Butonu -->
+ 
             <a href="#" class="mobile-menu-btn px-3 py-1 rounded-xl text-2xl">
                 <i class="ri-broadcast-line"></i>
             </a>
             <div class="h-5/6 border-r lite-border"></div>
-            <!-- Arama Butonu -->
+          
             <button class="mobile-menu-btn px-3 py-1 rounded-xl text-2xl" id="liteSearchToggleMobile">
                 <i class="ri-search-line"></i>
             </button>
             <div class="h-5/6 border-r lite-border"></div>
-            <!-- Tema Toggle Butonu -->
+         
             <button class="mobile-menu-btn px-3 py-1 rounded-xl text-2xl" id="liteThemeToggleMobile">
                 <i class="ri-sun-line" id="liteThemeIconMobile"></i>
             </button>
             <div class="h-5/6 border-r lite-border"></div>
-            <!-- Whatsapp Butonu -->
+           
             <button class="mobile-menu-btn px-3 py-1 rounded-xl text-2xl" id="liteWhatsappToggleMobile">
                 <i class="ri-whatsapp-line"></i>
             </button>
         </div>
-    </div>
+    </div> -->
 
     <!-- Ana İçerik Alanı -->
     <main class="mt-12 lg:mt-24">
@@ -494,7 +507,7 @@
 
         <!-- Instagram Hikayeler Bölümü -->
         <section class="max-w-7xl mx-auto lg:px-5 px-2 py-8">
-     
+
             <!-- Stories Container -->
             <div class="lite-stories-container sm:px-0 relative">
                 <!-- Navigation Buttons - Desktop Only -->
