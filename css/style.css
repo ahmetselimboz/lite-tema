@@ -1079,12 +1079,19 @@
     border-radius: 4px;
 }
 
-/* Dark mode adjustments for news links */
+/* Dark mode adjustments for news links */  
 [data-theme="dark"] .lite-news-link:hover {
     background-color: rgba(252, 129, 129, 0.08);
 }
 
-
+#liteSearchContainer {
+    transform: translateY(-180%); /* başlangıçta yukarı gizli */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  #liteSearchContainer.active {
+    transform: translateY(13px); /* görünür hale gelir */
+  }
 
 
 /* Cards Slider (3'erli) */
@@ -2048,7 +2055,7 @@
 }
 
 #mobileNewsCard.show {
-    transform: translateY(25px);
+    transform: translateY(-50px);
 }
 
 #mobileNewsCard h4 {

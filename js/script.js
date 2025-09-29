@@ -55,7 +55,8 @@ $(document).ready(function () {
         const searchContainer = $('#liteSearchContainer');
         if (!searchContainer.length) return;
 
-        searchContainer.toggleClass('-translate-y-full translate-y-0');
+        $("#liteSearchContainer").toggleClass("active");
+
 
         // Mobil menüde aktif durumu göster
         if ($(this).attr('id') === 'liteSearchToggleMobile') {
@@ -1964,6 +1965,33 @@ $('#liteCommentModal').on('click', function (e) {
     if (e.target === this) {
         $(this).addClass('hidden').removeClass('flex');
     }
+});
+
+$(function () {
+    let lastScrollTop = 0;
+    let navbar = $("nav");
+
+    $(window).on("scroll", function () {
+        if (window.innerWidth <= 768) {
+            let currentScroll = $(this).scrollTop();
+            const threshold = 200;
+
+            if (currentScroll > threshold) {
+                if (currentScroll > lastScrollTop) {
+                    // aşağı kaydırılıyor
+                    navbar.css("transform", "translateY(-100%)");
+                } else {
+                    // yukarı kaydırılıyor
+                    navbar.css("transform", "translateY(0)");
+                }
+            } else {
+                // 200px altında ise navbarı göster
+                navbar.css("transform", "translateY(0)");
+            }
+
+            lastScrollTop = currentScroll;
+        }
+    });
 });
 
 
