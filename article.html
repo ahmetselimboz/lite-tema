@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lite Tema - Modern ve minimalist haber sitesi">
+    <meta name="keywords" content="haber, gündem, teknoloji, spor, ekonomi">
+    <meta name="author" content="Lite Tema">
+    <title>Lite Tema - Ana Sayfa</title>
+
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Slick Slider JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    spacing: {
+                        '15': '60px',
+                    }
+                }
+            },
+            plugins: [
+                function ({ addUtilities }) {
+                    addUtilities({
+                        '.lite-accent-border': {
+                            borderColor: 'var(--lite-accent-border)',
+                        },
+                        '.lite-bg-accent': {
+                            backgroundColor: 'var(--lite-accent-primary)',
+                        },
+                        '.lite-text-accent': {
+                            color: 'var(--lite-accent-primary)',
+                        },
+                    }, ['responsive', 'hover', 'focus']);
+                }
+            ]
+        }
+    </script>
+</head>
+
+<body class="font-inter lite-bg-primary lite-text-primary transition-all duration-300">
+    <!-- Page Loader -->
+    <div class="lite-page-loader" id="litePageLoader">
+        <div class="lite-loader-content">
+            <div class="lite-loader-logo">
+                <img src="assets/light-logo.png" alt="Lite Tema" class="lite-logo-light">
+                <img src="assets/dark-logo.png" alt="Lite Tema" class="lite-logo-dark">
+            </div>
+            <div class="lite-loader-bar">
+                <div class="lite-loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed lg:flex hidden bottom-5 right-5 w-12 h-12 flex items-center justify-center text-2xl lite-text-third cursor-pointer lite-bg-accent border lite-border rounded-full shadow-lg hover:-translate-y-1 z-[1002] transition-all duration-300"
+        id="liteWhatsappToggleDesktop">
+        <i class="ri-whatsapp-line"></i>
+    </div>
+
+    <!-- Whatsapp Davet Popup -->
+    <div class="fixed bottom-20 right-5 w-80 lite-bg-secondary border lite-border rounded-lg shadow-lg z-[1002] opacity-0 invisible transform -translate-y-2 transition-all duration-300"
+        id="liteWhatsappPopup">
+        <div class="px-5 py-4 border-b lite-border text-center font-semibold lite-text-primary">
+            Whatsapp kanalımıza katılın!
+        </div>
+        <div class="px-5 py-5 lite-text-secondary">
+            <span class="text-sm text-center">Whatsapp kanalımıza katılın ve güncel haberleri alın!</span>
+            <!-- <div class="flex flex-col   gap-2 w-full">
+                <label for="liteNotificationEmail" class="text-xs">Email</label>
+                <input type="email" id="liteNotificationEmail"
+                    class="lite-bg-primary lite-text-primary border lite-border rounded-lg outline-none focus:lite-accent-border p-2 w-full  text-sm"
+                    placeholder="Email">
+                <label for="liteNotificationWhatsapp" class="text-xs">Whatsapp</label>
+                <input type="tel" id="liteNotificationWhatsapp"
+                    class="lite-bg-primary lite-text-primary border lite-border rounded-lg outline-none focus:lite-accent-border p-2 w-full text-sm"
+                    placeholder="Whatsapp">
+
+
+            </div> -->
+            <button class="lite-btn lite-btn-primary lite-btn-md lite-btn-full mt-4" id="liteWhatsappSubmit">
+                <i class="ri-whatsapp-line"></i>
+                Katıl
+            </button>
+        </div>
+    </div>
+
+
+
+    <!-- Navbar -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-[1002] lite-bg-secondary border-b lite-border h-auto flex items-center justify-between px-5 md:px-8 py-3 transition-all duration-300">
+        <div class="flex items-center lg:gap-8 gap-4">
+            <!-- Menü İkonu -->
+            <button class="lite-btn-hover-accent p-2 rounded-md transition-all duration-300 text-2xl"
+                id="liteMenuToggle">
+                <i class="ri-menu-line"></i>
+            </button>
+
+            <div class="flex items-center justify-center">
+                <a href="index.html">
+                    <img src="assets/light-logo.png" alt="Lite Tema"
+                        class="h-auto w-36 lg:w-40 transition-opacity duration-300" id="liteBannerLogo">
+                </a>
+            </div>
+        </div>
+
+
+
+        <!-- Kategoriler -->
+        <div class="flex items-center justify-center gap-4">
+            <ul class="hidden lg:flex items-center justify-center gap-4 list-none">
+                <li><a href="#"
+                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Ana
+                        Sayfa</a></li>
+                <li><a href="#"
+                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Gündem</a>
+                </li>
+                <li><a href="#"
+                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Teknoloji</a>
+                </li>
+                <li><a href="#"
+                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Spor</a>
+                </li>
+                <li><a href="#"
+                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Ekonomi</a>
+                </li>
+                <li><a href="#"
+                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Kültür</a>
+                </li>
+                <li><a href="#"
+                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Sağlık</a>
+                </li>
+                <li><a href="#"
+                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Otomobil</a>
+                </li>
+                <li><a href="#"
+                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Eğitim</a>
+                </li>
+                <li><a href="#"
+                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Video</a>
+                </li>
+                <li><a href="#"
+                        class="lite-hover-accent font-medium px-2 py-2 rounded-md transition-all duration-300 text-sm">Yazarlar</a>
+                </li>
+
+
+
+            </ul>
+        </div>
+        <div class="flex items-center gap-2">
+            <p class="text-sm lite-text-accent font-bold cursor-default hidden md:block ">13.09.2025</p>
+        </div>
+        <div class="flex items-center lg:gap-2 gap-1">
+            <!-- Bileşenler Sayfası -->
+            <a href="components.html"
+                class="lite-hover-accent  p-2 rounded-md transition-all duration-300 text-lg hidden md:hidden items-center gap-1"
+                title="Tasarım Bileşenleri">
+                <i class="ri-palette-line"></i>
+                <span class="text-sm">Bileşenler</span>
+            </a>
+
+
+
+            <!-- Arama Butonu -->
+            <button class=" lite-btn-hover-accent p-2 rounded-md transition-all duration-300 text-xl"
+                id="liteSearchToggleDesktop">
+                <i class="ri-search-line"></i>
+            </button>
+
+            <!-- Bildirim Butonu -->
+            <button class="lite-btn-hover-accent p-2 rounded-md transition-all duration-300 text-xl"
+                id="liteNotificationToggle">
+                <i class="ri-notification-line"></i>
+            </button>
+
+            <!-- User Butonu -->
+            <button class="lite-btn-hover-accent p-2 rounded-md transition-all duration-300 text-xl">
+                <i class="ri-user-line"></i>
+            </button>
+
+            <!-- Tema Toggle Butonu -->
+            <button class="lg:block hidden lite-btn-hover-accent p-2 rounded-md transition-all duration-300 text-xl"
+                id="liteThemeToggleDesktop">
+                <i class="ri-sun-line" id="liteThemeIconDesktop"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Slide Menü -->
+    <div class="fixed top-0 left-0 w-80 h-screen lite-bg-secondary border-r lite-border z-[1001] transform -translate-x-full transition-transform duration-300 lite-scrollbar overflow-y-auto"
+        id="liteSlideMenu">
+
+        <!-- Menü Header -->
+        <div class="flex items-center justify-between p-6 border-b lite-border">
+            <h3 class="font-semibold lite-text-primary text-lg">Menü</h3>
+            <button class="lite-hover-accent p-2 rounded-md transition-all duration-300 text-xl" id="liteMenuClose">
+                <i class="ri-close-line"></i>
+            </button>
+        </div>
+
+        <!-- Menü İçeriği -->
+        <div class="py-4">
+            <a href="#"
+                class="block px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent">Ana
+                Sayfa</a>
+
+            <!-- Gündem - Alt Menülü -->
+            <div class="lite-submenu-container">
+                <button
+                    class="w-full flex items-center justify-between px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent lite-submenu-toggle"
+                    data-target="gundem-submenu">
+                    <span>Gündem</span>
+                    <i class="ri-arrow-down-s-line transition-transform duration-300"></i>
+                </button>
+                <div class="lite-submenu" id="gundem-submenu">
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Son
+                        Dakika</a>
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Siyaset</a>
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Dünya</a>
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Yerel</a>
+                </div>
+            </div>
+
+            <!-- Teknoloji - Alt Menülü -->
+            <div class="lite-submenu-container">
+                <button
+                    class="w-full flex items-center justify-between px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent lite-submenu-toggle"
+                    data-target="teknoloji-submenu">
+                    <span>Teknoloji</span>
+                    <i class="ri-arrow-down-s-line transition-transform duration-300"></i>
+                </button>
+                <div class="lite-submenu" id="teknoloji-submenu">
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Yapay
+                        Zeka</a>
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Mobil</a>
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Yazılım</a>
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Donanım</a>
+                </div>
+            </div>
+
+            <!-- Spor - Alt Menülü -->
+            <div class="lite-submenu-container">
+                <button
+                    class="w-full flex items-center justify-between px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent lite-submenu-toggle"
+                    data-target="spor-submenu">
+                    <span>Spor</span>
+                    <i class="ri-arrow-down-s-line transition-transform duration-300"></i>
+                </button>
+                <div class="lite-submenu" id="spor-submenu">
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Futbol</a>
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Basketbol</a>
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Voleybol</a>
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Diğer
+                        Sporlar</a>
+                </div>
+            </div>
+
+            <a href="#"
+                class="block px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent">Ekonomi</a>
+
+            <a href="#"
+                class="block px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent">Kültür</a>
+
+            <!-- Sağlık - Alt Menülü -->
+            <div class="lite-submenu-container">
+                <button
+                    class="w-full flex items-center justify-between px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent lite-submenu-toggle"
+                    data-target="saglik-submenu">
+                    <span>Sağlık</span>
+                    <i class="ri-arrow-down-s-line transition-transform duration-300"></i>
+                </button>
+                <div class="lite-submenu" id="saglik-submenu">
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Beslenme</a>
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Fitness</a>
+                    <a href="#"
+                        class="block px-10 py-3 lite-text-secondary border-b lite-border transition-all duration-300 lite-hover-accent text-sm">Tıp</a>
+                </div>
+            </div>
+
+            <a href="#"
+                class="block px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent">Otomobil</a>
+
+            <a href="#"
+                class="block px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent">Eğitim</a>
+
+            <a href="#"
+                class="block px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent">Video</a>
+
+            <a href="#"
+                class="block px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent">Magazin</a>
+
+            <div class="w-full px-6 py-4 ">
+                <!-- Tema Toggle Butonu -->
+                <button
+                    class="lg:hidden block lite-btn lite-btn-outline  lite-btn-md p-2 rounded-md transition-all duration-300 "
+                    id="liteThemeToggleDesktop">
+                    <i class="ri-sun-line" id="liteThemeIconDesktop"></i>
+                    Açık/Koyu Tema
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Arama Kutusu -->
+    <div class="fixed top-15 left-0 right-0 lite-bg-secondary border-b lite-border p-5 z-[1001] transform -translate-y-full transition-transform duration-300"
+        id="liteSearchContainer">
+        <div class="w-full max-w-2xl mx-auto relative">
+            <input type="text"
+                class="w-full px-4 py-3 pr-12 border-2 lite-border rounded-lg text-base lite-bg-primary lite-text-primary outline-none transition-all duration-300 focus:lite-accent-border"
+                placeholder="Haber ara..." id="liteSearchInput">
+            <button
+                class="absolute right-2 top-1/2 transform -translate-y-1/2 lite-bg-accent text-white px-3 py-2 rounded-md cursor-pointer text-base"
+                id="liteSearchSubmit">
+                <i class="ri-search-line"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Bildirim Popup -->
+    <div class="fixed top-16 right-5 w-80 lite-bg-secondary border lite-border rounded-lg shadow-2xl z-[1002] opacity-0 invisible transform -translate-y-2 transition-all duration-300"
+        id="liteNotificationPopup">
+        <div class="px-5 py-4 border-b lite-border text-center font-semibold lite-text-primary">
+            Haberleri Mail veya Whatsapp ile alın!
+        </div>
+        <div class="px-5 py-5 lite-text-secondary">
+            <div class="flex flex-col   gap-2 w-full">
+                <label for="liteNotificationEmail" class="text-xs">Email</label>
+                <input type="email" id="liteNotificationEmail"
+                    class="lite-bg-primary lite-text-primary border lite-border rounded-lg outline-none focus:lite-accent-border p-2 w-full  text-sm"
+                    placeholder="Email">
+                <label for="liteNotificationWhatsapp" class="text-xs">Whatsapp</label>
+                <input type="tel" id="liteNotificationWhatsapp"
+                    class="lite-bg-primary lite-text-primary border lite-border rounded-lg outline-none focus:lite-accent-border p-2 w-full text-sm"
+                    placeholder="Whatsapp">
+
+
+            </div>
+            <button class="lite-btn lite-btn-primary lite-btn-md lite-btn-full mt-4" id="liteNotificationSubmit">
+                <i class="ri-send-plane-line"></i>
+                Gönder
+            </button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 z-[998] opacity-0 invisible transition-all duration-300"
+        id="liteOverlay"></div>
+
+    <div class="fixed bottom-2 px-1 w-full z-[1000] lg:hidden block">
+        <ul
+            class="mobile-menu-container flex items-center justify-between gap-2 text-xs font-semibold w-full py-4 px-2  rounded-2xl lite-text-accent">
+
+            <li>
+                <a href="">
+                    <i class="ri-home-line"></i>
+                    Anasayfa
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="ri-trending-line"></i>
+                    Trendler
+                </a>
+            </li>
+            <li>
+                <a href="" class="active">
+                    <i class="ri-share-line"></i>
+                    Haber Gönder
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="ri-list-check"></i>
+                    Kategoriler
+                </a>
+            </li>
+        </ul>
+    </div>
+    <main class="mt-24 lg:mt-24">
+        <div class="mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Sol Sidebar - Paylaşım Butonları (Desktop) -->
+                <aside class="hidden lg:block lg:col-span-1">
+                    <div class="share-sticky">
+                        <div class="flex flex-col gap-3">
+                            <button onclick="shareTwitter()"
+                                class="w-12 h-12 rounded-full lite-btn lite-btn-secondary  lite-btn-md flex items-center justify-center transition-all"
+                                title="Twitter'da Paylaş">
+                                <i class="ri-twitter-x-line text-xl"></i>
+                            </button>
+                            <button onclick="shareFacebook()"
+                                class="w-12 h-12 rounded-full lite-btn lite-btn-secondary  lite-btn-md flex items-center justify-center transition-all"
+                                title="Facebook'ta Paylaş">
+                                <i class="ri-facebook-fill text-xl"></i>
+                            </button>
+                            <button onclick="shareLinkedIn()"
+                                class="w-12 h-12 rounded-full lite-btn lite-btn-secondary  lite-btn-md flex items-center justify-center transition-all"
+                                title="LinkedIn'de Paylaş">
+                                <i class="ri-linkedin-fill text-xl"></i>
+                            </button>
+                            <button onclick="shareWhatsApp()"
+                                class="w-12 h-12 rounded-full lite-btn lite-btn-secondary  lite-btn-md flex items-center justify-center transition-all"
+                                title="WhatsApp'ta Paylaş">
+                                <i class="ri-whatsapp-line text-xl"></i>
+                            </button>
+                            <button onclick="copyLink()"
+                                class="w-12 h-12 rounded-full lite-btn lite-btn-secondary  lite-btn-md flex items-center justify-center transition-all"
+                                title="Linki Kopyala">
+                                <i class="ri-link text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Ana İçerik -->
+                <section class="lg:col-span-8">
+                    <!-- Breadcrumb -->
+                    <nav class="text-sm lite-text-secondary mb-4" aria-label="breadcrumb">
+                        <ol class="flex items-center flex-wrap">
+                            <li><a href="index.html" class="hover:underline hover:text-blue-600">Ana Sayfa</a></li>
+                            <li class="mx-2">/</li>
+                            <li><a href="#" class="hover:underline hover:text-blue-600">Teknoloji</a></li>
+                            <li class="mx-2">/</li>
+                            <li><a href="#" class="hover:underline hover:text-blue-600">Yapay Zeka</a></li>
+                        </ol>
+                    </nav>
+
+
+
+                    <!-- Makale Başlığı -->
+                    <header class="mb-6">
+                        <h1 class="text-3xl md:text-5xl font-bold lite-text-primary leading-tight mb-4">
+                            Yapay Zeka Devrimi: 2025'e Girerken Bizi Neler Bekliyor?
+                        </h1>
+
+                        <div class="flex flex-wrap items-center gap-4 text-sm lite-text-secondary">
+                            <div class="flex items-center gap-2">
+                                <i class="ri-calendar-line lite-text-accent"></i>
+                                <time datetime="2025-09-13">13 Eylül 2025</time>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <i class="ri-eye-line lite-text-accent"></i>
+                                <span>3.2K okunma</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="ri-chat-3-line lite-text-accent"></i>
+                                <span>24 yorum</span>
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Yazar Bilgisi -->
+                    <div class="lite-bg-secondary border lite-border rounded-xl p-5 mb-6 flex items-start gap-4">
+                        <img src="https://i.pravatar.cc/80?img=5" alt="Dr. Ayşe Yılmaz"
+                            class="w-16 h-16 rounded-full object-cover">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3 class="font-semibold text-lg lite-text-primary">Dr. Ayşe Yılmaz</h3>
+
+                            </div>
+                            <p class="lite-text-secondary text-sm mb-2">10 yıllık deneyime sahip teknoloji yazarı ve AI
+                                uzmanı. MIT'de yapay zeka alanında doktora yaptı.</p>
+                            <div class="flex items-center gap-3">
+                                <a href="#"
+                                    class="text-sm lite-text-secondary hover:lite-text-accent hover:underline flex items-center gap-1">
+                                    <i class="ri-article-line"></i>
+                                    <span>Tüm Yazıları</span>
+                                </a>
+                                <a href="#" class="lite-text-secondary hover:lite-text-accent transition-colors">
+                                    <i class="ri-twitter-x-line text-lg"></i>
+                                </a>
+                                <a href="#" class="lite-text-secondary hover:lite-text-accent transition-colors">
+                                    <i class="ri-facebook-fill text-lg"></i>
+                                </a>
+                                <a href="#" class="lite-text-secondary hover:lite-text-accent transition-colors">
+                                    <i class="ri-linkedin-fill text-lg"></i>
+                                </a>
+                                <a href="#" class="lite-text-secondary hover:lite-text-accent transition-colors">
+                                    <i class="ri-instagram-fill text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Kapak Görseli -->
+                    <figure class="rounded-xl overflow-hidden border lite-border lite-bg-secondary mb-6">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop"
+                            alt="Yapay zeka kapak görseli" class="w-full h-[320px] md:h-[480px] object-cover">
+                        <figcaption class="px-4 py-3 text-xs lite-text-secondary">
+                            Görsel: Yapay zekanın gündelik yaşama etkilerini temsil eden illüstrasyon
+                        </figcaption>
+                    </figure>
+
+                    <!-- Makale Özeti -->
+                    <div class="lite-bg-secondary border-l-4 lite-accent-border p-5 rounded-r-lg mb-8">
+                        <h2 class="text-lg font-semibold lite-text-primary mb-2 flex items-center gap-2">
+                            <i class="ri-information-line lite-text-accent"></i>
+                            Makale Özeti
+                        </h2>
+                        <p class="lite-text-secondary leading-relaxed">Bu makale; üretken yapay zekanın iş dünyası,
+                            eğitim ve sağlık başta olmak üzere farklı alanlardaki dönüşümünü ve 2025 projeksiyonlarını
+                            ele alıyor. Regülasyon, etik ve veri yönetişimi konularında kritik önerilerde bulunuyor.</p>
+                    </div>
+
+                    <!-- Makale İçeriği -->
+                    <article class="lite-ckeditor-content max-w-none">
+                        <h2 id="yapay-zeka-nedir">Yapay Zeka Nedir?</h2>
+                        <p>Yapay zeka; veriden öğrenebilen, karar verebilen ve belirli görevleri otomatikleştiren
+                            sistemlerin genel adıdır. Son yıllarda üretken modellerle birlikte kullanım alanları
+                            katlanarak arttı.</p>
+
+                        <p>Makine öğrenmesi, derin öğrenme ve doğal dil işleme gibi alt dallarıyla yapay zeka, artık
+                            günlük yaşamımızın her alanında karşımıza çıkıyor. Akıllı telefonlarımızdan, sosyal medya
+                            algoritmalarına, sağlık teşhislerinden otonom araçlara kadar geniş bir yelpazede
+                            kullanılıyor.</p>
+
+                        <h2 id="2025-projeksiyonlari">2025 Projeksiyonları</h2>
+                        <p>Şirketler; operasyonel verimlilik, müşteri deneyimi ve içerik üretimi gibi alanlarda
+                            <strong>AI destekli akışlara</strong> geçiyor. Regülasyon ve etik konuları gündemin üst
+                            sıralarında yer alacak.
+                        </p>
+
+                        <p>Gartner'ın son raporuna göre, 2025 yılına kadar Fortune 500 şirketlerinin %85'inin yapay zeka
+                            stratejilerini iş modellerinin merkezine yerleştirmesi bekleniyor. Bu dönüşüm, hem fırsatlar
+                            hem de zorluklar beraberinde getiriyor.</p>
+
+                        <blockquote>
+                            <p>"Doğru veri yönetişimi olmadan yapay zekanın ölçeklenmesi sürdürülebilir değildir."</p>
+                            <cite>Prof. Dr. Mehmet Demir, Veri Bilimi Uzmanı</cite>
+                        </blockquote>
+
+                        <h3 id="sektorel-etkiler">Sektörel Etkiler</h3>
+                        <ul>
+                            <li><strong>Eğitim:</strong> Kişiselleştirilmiş öğrenme deneyimleri, her öğrencinin kendi
+                                hızında ilerlemesini sağlıyor</li>
+                            <li><strong>Sağlık:</strong> Erken teşhis ve klinik destek sistemleri, doktorların karar
+                                verme süreçlerini güçlendiriyor</li>
+                            <li><strong>Medya:</strong> Hızlı içerik üretimi ve doğrulama araçları, dezenformasyon ile
+                                mücadelede yeni yöntemler sunuyor</li>
+                            <li><strong>Finans:</strong> Risk analizi ve dolandırıcılık tespitinde yapay zeka kullanımı
+                                yaygınlaşıyor</li>
+                            <li><strong>Perakende:</strong> Kişiselleştirilmiş alışveriş deneyimleri ve envanter
+                                optimizasyonu</li>
+                        </ul>
+
+                        <hr>
+
+                        <h3 id="etik-ve-guvenlik">Etik ve Güvenlik Konuları</h3>
+                        <p>Yapay zekanın yaygınlaşmasıyla birlikte etik ve güvenlik konuları da ön plana çıkıyor.
+                            Algoritmik önyargılar, gizlilik ihlalleri ve iş gücü piyasasındaki dönüşümler, toplumsal
+                            tartışmaların odağında yer alıyor.</p>
+
+                        <p>Avrupa Birliği'nin AI Act gibi düzenlemeler, yapay zeka sistemlerinin şeffaf, adil ve güvenli
+                            olmasını sağlamayı amaçlıyor. Türkiye'de de benzer düzenlemelerin 2025 yılında hayata
+                            geçmesi bekleniyor.</p>
+
+                        <h3 id="sonuc">Sonuç ve Öneriler</h3>
+                        <p>Yeni dönemde kurumların; şeffaflık, güvenlik ve performans dengesini gözeterek net bir AI
+                            stratejisi belirlemesi gerekiyor. İnsan-makine işbirliğini merkeze alan yaklaşımlar, en
+                            sürdürülebilir sonuçları veriyor.</p>
+
+                        <p>Yapay zeka devrimi kaçınılmaz, ancak bu dönüşümü nasıl yöneteceğimiz elimizde. Etik ilkelere
+                            bağlı kalarak, kapsayıcı ve adil bir yapay zeka ekosistemi inşa etmek, hepimizin
+                            sorumluluğu.</p>
+                    </article>
+
+                    <!-- Etiketler -->
+                    <div class="mt-8 pt-8 border-t lite-border">
+                        <h3 class="text-sm font-semibold lite-text-secondary mb-3">ETİKETLER</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="#" class="lite-btn lite-btn-primary lite-btn-sm">#yapayzeka</a>
+                            <a href="#" class="lite-btn lite-btn-primary lite-btn-sm">#teknoloji</a>
+                            <a href="#" class="lite-btn lite-btn-primary lite-btn-sm">#2025</a>
+                            <a href="#" class="lite-btn lite-btn-primary lite-btn-sm">#AI</a>
+                            <a href="#" class="lite-btn lite-btn-primary lite-btn-sm">#dijitaldönüşüm</a>
+                        </div>
+                    </div>
+
+                    <!-- Comments Section -->
+                    <section class="my-12">
+                        <h3 class="text-xl font-bold lite-text-primary mb-6 flex items-center gap-2">
+                            <i class="ri-chat-3-line lite-text-accent"></i>
+                            Yorumlar (12)
+                        </h3>
+
+                        <!-- Comment Form -->
+                        <div class="lite-bg-secondary border lite-border rounded-lg p-6 mb-6">
+                            <h4 class="font-semibold lite-text-primary mb-4">Yorum Yap</h4>
+                            <form class="space-y-4">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input type="text" placeholder="Adınız"
+                                        class="w-full px-4 py-3 border lite-border rounded-lg focus:outline-none focus:ring-2 focus:ring-lite-accent-primary focus:border-transparent lite-bg-primary">
+                                    <input type="email" placeholder="E-posta adresiniz"
+                                        class="w-full px-4 py-3 border lite-border rounded-lg focus:outline-none focus:ring-2 focus:ring-lite-accent-primary focus:border-transparent lite-bg-primary">
+                                </div>
+                                <textarea placeholder="Yorumunuzu yazın..." rows="4"
+                                    class="w-full px-4 py-3 border lite-border rounded-lg focus:outline-none focus:ring-2 focus:ring-lite-accent-primary focus:border-transparent lite-bg-primary resize-none"></textarea>
+                                <button type="submit" class="lite-btn lite-btn-primary lite-btn-md">
+                                    <i class="ri-send-plane-line"></i>
+                                    Yorum Gönder
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Comments List -->
+                        <div class="space-y-6">
+                            <div class="lite-bg-secondary border lite-border rounded-lg p-6">
+                                <div class="flex gap-4">
+                                    <img src="assets/haber-gorsel.png" alt="Commenter"
+                                        class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <h5 class="font-semibold lite-text-primary">Mehmet Kaya</h5>
+                                            <span class="text-xs lite-text-secondary">2 saat önce</span>
+                                        </div>
+                                        <p class="lite-text-primary leading-relaxed lg:text-base text-sm mb-3">
+                                            Çok kapsamlı bir analiz olmuş. Özellikle sektörel etkilere değinmeniz çok
+                                            faydalı.
+                                            2025'te gerçekten büyük değişimler yaşayacağız gibi görünüyor.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lite-bg-secondary border lite-border rounded-lg p-6">
+                                <div class="flex gap-4">
+                                    <img src="assets/haber-gorsel.png" alt="Commenter"
+                                        class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <h5 class="font-semibold lite-text-primary">Dr. Elif Serin</h5>
+                                            <span class="text-xs lite-text-secondary">4 saat önce</span>
+                                        </div>
+                                        <p class="lite-text-primary leading-relaxed lg:text-base text-sm mb-3">
+                                            AI'in etik boyutuna da değinilmesi gerekiyor. Teknolojik gelişmelerin yanı
+                                            sıra
+                                            toplumsal sorumluluklarımızı da unutmamalıyız.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="lite-bg-secondary border lite-border rounded-lg p-6">
+                                <div class="flex gap-4">
+                                    <img src="assets/haber-gorsel.png" alt="Commenter"
+                                        class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+                                    <div class="flex-1">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <h5 class="font-semibold lite-text-primary">Dr. Elif Serin</h5>
+                                            <span class="text-xs lite-text-secondary">4 saat önce</span>
+                                        </div>
+                                        <p class="lite-text-primary leading-relaxed lg:text-base text-sm mb-3">
+                                            AI'in etik boyutuna da değinilmesi gerekiyor. Teknolojik gelişmelerin yanı
+                                            sıra
+                                            toplumsal sorumluluklarımızı da unutmamalıyız.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Load More Comments -->
+                            <div class="text-center">
+                                <button class="lite-btn lite-btn-primary lite-btn-md" id="liteCommentLoadMore">
+                                    Daha Fazla Yorum Yükle
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+                <section class="lg:col-span-3 relative">
+                    <!-- Right Sidebar - Related Articles -->
+
+                    <div class="sticky top-24">
+                        <!-- Related Articles -->
+                        <div class="lite-bg-secondary border lite-border rounded-lg p-6">
+                            <h4 class="font-semibold lite-text-primary mb-6 flex items-center gap-2">
+                                <i class="ri-newspaper-line lite-text-accent"></i>
+                                İlgilinizi Çekebilecek Makaleler
+                            </h4>
+                            <div class="space-y-5">
+                                <article class="group cursor-pointer lite-detail-interesting-news">
+                                    <a href="#"
+                                        class="flex gap-4 p-3 rounded-lg hover:lite-bg-accent  hover:bg-opacity-5 transition-all duration-300">
+                                        <img src="assets/haber-gorsel.png" alt="Haber"
+                                            class="w-20 h-14 object-cover rounded flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+                                        <div class="flex-1 min-w-0">
+                                            <h5
+                                                class="lite-text-primary text-sm font-semibold leading-snug line-clamp-3 transition-colors duration-300 mb-2">
+                                                Blockchain Teknolojisi ve Kripto Para Dünyasındaki Son Gelişmeler:
+                                                Yeni
+                                                Dönem Başlıyor
+                                            </h5>
+                                            <p class="flex items-center gap-2 text-xs lite-text-secondary">
+                                                <i class="ri-user-line"></i>
+                                                <span>Dr. Elif Serin</span>
+
+                                            </p>
+                                        </div>
+                                    </a>
+                                </article>
+
+                                <article class="group cursor-pointer lite-detail-interesting-news">
+                                    <a href="#"
+                                        class="flex gap-4 p-3 rounded-lg hover:lite-bg-accent hover:bg-opacity-5 transition-all duration-300">
+                                        <img src="assets/haber-gorsel.png" alt="Haber"
+                                            class="w-20 h-14 object-cover rounded flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+                                        <div class="flex-1 min-w-0">
+                                            <h5
+                                                class="lite-text-primary text-sm font-semibold leading-snug line-clamp-3 transition-colors duration-300 mb-2">
+                                                Siber Güvenlik: 2025'te Karşılaşacağımız Yeni Tehditler ve Korunma
+                                                Yöntemleri
+                                            </h5>
+                                            <p class="flex items-center gap-2 text-xs lite-text-secondary">
+                                                <i class="ri-user-line"></i>
+                                                <span>Dr. Elif Serin</span>
+
+                                            </p>
+                                        </div>
+                                    </a>
+                                </article>
+
+                                <article class="group cursor-pointer lite-detail-interesting-news">
+                                    <a href="#"
+                                        class="flex gap-4 p-3 rounded-lg hover:lite-bg-accent hover:bg-opacity-5 transition-all duration-300">
+                                        <img src="assets/haber-gorsel.png" alt="Haber"
+                                            class="w-20 h-14 object-cover rounded flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+                                        <div class="flex-1 min-w-0">
+                                            <h5
+                                                class="lite-text-primary text-sm font-semibold leading-snug line-clamp-3 transition-colors duration-300 mb-2">
+                                                Elektrikli Araçlar: Tesla'nın Yeni Rakipleri Geliyor, Pazar Rekabeti
+                                                Kızışıyor
+                                            </h5>
+                                            <p class="flex items-center gap-2 text-xs lite-text-secondary">
+                                                <i class="ri-user-line"></i>
+                                                <span>Dr. Elif Serin</span>
+
+                                            </p>
+                                        </div>
+                                    </a>
+                                </article>
+
+
+                            </div>
+
+                            <!-- More Articles Button -->
+                            <div class="mt-8 pt-6 border-t lite-border">
+                                <a href="category.html"
+                                    class="flex items-center justify-center gap-2 p-4 border lite-border rounded-lg hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300 group">
+                                    <i class="ri-newspaper-line"></i>
+                                    <span class="font-medium">Tüm Makaleler</span>
+                                    <i
+                                        class="ri-arrow-right-line group-hover:translate-x-1 transition-transform duration-300"></i>
+                                </a>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="liteBackToTop"
+        class="fixed lg:bottom-4 bottom-[15%] right-4 w-12 h-12 lite-bg-accent text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 pointer-events-none z-50">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+
+    <!-- ToolBox Button -->
+    <button id="liteToolBox"
+        class="fixed bottom-16 right-4 w-12 h-12 lg:hidden block lite-bg-accent text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50">
+        <i class="ri-tools-line"></i>
+    </button>
+
+    <div class="fixed bottom-[12%] right-4 z-[1002] w-64 hidden transition-all duration-300" id="liteToolBoxContainer">
+        <!-- Article Tools -->
+        <div class="lite-bg-secondary border lite-border rounded-lg p-6 mb-6 shadow-2xl transition-all duration-300">
+            <h4 class="font-semibold lite-text-primary mb-4 flex items-center gap-2">
+                <i class="ri-tools-line lite-text-accent"></i>
+                Makale Araçları
+            </h4>
+            <div class="space-y-4">
+                <!-- Share Tool -->
+                <div class="flex items-center justify-between p-3 border lite-border rounded-lg hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300 cursor-pointer group"
+                    id="liteSidebarShare">
+                    <div class="flex items-center gap-3">
+                        <i class="ri-share-line text-lg"></i>
+                        <span class="font-medium">Paylaş</span>
+                    </div>
+                    <i class="ri-arrow-right-s-line group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
+
+                <!-- Save Tool -->
+                <div class="flex items-center justify-between p-3 border lite-border rounded-lg hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300 cursor-pointer group"
+                    id="liteSidebarSave">
+                    <div class="flex items-center gap-3">
+                        <i class="ri-volume-up-line text-lg"></i>
+                        <span class="font-medium">Sesli Oku</span>
+                    </div>
+                    <i class="ri-arrow-right-s-line group-hover:translate-x-1 transition-transform duration-300"></i>
+                </div>
+                <!-- Save Tool
+             <div class="flex items-center justify-between p-3 border lite-border rounded-lg hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300 cursor-pointer group"
+                 id="liteSidebarSave">
+                 <div class="flex items-center gap-3">
+                     <i class="ri-bookmark-line text-lg" id="liteSidebarSaveIcon"></i>
+                     <span class="font-medium">Kaydet</span>
+                 </div>
+                 <i
+                     class="ri-arrow-right-s-line group-hover:translate-x-1 transition-transform duration-300"></i>
+             </div> -->
+
+                <!-- Font Size Tool -->
+                <div class="p-3 border lite-border rounded-lg">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-3">
+                            <i class="ri-font-size lite-text-accent text-lg"></i>
+                            <span class="font-medium lite-text-primary">Yazı Boyutu</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center gap-3">
+                        <button id="liteSidebarFontDecrease"
+                            class="w-8 h-8 lite-bg-accent text-white rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
+                            title="Küçült">
+                            <i class="ri-subtract-line text-sm"></i>
+                        </button>
+                        <span class="lite-text-secondary text-sm font-medium px-3">A</span>
+                        <button id="liteSidebarFontIncrease"
+                            class="w-8 h-8 lite-bg-accent text-white rounded-full hover:bg-red-600 transition-colors duration-300 flex items-center justify-center"
+                            title="Büyüt">
+                            <i class="ri-add-line text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="liteShareModal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-[1005] hidden items-center justify-center p-4">
+        <div class="lite-bg-secondary rounded-lg max-w-md w-full p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-semibold lite-text-primary">Makaleyi Paylaş</h3>
+                <button id="liteShareModalClose" class="lite-hover-accent p-2 rounded-lg">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+            <div class="space-y-3">
+
+                <button
+                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
+                    <i class="ri-facebook-fill text-blue-600"></i>
+                    Facebook'ta Paylaş
+                </button>
+                <button
+                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
+                    <i class="ri-twitter-x-fill"></i>
+                    X'te Paylaş
+                </button>
+                <button
+                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
+                    <i class="ri-linkedin-fill text-blue-700"></i>
+                    LinkedIn'de Paylaş
+                </button>
+                <button
+                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
+                    <i class="ri-whatsapp-fill text-green-600"></i>
+                    WhatsApp'ta Paylaş
+                </button>
+                <button id="liteModalCopyLink"
+                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
+                    <i class="ri-link"></i>
+                    Linki Kopyala
+                </button>
+            </div>
+        </div>
+    </div>
+
+      <!-- Comment Modal -->
+      <div id="liteCommentModal"
+      class="fixed inset-0 bg-black bg-opacity-50 z-[1005] hidden items-center justify-center p-4">
+      <div class="lite-bg-secondary rounded-lg  lg:w-1/2 w-full p-6">
+          <div class="flex items-center justify-between mb-6">
+
+              <div class="flex flex-col gap-2">
+                  <h3 class="text-xl font-bold lite-text-primary  flex items-center gap-2">
+
+                      <i class="ri-chat-3-line lite-text-accent"></i>
+                      Tüm Yorumlar (12)
+
+                  </h3>
+                  <div class="w-16 h-1 lite-bg-accent rounded-full"></div>
+              </div>
+
+
+              <button id="liteCommentModalClose" class="lite-hover-accent p-2 rounded-lg">
+                  <i class="ri-close-line"></i>
+              </button>
+          </div>
+          <div class="space-y-3 overflow-y-auto max-h-[60vh]">
+              <div class="lite-bg-secondary border lite-border rounded-lg p-6">
+                  <div class="flex gap-4">
+                      <img src="assets/haber-gorsel.png" alt="Commenter"
+                          class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+                      <div class="flex-1">
+                          <div class="flex items-center gap-3 mb-2">
+                              <h5 class="font-semibold lite-text-primary">Mehmet Kaya</h5>
+                              <span class="text-xs lite-text-secondary">2 saat önce</span>
+                          </div>
+                          <p class="lite-text-primary leading-relaxed mb-3">
+                              Çok kapsamlı bir analiz olmuş. Özellikle sektörel etkilere değinmeniz çok
+                              faydalı.
+                              2025'te gerçekten büyük değişimler yaşayacağız gibi görünüyor.
+                          </p>
+
+                      </div>
+                  </div>
+              </div>
+              <div class="lite-bg-secondary border lite-border rounded-lg p-6">
+                  <div class="flex gap-4">
+                      <img src="assets/haber-gorsel.png" alt="Commenter"
+                          class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+                      <div class="flex-1">
+                          <div class="flex items-center gap-3 mb-2">
+                              <h5 class="font-semibold lite-text-primary">Mehmet Kaya</h5>
+                              <span class="text-xs lite-text-secondary">2 saat önce</span>
+                          </div>
+                          <p class="lite-text-primary leading-relaxed mb-3">
+                              Çok kapsamlı bir analiz olmuş. Özellikle sektörel etkilere değinmeniz çok
+                              faydalı.
+                              2025'te gerçekten büyük değişimler yaşayacağız gibi görünüyor.
+                          </p>
+
+                      </div>
+                  </div>
+              </div>
+              <div class="lite-bg-secondary border lite-border rounded-lg p-6">
+                  <div class="flex gap-4">
+                      <img src="assets/haber-gorsel.png" alt="Commenter"
+                          class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+                      <div class="flex-1">
+                          <div class="flex items-center gap-3 mb-2">
+                              <h5 class="font-semibold lite-text-primary">Mehmet Kaya</h5>
+                              <span class="text-xs lite-text-secondary">2 saat önce</span>
+                          </div>
+                          <p class="lite-text-primary leading-relaxed mb-3">
+                              Çok kapsamlı bir analiz olmuş. Özellikle sektörel etkilere değinmeniz çok
+                              faydalı.
+                              2025'te gerçekten büyük değişimler yaşayacağız gibi görünüyor.
+                          </p>
+
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+
+    <!-- Footer -->
+    <footer class="lite-bg-secondary border-t lite-border mt-16">
+        <!-- Üst Alan -->
+        <div class="max-w-6xl mx-auto px-5 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Sol - Logo ve Açıklama -->
+                <div class="lg:col-span-1">
+                    <div class="mb-4">
+                        <img src="assets/light-logo.png" alt="Lite Tema"
+                            class="h-10 w-auto transition-opacity duration-300" id="liteFooterLogo">
+                    </div>
+                    <p class="lite-text-secondary text-sm leading-relaxed">
+                        Güncel haberler, derinlemesine analizler ve objektif bakış açısıyla sizlere hizmet veriyoruz.
+                        Türkiye'nin güvenilir haber kaynağı olma yolunda ilerlemeye devam ediyoruz.
+                    </p>
+                    <div class="flex gap-3 mt-6">
+                        <a href="#" class="lite-social-icon p-2 text-lg" title="Facebook">
+                            <i class="ri-facebook-fill transition-transform duration-300"></i>
+                        </a>
+                        <a href="#" class="lite-social-icon p-2 text-lg" title="Twitter">
+                            <i class="ri-twitter-x-fill transition-transform duration-300"></i>
+                        </a>
+                        <a href="#" class="lite-social-icon p-2 text-lg" title="Instagram">
+                            <i class="ri-instagram-fill transition-transform duration-300"></i>
+                        </a>
+                        <a href="#" class="lite-social-icon p-2 text-lg" title="YouTube">
+                            <i class="ri-youtube-fill transition-transform duration-300"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Orta - Sayfalar -->
+                <div class="lg:col-span-1">
+                    <h3 class="font-semibold lite-text-primary mb-4 text-lg">Sayfalar</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="space-y-3">
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Ana Sayfa</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Gündem</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Teknoloji</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Spor</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Sağlık</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Ekonomi</a>
+                        </div>
+                        <div class="space-y-3">
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Kültür</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Eğitim</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Hakkımızda</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">İletişim</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Künye</a>
+                            <a href="#" class="lite-footer-link block lite-text-secondary text-sm">Gizlilik</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sağ - Son Dakika Haberleri -->
+                <div class="lg:col-span-1">
+                    <h3 class="font-semibold lite-text-primary mb-4 text-lg flex items-center gap-2">
+                        <i class="ri-flashlight-line lite-text-accent"></i>
+                        Son Dakika
+                    </h3>
+                    <div class="space-y-4">
+                        <a href="#" class="lite-footer-news block">
+                            <div class="flex gap-3">
+
+                                <div class="flex-1 min-w-0">
+                                    <p
+                                        class="lite-footer-news-title lite-text-primary text-sm font-medium transition-colors duration-300 line-clamp-2">
+                                        Ekonomide son gelişmeler ve piyasalardaki hareketlilik
+                                    </p>
+                                    <p
+                                        class="lite-footer-news-time lite-text-secondary text-xs mt-1 transition-colors duration-300">
+                                        2 saat önce</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="lite-footer-news block">
+                            <div class="flex gap-3">
+
+                                <div class="flex-1 min-w-0">
+                                    <p
+                                        class="lite-footer-news-title lite-text-primary text-sm font-medium transition-colors duration-300 line-clamp-2">
+                                        Teknoloji dünyasında yeni atılımlar ve gelişmeler
+                                    </p>
+                                    <p
+                                        class="lite-footer-news-time lite-text-secondary text-xs mt-1 transition-colors duration-300">
+                                        4 saat önce</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="lite-footer-news block">
+                            <div class="flex gap-3">
+
+                                <div class="flex-1 min-w-0">
+                                    <p
+                                        class="lite-footer-news-title lite-text-primary text-sm font-medium transition-colors duration-300 line-clamp-2">
+                                        Spor dünyasında heyecan verici maç sonuçları
+                                    </p>
+                                    <p
+                                        class="lite-footer-news-time lite-text-secondary text-xs mt-1 transition-colors duration-300">
+                                        6 saat önce</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="lite-footer-news block">
+                            <div class="flex gap-3">
+
+                                <div class="flex-1 min-w-0">
+                                    <p
+                                        class="lite-footer-news-title lite-text-primary text-sm font-medium transition-colors duration-300 line-clamp-2">
+                                        Sağlık alanında önemli araştırma sonuçları
+                                    </p>
+                                    <p
+                                        class="lite-footer-news-time lite-text-secondary text-xs mt-1 transition-colors duration-300">
+                                        8 saat önce</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alt Alan - Copyright -->
+        <div class="border-t lite-border lite-bg-primary">
+            <div class="max-w-6xl mx-auto px-5 py-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm lite-text-secondary">
+                    <div class="text-center md:text-left">
+                        <p>&copy; 2025 Lite Tema. Tüm hakları saklıdır.</p>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <p>Yazılım
+                            <a href="https://vmgmedya.com" target="_blank" rel="noopener noreferrer"
+                                class="lite-vmg-link lite-text-accent hover:underline font-medium">
+                                VMG Medya
+                            </a>
+                            tarafından yapılmıştır
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

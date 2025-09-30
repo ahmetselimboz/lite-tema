@@ -629,7 +629,7 @@
 .lite-manset-slider .slick-prev,
 .lite-manset-slider .slick-next {
     z-index: 10;
-
+    top: 35%;
     display: flex;
     justify-content: center;
     align-items: center;

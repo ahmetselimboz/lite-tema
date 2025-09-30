@@ -137,22 +137,7 @@
                     }
                 }
             },
-            plugins: [
-                function ({ addUtilities }) {
-                    addUtilities({
-                        '.lite-accent-border': {
-                            borderColor: 'var(--lite-accent-border)',
-                        },
-                        '.lite-bg-accent': {
-                            backgroundColor: 'var(--lite-accent-primary)',
-                        },
-                        '.lite-text-accent': {
-                            color: 'var(--lite-accent-primary)',
-                        },
 
-                    }, ['responsive', 'hover', 'focus']);
-                }
-            ]
         }
     </script>
 </head>
@@ -594,9 +579,10 @@
                         </div>
                         <div class="flex items-center lg:gap-2 gap-1">
                             <a href="#" target="_blank" class="lite-btn lite-btn-outline  lite-btn-sm">
-                                <img width="16" src="data:image/png;base64,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"
+                                <img width="16"
+                                    src="data:image/png;base64,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"
                                     alt="google-news">
-                                    Google News
+                                Google News
                             </a>
                             <a href="#" target="_blank" class="lite-btn lite-btn-outline  lite-btn-sm"><i
                                     class="ri-facebook-fill"></i></a>
@@ -1506,17 +1492,17 @@
 
     <!-- Back to Top Button -->
     <button id="liteBackToTop"
-        class="fixed lg:bottom-4 bottom-20 right-4 w-12 h-12 lite-bg-accent text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 pointer-events-none z-50">
+        class="fixed lg:bottom-4 bottom-[15%] right-4 w-12 h-12 lite-bg-accent text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 opacity-0 pointer-events-none z-50">
         <i class="ri-arrow-up-line"></i>
     </button>
 
     <!-- ToolBox Button -->
     <button id="liteToolBox"
-        class="fixed bottom-4 right-4 w-12 h-12 lg:hidden block lite-bg-accent text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50">
+        class="fixed bottom-16 right-4 w-12 h-12 lg:hidden block lite-bg-accent text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-50">
         <i class="ri-tools-line"></i>
     </button>
 
-    <div class="fixed bottom-12 right-4 z-[1002] w-64 hidden transition-all duration-300" id="liteToolBoxContainer">
+    <div class="fixed bottom-[12%] right-4 z-[1002] w-64 hidden transition-all duration-300" id="liteToolBoxContainer">
         <!-- Article Tools -->
         <div class="lite-bg-secondary border lite-border rounded-lg p-6 mb-6 shadow-2xl transition-all duration-300">
             <h4 class="font-semibold lite-text-primary mb-4 flex items-center gap-2">
@@ -1544,15 +1530,15 @@
                     <i class="ri-arrow-right-s-line group-hover:translate-x-1 transition-transform duration-300"></i>
                 </div>
                 <!-- Save Tool
-                <div class="flex items-center justify-between p-3 border lite-border rounded-lg hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300 cursor-pointer group"
-                    id="liteSidebarSave">
-                    <div class="flex items-center gap-3">
-                        <i class="ri-bookmark-line text-lg" id="liteSidebarSaveIcon"></i>
-                        <span class="font-medium">Kaydet</span>
-                    </div>
-                    <i
-                        class="ri-arrow-right-s-line group-hover:translate-x-1 transition-transform duration-300"></i>
-                </div> -->
+          <div class="flex items-center justify-between p-3 border lite-border rounded-lg hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300 cursor-pointer group"
+              id="liteSidebarSave">
+              <div class="flex items-center gap-3">
+                  <i class="ri-bookmark-line text-lg" id="liteSidebarSaveIcon"></i>
+                  <span class="font-medium">Kaydet</span>
+              </div>
+              <i
+                  class="ri-arrow-right-s-line group-hover:translate-x-1 transition-transform duration-300"></i>
+          </div> -->
 
                 <!-- Font Size Tool -->
                 <div class="p-3 border lite-border rounded-lg">
@@ -1580,7 +1566,46 @@
         </div>
     </div>
 
+    <!-- Share Modal -->
+    <div id="liteShareModal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-[1005] hidden items-center justify-center p-4">
+        <div class="lite-bg-secondary rounded-lg max-w-md w-full p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-semibold lite-text-primary">Makaleyi Paylaş</h3>
+                <button id="liteShareModalClose" class="lite-hover-accent p-2 rounded-lg">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+            <div class="space-y-3">
 
+                <button
+                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
+                    <i class="ri-facebook-fill text-blue-600"></i>
+                    Facebook'ta Paylaş
+                </button>
+                <button
+                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
+                    <i class="ri-twitter-x-fill"></i>
+                    X'te Paylaş
+                </button>
+                <button
+                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
+                    <i class="ri-linkedin-fill text-blue-700"></i>
+                    LinkedIn'de Paylaş
+                </button>
+                <button
+                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
+                    <i class="ri-whatsapp-fill text-green-600"></i>
+                    WhatsApp'ta Paylaş
+                </button>
+                <button id="liteModalCopyLink"
+                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
+                    <i class="ri-link"></i>
+                    Linki Kopyala
+                </button>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Comment Modal -->
@@ -1664,46 +1689,7 @@
         </div>
     </div>
 
-    <!-- Share Modal -->
-    <div id="liteShareModal"
-        class="fixed inset-0 bg-black bg-opacity-50 z-[1005] hidden items-center justify-center p-4">
-        <div class="lite-bg-secondary rounded-lg max-w-md w-full p-6">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-lg font-semibold lite-text-primary">Makaleyi Paylaş</h3>
-                <button id="liteShareModalClose" class="lite-hover-accent p-2 rounded-lg">
-                    <i class="ri-close-line"></i>
-                </button>
-            </div>
-            <div class="space-y-3">
-              
-                <button
-                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
-                    <i class="ri-facebook-fill text-blue-600"></i>
-                    Facebook'ta Paylaş
-                </button>
-                <button
-                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
-                    <i class="ri-twitter-x-fill"></i>
-                    X'te Paylaş
-                </button>
-                <button
-                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
-                    <i class="ri-linkedin-fill text-blue-700"></i>
-                    LinkedIn'de Paylaş
-                </button>
-                <button
-                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
-                    <i class="ri-whatsapp-fill text-green-600"></i>
-                    WhatsApp'ta Paylaş
-                </button>
-                <button id="liteModalCopyLink"
-                    class="w-full flex items-center gap-3 p-3 rounded-lg border lite-border hover:lite-bg-accent hover:text-white hover:lite-accent-border transition-all duration-300">
-                    <i class="ri-link"></i>
-                    Linki Kopyala
-                </button>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Toast Notification -->
     <div id="toast" class="fixed top-4 right-4 z-60 hidden">
