@@ -334,14 +334,15 @@
                 class="block px-6 py-4 lite-text-primary border-b lite-border transition-all duration-300 font-medium lite-hover-accent">Magazin</a>
 
             <div class="w-full px-6 py-4 ">
-                 <!-- Tema Toggle Butonu -->
-            <button class="lg:hidden block lite-btn lite-btn-outline  lite-btn-md p-2 rounded-md transition-all duration-300 "
-            id="liteThemeToggleDesktop">
-            <i class="ri-sun-line" id="liteThemeIconDesktop"></i>
-            Açık/Koyu Tema
-        </button>
+                <!-- Tema Toggle Butonu -->
+                <button
+                    class="lg:hidden block lite-btn lite-btn-outline  lite-btn-md p-2 rounded-md transition-all duration-300 "
+                    id="liteThemeToggleDesktop">
+                    <i class="ri-sun-line" id="liteThemeIconDesktop"></i>
+                    Açık/Koyu Tema
+                </button>
             </div>
-           
+
         </div>
     </div>
 
@@ -1038,13 +1039,28 @@
                             <div class="lite-manset-item">
                                 <div
                                     class="relative overflow-hidden  rounded-lg  h-[550px] lg:h-[600px]  lite-bg-primary border lite-border">
+                                    <div
+                                        class="absolute top-1 left-1 py-2 px-3 z-20 glass-effect text-white flex items-center gap-4 text-xs rounded-full">
+                                        <span><i class="ri-time-line mr-1"></i>2 saat önce</span>
+
+                                    </div>
+                                    <div class="flex items-center gap-1 absolute top-2 right-1 z-20">
+                                        <span id="liteCommentLoadMore"
+                                            class="hover:scale-105 transition-all duration-300 glass-effect text-white cursor-pointer  text-base lg:text-lg   px-2 py-1 rounded-lg">
+                                            <i class="ri-chat-3-line "></i>
+                                        </span>
+                                        <span
+                                            class="hover:scale-105 transition-all duration-300 glass-effect text-white cursor-pointer  text-base lg:text-lg   px-2 py-1 rounded-lg">
+                                            <i class="ri-share-line  "></i>
+                                        </span>
+                                        <span
+                                            class="hover:scale-105 transition-all duration-300 glass-effect text-white cursor-pointer  text-base lg:text-lg   px-2 py-1 rounded-lg">
+                                            <i class="ri-bookmark-line   "></i>
+                                        </span>
+                                    </div>
                                     <a href="/detail.html"
                                         class="block group relative overflow-hidden h-fit border-b lite-border">
-                                        <div
-                                            class="absolute top-1 left-1 py-2 px-3 z-20 glass-effect text-white flex items-center gap-4 text-xs rounded-full">
-                                            <span><i class="ri-time-line mr-1"></i>2 saat önce</span>
 
-                                        </div>
                                         <div class="h-[340px]  lg:h-[400px]  overflow-hidden">
                                             <img src="https://picsum.photos/1920/1080" alt="Manşet Haberi"
                                                 class=" object-cover transition-transform duration-500  group-hover:scale-105">
@@ -1073,17 +1089,21 @@
                                                     class="ri-heart-line mr-1 cursor-pointer text-xl lite-text-accent"></i>
                                                 Beğen
                                             </span>
-                                            <div class="flex items-center gap-1">
-                                                <span id="liteCommentLoadMore"><i
-                                                        class="ri-chat-3-line cursor-pointer p-2 rounded-md transition-all duration-300 text-base lg:text-xl  lite-btn-hover-accent"></i></span>
-                                                <span><i
-                                                        class="ri-share-line  cursor-pointer p-2 rounded-md transition-all duration-300 text-base lg:text-xl  lite-btn-hover-accent"></i></span>
-                                                <span><i
-                                                        class="ri-bookmark-line  cursor-pointer p-2 rounded-md transition-all duration-300 text-base lg:text-xl  lite-btn-hover-accent"></i></span>
+                                            <div class="flex items-center gap-1 w-full">
+                                                <div class="w-full">
+                                                    <input type="text" name="name" placeholder="Yorumunuzu yazınız..."
+                                                        class="w-full px-2 py-2 text-xs rounded-lg border-2 lite-border lite-bg-primary lite-text-primary outline-none transition-all duration-300 focus:lite-accent-border" />
+                                                </div>
+                                                <div class="w-fit">
+                                                    <button class="lite-btn lite-btn-primary lite-btn-sm w-full">
+                                                        <i class="ri-send-plane-line"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
 
                                     </div>
+
 
                                 </div>
 
@@ -3569,23 +3589,7 @@
                 </div>
 
             </div>
-            <div class="flex items-center gap-4 lite-text-secondary pt-5">
-                <div class="w-12 flex items-center justify-center">
-                    <div class="overflow-hidden rounded-full border-2 border-gray-200">
-                        <img src="https://picsum.photos/1920/1080" alt="Kullanıcı Profil Fotoğrafı"
-                            class="w-8 h-8 object-cover">
-                    </div>
-                </div>
 
-                <div class="w-5/6">
-                    <input type="text" name="name" placeholder="Yorumunuzu yazınız..."
-                        class="w-full px-2 py-2 text-xs rounded-lg border-2 lite-border lite-bg-primary lite-text-primary outline-none transition-all duration-300 focus:lite-accent-border" />
-                </div>
-                <div class="w-fit">
-                    <button class="lite-btn lite-btn-primary lite-btn-sm w-full">Gönder</button>
-                </div>
-
-            </div>
         </div>
     </div>
 
