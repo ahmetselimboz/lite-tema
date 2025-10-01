@@ -290,7 +290,7 @@ $(document).ready(function () {
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: true,
-            dots: true,
+            dots: false,
             prevArrow: '<button type="button" class="slick-prev"><i class="ri-arrow-left-line"></i></button>',
             nextArrow: '<button type="button" class="slick-next"><i class="ri-arrow-right-line"></i></button>',
             responsive: [
