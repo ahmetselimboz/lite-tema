@@ -1994,6 +1994,203 @@ $(function () {
     });
 });
 
+const vdpVideo2947 = document.querySelector('#vdpMainVideo2947');
+const vdpPlayPauseBtn2947 = document.querySelector('#vdpPlayPauseBtn2947');
+const vdpPlayOverlay2947 = document.querySelector('#vdpPlayOverlay2947');
+const vdpProgressBar2947 = document.querySelector('#vdpProgressBar2947');
+const vdpVolumeSlider2947 = document.querySelector('#vdpVolumeSlider2947');
+const vdpVolumeBtn2947 = document.querySelector('#vdpVolumeBtn2947');
+const vdpCurrentTimeEl2947 = document.querySelector('#vdpCurrentTime2947');
+const vdpDurationEl2947 = document.querySelector('#vdpDuration2947');
+const vdpTimeDisplay2947 = document.querySelector('#vdpTimeDisplay2947');
+const vdpLoadingSpinner2947 = document.querySelector('#vdpLoadingSpinner2947');
+const vdpVideoContainer2947 = document.querySelector('.vdp-video-container-2947');
+
+// Safety check - exit if elements don't exist
+if (!vdpVideo2947) {
+    console.warn('Video player elements not found');
+}
+
+// Play/Pause
+function vdpTogglePlay2947() {
+    if (!vdpVideo2947 || !vdpPlayPauseBtn2947) return;
+
+    if (vdpVideo2947.paused) {
+        vdpVideo2947.play();
+        vdpPlayPauseBtn2947.innerHTML = '<i class="ri-pause-fill text-3xl"></i>';
+        if (vdpPlayOverlay2947) vdpPlayOverlay2947.style.display = 'none';
+    } else {
+        vdpVideo2947.pause();
+        vdpPlayPauseBtn2947.innerHTML = '<i class="ri-play-fill text-3xl"></i>';
+    }
+}
+
+if (vdpPlayOverlay2947) {
+    vdpPlayOverlay2947.addEventListener('click', vdpTogglePlay2947);
+}
+
+if (vdpVideo2947) {
+    vdpVideo2947.addEventListener('click', vdpTogglePlay2947);
+}
+
+// Progress Bar
+if (vdpVideo2947 && vdpProgressBar2947) {
+    vdpVideo2947.addEventListener('timeupdate', () => {
+        const progress = (vdpVideo2947.currentTime / vdpVideo2947.duration) * 100;
+        vdpProgressBar2947.value = progress;
+
+        if (vdpCurrentTimeEl2947) {
+            vdpCurrentTimeEl2947.textContent = vdpFormatTime2947(vdpVideo2947.currentTime);
+        }
+        if (vdpTimeDisplay2947) {
+            vdpTimeDisplay2947.textContent = `${vdpFormatTime2947(vdpVideo2947.currentTime)} / ${vdpFormatTime2947(vdpVideo2947.duration)}`;
+        }
+
+        updateProgressColor(); // 🔑 video oynarken rengi güncelle
+    });
+
+    vdpVideo2947.addEventListener('loadedmetadata', () => {
+        if (vdpDurationEl2947) {
+            vdpDurationEl2947.textContent = vdpFormatTime2947(vdpVideo2947.duration);
+        }
+        updateProgressColor(); // 🔑 metadata yüklendiğinde de güncelle
+    });
+
+    vdpProgressBar2947.addEventListener('input', (e) => {
+        const time = (e.target.value / 100) * vdpVideo2947.duration;
+        vdpVideo2947.currentTime = time;
+        updateProgressColor(); // 🔑 sürüklerken rengi güncelle
+    });
+
+    function updateProgressColor() {
+        let val = (vdpProgressBar2947.value / vdpProgressBar2947.max) * 100;
+        vdpProgressBar2947.style.background = `linear-gradient(to right, white ${val}%, rgba(255,255,255,0.3) ${val}%)`;
+    }
+
+    // ilk ayar
+    updateProgressColor();
+}
+
+
+// Volume
+if (vdpVolumeSlider2947 && vdpVideo2947) {
+    vdpVolumeSlider2947.addEventListener('input', (e) => {
+        vdpVideo2947.volume = e.target.value / 100;
+        vdpUpdateVolumeIcon2947();
+        updateVolumeColor(); // sürüklerken de renk güncelle
+    });
+
+    function updateVolumeColor() {
+        let val = (vdpVolumeSlider2947.value / vdpVolumeSlider2947.max) * 100;
+        vdpVolumeSlider2947.style.background = `linear-gradient(to right, white ${val}%, rgba(255,255,255,0.3) ${val}%)`;
+    }
+
+    // ilk yüklemede uygula
+    updateVolumeColor();
+
+    // değiştikçe güncelle
+    vdpVolumeSlider2947.addEventListener('input', updateVolumeColor);
+}
+
+function vdpToggleMute2947() {
+    if (!vdpVideo2947) return;
+
+    if (vdpVideo2947.muted) {
+        // sesi aç
+        vdpVideo2947.muted = false;
+        vdpVolumeSlider2947.value = vdpVideo2947.volume * 100;
+    } else {
+        // sesi kapat
+        vdpVideo2947.muted = true;
+        vdpVolumeSlider2947.value = 0;
+    }
+
+    vdpUpdateVolumeIcon2947();
+    updateVolumeColor(); // mute/unmute sonrası slider rengini güncelle
+}
+
+function vdpUpdateVolumeIcon2947() {
+    if (!vdpVideo2947 || !vdpVolumeBtn2947) return;
+
+    if (vdpVideo2947.muted || vdpVideo2947.volume === 0) {
+        vdpVolumeBtn2947.innerHTML = '<i class="ri-volume-mute-fill text-2xl"></i>';
+    } else if (vdpVideo2947.volume < 0.5) {
+        vdpVolumeBtn2947.innerHTML = '<i class="ri-volume-down-fill text-2xl"></i>';
+    } else {
+        vdpVolumeBtn2947.innerHTML = '<i class="ri-volume-up-fill text-2xl"></i>';
+    }
+}
+
+
+// Fullscreen
+function vdpToggleFullscreen2947() {
+    if (!vdpVideoContainer2947) return;
+
+    if (!document.fullscreenElement) {
+        vdpVideoContainer2947.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+// Picture in Picture
+function vdpTogglePiP2947() {
+    if (!vdpVideo2947) return;
+
+    if (document.pictureInPictureElement) {
+        document.exitPictureInPicture();
+    } else {
+        vdpVideo2947.requestPictureInPicture();
+    }
+}
+
+// Theater Mode
+function vdpToggleTheater2947() {
+    if (!vdpVideoContainer2947) return;
+
+    vdpVideoContainer2947.classList.toggle('aspect-video');
+    vdpVideoContainer2947.classList.toggle('aspect-[21/9]');
+}
+
+// Loading
+if (vdpVideo2947 && vdpLoadingSpinner2947) {
+    vdpVideo2947.addEventListener('waiting', () => {
+        vdpLoadingSpinner2947.classList.remove('hidden');
+        vdpLoadingSpinner2947.classList.add('flex');
+    });
+
+    vdpVideo2947.addEventListener('canplay', () => {
+        vdpLoadingSpinner2947.classList.add('hidden');
+        vdpLoadingSpinner2947.classList.remove('flex');
+    });
+}
+
+// Format Time
+function vdpFormatTime2947(seconds) {
+    if (isNaN(seconds)) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+
+// Keyboard Shortcuts
+document.addEventListener('keydown', (e) => {
+    if (!vdpVideo2947) return;
+
+    if (e.code === 'Space') {
+        e.preventDefault();
+        vdpTogglePlay2947();
+    } else if (e.code === 'ArrowRight') {
+        vdpVideo2947.currentTime += 5;
+    } else if (e.code === 'ArrowLeft') {
+        vdpVideo2947.currentTime -= 5;
+    } else if (e.code === 'KeyF') {
+        vdpToggleFullscreen2947();
+    } else if (e.code === 'KeyM') {
+        vdpToggleMute2947();
+    }
+});
+
 
 
 

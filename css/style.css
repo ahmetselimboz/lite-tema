@@ -2713,3 +2713,78 @@
     font-size: 24px;
     color: var(--lite-accent-primary);
 }
+
+  /* Custom Video Controls - Unique Names */
+  .vdp-video-controls-2947 {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.vdp-video-container-2947:hover .vdp-video-controls-2947 {
+    opacity: 1;
+}
+
+.vdp-progress-range-2947 {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.3); /* başlangıç boş */
+    outline: none;
+    cursor: pointer;
+}
+
+/* Track (gri) */
+.vdp-progress-range-2947::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 2px;
+    background: transparent;
+}
+
+/* Thumb */
+.vdp-progress-range-2947::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #dc3545;
+    margin-top: -5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+}
+
+/* Firefox */
+.vdp-progress-range-2947::-moz-range-track {
+    height: 4px;
+    background: transparent;
+    border-radius: 2px;
+}
+.vdp-progress-range-2947::-moz-range-progress {
+    background: white;
+    height: 4px;
+    border-radius: 2px;
+}
+.vdp-progress-range-2947::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #dc3545;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+/* Volume Slider - Unique */
+.vdp-volume-slider-2947 {
+    width: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.vdp-volume-control-2947:hover .vdp-volume-slider-2947 {
+    width: 80px;
+    opacity: 1;
+    margin-left: 8px;
+}
