@@ -958,8 +958,13 @@
 
 
 /* Gallery Slider Navigation */
+.lite-slider{
+    margin-bottom: 30px !important;
+}
+
 .lite-slider .slick-dots {
     text-align: center;
+
 }
 
 .lite-slider .slick-dots li {
@@ -992,6 +997,8 @@
     transform: scale(1.2);
 }
 
+
+
 .lite-slider .slick-dots li button:hover {
     opacity: 0.8;
     transform: scale(1.1);
@@ -1003,7 +1010,7 @@
 
 @media (max-width: 768px) {
     .lite-slider .slick-dots {
-        bottom: -35px;
+        bottom: -15px;
     }
 
     .lite-slider .slick-dots li button {
@@ -1115,6 +1122,9 @@
 
 /* Mobil responsive düzenlemeleri */
 @media (max-width: 768px) {
+    .lite-slider{
+        margin-bottom: 10px !important;
+    }
     .lite-cards-container {
         gap: 20px;
     }
@@ -1225,7 +1235,7 @@
 /* Gallery Slider Styles */
 .lite-gallery-slider {
     position: relative;
-    overflow: hidden;
+
 
 }
 
@@ -1233,7 +1243,7 @@
     display: flex;
     gap: 20px;
     transition: transform 0.3s ease;
-    margin-bottom: 50px !important;
+
 }
 
 .lite-gallery-item {
@@ -2128,6 +2138,7 @@
 
     .lite-vertical-gallery-item {
         padding: 0 4px;
+        margin-bottom: 10px;
     }
 
     .lite-vertical-gallery-item .aspect-\[3\/4\] {
