@@ -204,7 +204,8 @@
             </button>
 
             <!-- User Butonu -->
-            <button class="lite-btn-hover-accent p-2 rounded-md transition-all duration-300 text-xl">
+            <button class="lite-btn-hover-accent p-2 rounded-md transition-all duration-300 text-xl"
+                id="liteUserToggle">
                 <i class="ri-user-line"></i>
             </button>
 
@@ -913,7 +914,7 @@
                         </a>
 
                     </div>
-                  
+
 
                 </div>
             </div>
@@ -3496,6 +3497,134 @@
             </div>
         </div>
     </footer>
+
+    <!-- User Login/Register Modal -->
+    <div id="liteUserModal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-[1002] hidden flex items-center justify-center p-4">
+        <div class="lite-bg-secondary rounded-lg shadow-xl max-w-md w-full mx-4 transform transition-all duration-300 scale-95 opacity-0"
+            id="liteUserModalContent">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-6 border-b lite-border ">
+                <h3 class="text-xl font-semibold " id="liteUserModalTitle">Giriş Yap</h3>
+                <button id="liteUserModalClose"
+                    class="lite-text-secondary hover:lite-text-accent transition-colors">
+                    <i class="ri-close-line text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6">
+                <!-- Tab Navigation -->
+                <div class="flex mb-6 border lite-border rounded-lg p-1">
+                    <button id="liteLoginTab"
+                        class="flex-1 py-2 px-4 text-sm font-medium rounded-md transition-all duration-200 lite-bg-accent lite-text-third shadow-sm">
+                        Giriş Yap
+                    </button>
+                    <button id="liteRegisterTab"
+                        class="flex-1 py-2 px-4 text-sm font-medium rounded-md transition-all duration-200 lite-text-secondary hover:lite-text-accent">
+                        Kayıt Ol
+                    </button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="liteLoginForm" class="space-y-4">
+                    <div>
+                        <label for="liteLoginEmail"
+                            class="block text-sm font-medium lite-text-secondary mb-2">E-posta</label>
+                        <input type="email" id="liteLoginEmail"
+                            class="w-full px-4 py-2 border-2 lite-border rounded-lg text-sm lite-bg-primary lite-text-primary outline-none transition-all duration-300 focus:lite-accent-border"
+                            placeholder="ornek@email.com" required>
+                    </div>
+                    <div>
+                        <label for="liteLoginPassword"
+                            class="block text-sm font-medium lite-text-secondary mb-2">Şifre</label>
+                        <input type="password" id="liteLoginPassword"
+                            class="w-full px-4 py-2 border-2 lite-border rounded-lg text-sm lite-bg-primary lite-text-primary outline-none transition-all duration-300 focus:lite-accent-border"
+                            placeholder="••••••••" required>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="rounded border-lite-border cursor-pointer lite-text-accent focus:ring-lite-accent">
+                            <span class="ml-2 text-sm lite-text-secondary">Beni hatırla</span>
+                        </label>
+                        <a href="#" class="text-sm lite-text-accent hover:underline">Şifremi
+                            unuttum</a>
+                    </div>
+                    <button type="submit" class="lite-btn lite-btn-primary lite-btn-md w-full">
+                        Giriş Yap
+                    </button>
+                </form>
+
+                <!-- Register Form -->
+                <form id="liteRegisterForm" class="space-y-4 hidden">
+                    <div>
+                        <label for="liteRegisterName"
+                            class="block text-sm font-medium lite-text-secondary mb-2">Ad Soyad</label>
+                        <input type="text" id="liteRegisterName"
+                            class="w-full px-4 py-2 border-2 lite-border rounded-lg text-sm lite-bg-primary lite-text-primary outline-none transition-all duration-300 focus:lite-accent-border"
+                            placeholder="Adınız Soyadınız" required>
+                    </div>
+                    <div>
+                        <label for="liteRegisterEmail"
+                            class="block text-sm font-medium lite-text-secondary mb-2">E-posta</label>
+                        <input type="email" id="liteRegisterEmail"
+                            class="w-full px-4 py-2 border-2 lite-border rounded-lg text-sm lite-bg-primary lite-text-primary outline-none transition-all duration-300 focus:lite-accent-border"
+                            placeholder="ornek@email.com" required>
+                    </div>
+                    <div>
+                        <label for="liteRegisterPassword"
+                            class="block text-sm font-medium lite-text-secondary mb-2">Şifre</label>
+                        <input type="password" id="liteRegisterPassword"
+                            class="w-full px-4 py-2 border-2 lite-border rounded-lg text-sm lite-bg-primary lite-text-primary outline-none transition-all duration-300 focus:lite-accent-border"
+                            placeholder="••••••••" required>
+                    </div>
+                    <div>
+                        <label for="liteRegisterPasswordConfirm"
+                            class="block text-sm font-medium lite-text-secondary mb-2">Şifre Tekrar</label>
+                        <input type="password" id="liteRegisterPasswordConfirm"
+                            class="w-full px-4 py-2 border-2 lite-border rounded-lg text-sm lite-bg-primary lite-text-primary outline-none transition-all duration-300 focus:lite-accent-border"
+                            placeholder="••••••••" required>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="liteRegisterTerms"
+                            class="rounded border-lite-border cursor-pointer lite-text-accent focus:ring-lite-accent" required>
+                        <label for="liteRegisterTerms" class="ml-2 text-sm lite-text-secondary">
+                            <a href="#" class="lite-text-accent hover:underline">Kullanım
+                                şartlarını</a> kabul ediyorum
+                        </label>
+                    </div>
+                    <button type="submit"
+                        class="w-full lite-btn lite-btn-primary lite-btn-md w-full">
+                        Kayıt Ol
+                    </button>
+                </form>
+
+                <!-- Social Login -->
+                <!-- <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">veya</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <button
+                            class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-700 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+                            <i class="ri-google-fill text-lg mr-2"></i>
+                            Google
+                        </button>
+                        <button
+                            class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-700 text-sm font-medium text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+                            <i class="ri-facebook-fill text-lg mr-2"></i>
+                            Facebook
+                        </button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript -->
     <script src="js/script.js"></script>

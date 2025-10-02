@@ -186,6 +186,50 @@ $(document).ready(function () {
         }
     });
 
+    // User modal toggle işlevi
+    $('#liteUserToggle').click(function (e) {
+        e.stopPropagation();
+        openUserModal();
+    });
+
+    // User modal kapatma
+    $('#liteUserModalClose').click(function () {
+        closeUserModal();
+    });
+
+    // Modal dışına tıklandığında kapat
+    $('#liteUserModal').click(function (e) {
+        if (e.target === this) {
+            closeUserModal();
+        }
+    });
+
+    // Tab switching
+    $('#liteLoginTab').click(function () {
+        switchToLoginTab();
+    });
+
+    $('#liteRegisterTab').click(function () {
+        switchToRegisterTab();
+    });
+
+    // Form submissions
+    $('#liteLoginForm').submit(function (e) {
+        e.preventDefault();
+        handleLogin();
+    });
+
+    $('#liteRegisterForm').submit(function (e) {
+        e.preventDefault();
+        handleRegister();
+    });
+
+    // Social login buttons
+    $('.grid button').click(function () {
+        const provider = $(this).text().trim();
+        handleSocialLogin(provider);
+    });
+
     // Arama kutusunda Enter tuşu
     $('#liteSearchInput').keypress(function (e) {
         if (e.which === 13) {
@@ -228,6 +272,9 @@ $(document).ready(function () {
             // Whatsapp kutusunu kapat
             const popupWhatsapp = $('#liteWhatsappPopup');
             popupWhatsapp.removeClass('opacity-100 visible translate-y-0').addClass('opacity-0 invisible -translate-y-2');
+
+            // User modal'ı kapat
+            closeUserModal();
         }
     });
 
@@ -834,11 +881,35 @@ $(document).ready(function () {
         }
     }
 
-    function showToast(message) {
-        // Simple toast notification
+    function showToast(message, type = 'success') {
+        // Toast notification with different types
+        let bgColor = 'bg-lite-accent-primary';
+        let icon = 'ri-check-line';
+
+        switch (type) {
+            case 'error':
+                bgColor = 'bg-red-500';
+                icon = 'ri-error-warning-line';
+                break;
+            case 'warning':
+                bgColor = 'bg-yellow-500';
+                icon = 'ri-alert-line';
+                break;
+            case 'info':
+                bgColor = 'bg-blue-500';
+                icon = 'ri-information-line';
+                break;
+            case 'success':
+            default:
+                bgColor = 'bg-lite-accent-primary';
+                icon = 'ri-check-line';
+                break;
+        }
+
         const toast = $(`
-            <div class="fixed top-20 right-6 bg-lite-accent-primary text-white px-4 py-2 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300">
-                ${message}
+            <div class="fixed top-20 right-6 ${bgColor} text-white px-4 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300 flex items-center gap-2">
+                <i class="${icon}"></i>
+                <span>${message}</span>
             </div>
         `);
 
@@ -1967,6 +2038,136 @@ $(document).ready(function () {
     // Initialize stories when DOM is ready
     if ($('.lite-stories-container').length) {
         initializeStories();
+    }
+
+    // ===== USER MODAL FUNCTIONS =====
+
+    // User modal açma fonksiyonu
+    function openUserModal() {
+        const modal = $('#liteUserModal');
+        const modalContent = $('#liteUserModalContent');
+
+        modal.removeClass('hidden').addClass('flex');
+        $('body').css('overflow', 'hidden');
+
+        // Animasyon için kısa gecikme
+        setTimeout(() => {
+            modalContent.removeClass('scale-95 opacity-0').addClass('scale-100 opacity-100');
+        }, 10);
+    }
+
+    // User modal kapatma fonksiyonu
+    function closeUserModal() {
+        const modal = $('#liteUserModal');
+        const modalContent = $('#liteUserModalContent');
+
+        modalContent.removeClass('scale-100 opacity-100').addClass('scale-95 opacity-0');
+
+        setTimeout(() => {
+            modal.addClass('hidden').removeClass('flex');
+            $('body').css('overflow', 'auto');
+        }, 300);
+    }
+
+    // Login tab'a geçiş
+    function switchToLoginTab() {
+        // Lite tema için benzersiz class isimleri ve renk değişkenleriyle güncellendi
+        $('#liteLoginTab')
+            .removeClass('lite-text-secondary hover:lite-text-accent lite-bg-accent lite-text-third shadow-sm')
+            .addClass('lite-bg-accent lite-text-third shadow-sm');
+
+        $('#liteRegisterTab')
+            .removeClass('lite-bg-accent lite-text-third shadow-sm')
+            .addClass('lite-text-secondary hover:lite-text-accent');
+
+        $('#liteLoginForm').removeClass('hidden');
+        $('#liteRegisterForm').addClass('hidden');
+        $('#liteUserModalTitle').text('Giriş Yap');
+    }
+
+    // Register tab'a geçiş
+    function switchToRegisterTab() {
+        // Lite tema için benzersiz class isimleri ve renk değişkenleriyle güncellendi
+        $('#liteRegisterTab')
+            .removeClass('lite-text-secondary hover:lite-text-accent lite-bg-accent lite-text-primary shadow-sm')
+            .addClass('lite-bg-accent lite-text-third shadow-sm');
+
+        $('#liteLoginTab')
+            .removeClass('lite-bg-accent lite-text-third shadow-sm')
+            .addClass('lite-text-secondary hover:lite-text-accent');
+
+        $('#liteRegisterForm').removeClass('hidden');
+        $('#liteLoginForm').addClass('hidden');
+        $('#liteUserModalTitle').text('Kayıt Ol');
+    }
+
+    // Login işlemi
+    function handleLogin() {
+        const email = $('#liteLoginEmail').val();
+        const password = $('#liteLoginPassword').val();
+
+        if (!email || !password) {
+            showToast('Lütfen tüm alanları doldurun!', 'error');
+            return;
+        }
+
+        // Burada gerçek login API çağrısı yapılacak
+        console.log('Login attempt:', { email, password });
+
+        // Simüle edilmiş başarılı giriş
+        showToast('Giriş başarılı!', 'success');
+        closeUserModal();
+
+        // Form'u temizle
+        $('#liteLoginForm')[0].reset();
+    }
+
+    // Register işlemi
+    function handleRegister() {
+        const name = $('#liteRegisterName').val();
+        const email = $('#liteRegisterEmail').val();
+        const password = $('#liteRegisterPassword').val();
+        const passwordConfirm = $('#liteRegisterPasswordConfirm').val();
+        const terms = $('#liteRegisterTerms').is(':checked');
+
+        if (!name || !email || !password || !passwordConfirm) {
+            showToast('Lütfen tüm alanları doldurun!', 'error');
+            return;
+        }
+
+        if (password !== passwordConfirm) {
+            showToast('Şifreler eşleşmiyor!', 'error');
+            return;
+        }
+
+        if (!terms) {
+            showToast('Lütfen kullanım şartlarını kabul edin!', 'error');
+            return;
+        }
+
+        // Burada gerçek register API çağrısı yapılacak
+        console.log('Register attempt:', { name, email, password });
+
+        // Simüle edilmiş başarılı kayıt
+        showToast('Kayıt başarılı! Giriş yapabilirsiniz.', 'success');
+        switchToLoginTab();
+
+        // Form'u temizle
+        $('#liteRegisterForm')[0].reset();
+    }
+
+    // Sosyal medya girişi
+    function handleSocialLogin(provider) {
+        console.log('Social login attempt:', provider);
+
+        // Burada gerçek sosyal medya API çağrısı yapılacak
+        showToast(`${provider} ile giriş yapılıyor...`, 'info');
+
+        // Simüle edilmiş başarılı giriş
+        setTimeout(() => {
+            showToast(`${provider} ile giriş başarılı!`, 'success');
+            closeUserModal();
+        }, 1500);
     }
 
     // Window resize event for responsive slider (debounced, breakpoint-aware)
