@@ -478,6 +478,52 @@ $(document).ready(function () {
         console.log('Dik Foto Galeri Slider başlatıldı');
     }
 
+    function initializeHighlightsSlider() {
+        const highlightsSlider = $('.lite-highlights-container');
+        if (!highlightsSlider.length) return;
+
+        highlightsSlider.slick({
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: false,
+            arrows: false,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: true
+                    }
+                }
+            ]
+        });
+
+        // Custom navigation butonları için event listeners
+        $('.lite-highlights-prev').click(function () {
+            $('.lite-highlights-container').slick('slickPrev');
+        });
+
+        $('.lite-highlights-next').click(function () {
+            $('.lite-highlights-container').slick('slickNext');
+        });
+
+        console.log('Öne Çıkan Haberler Slider başlatıldı');
+    }
+
     function initializeTheme() {
         // LocalStorage'dan tema tercihi al
         const savedTheme = localStorage.getItem('lite-theme');
@@ -633,6 +679,9 @@ $(document).ready(function () {
 
     // Dik Foto Galeri Slider başlat
     initializeVerticalGallerySlider();
+
+    // Öne Çıkan Haberler Slider başlat
+    initializeHighlightsSlider();
 
 
     // Global tema değiştirme fonksiyonu
@@ -2008,7 +2057,7 @@ const vdpVideoContainer2947 = document.querySelector('.vdp-video-container-2947'
 
 // Safety check - exit if elements don't exist
 if (!vdpVideo2947) {
-    console.warn('Video player elements not found');
+    //console.warn('Video player elements not found');
 }
 
 // Play/Pause
